@@ -27,7 +27,7 @@
 
 ## 📚 Contexto académico
 
-Este sistema fue desarrollado como parte del trabajo de tesis para optar por el título de [tu carrera aquí], con el objetivo de aplicar conocimientos de desarrollo backend, modelado de entidades y seguridad personalizada en un caso real.
+Este sistema fue desarrollado como parte del trabajo de tesis para optar por el título de Ingeniero Informatico, con el objetivo de aplicar conocimientos de desarrollo backend, modelado de entidades y seguridad personalizada en un caso real.
 
 ## 📖 Cómo ejecutar el sistema
 
