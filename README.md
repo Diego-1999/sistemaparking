@@ -31,8 +31,6 @@ Este sistema fue desarrollado como parte del trabajo de tesis para optar por el 
 
 ## 📖 Cómo ejecutar el sistema
 
-## 📖 Cómo ejecutar el sistema
-
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/Diego-1999/sistemaparking.git
