@@ -23,6 +23,11 @@ namespace SistemaParking
         {
             InitializeComponent();
             random = new Random();
+
+
+            this.ControlBox = false;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         //Metodos
@@ -52,6 +57,8 @@ namespace SistemaParking
                     currentButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    ThemeColor.PrimaryColor = color;
+                    ThemeColor.SecondColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                 }
             }
         }
@@ -120,6 +127,29 @@ namespace SistemaParking
         {
             OpenChildForm(new Forms.FormConfiguracion(), sender);
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if(WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
 
     }
 }
