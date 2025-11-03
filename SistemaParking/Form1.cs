@@ -16,6 +16,7 @@ namespace SistemaParking
         private Button currentButon;
         private Random random;
         private int tempInddex;
+        private Form activeFrom;
 
         //Constructor
         public frmMainMenu()
@@ -68,34 +69,56 @@ namespace SistemaParking
             }
         }
 
+        //metodo para abrir formularios den el panel contenedor
+        public void OpenChildForm(Form childForm, object btnSender)
+        {
+            if(activeFrom != null)
+            {
+                activeFrom.Close();
+            }
+            ActivateButton(btnSender);
+            activeFrom = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelDesktopPane.Controls.Add(childForm);
+            childForm.BringToFront();
+            childForm.Show();
+            lblTitle.Text = childForm.Text; //mostramos el txt del formulario hijo en la barra del lbltitle
+
+
+        }
+
+
+        //Eventos
         private void btnRegistroV_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormIngresoVehiculos(), sender);
         }
 
         private void btnSalidaV_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormSalidaVehiculo(), sender);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormReportes(), sender);
         }
 
         private void btnResgitroUsuario_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormRegistroNuevoCliente(), sender);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormClientes(), sender);
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormConfiguracion(), sender);
         }
 
     }
