@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36429.23 d17.14
+VisualStudioVersion = 17.14.36429.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking", "SistemaParking\SistemaParking.csproj", "{C2FE5EC7-7F6D-4859-9F9A-1F8C26E9943D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Forms", "SistemaParking\SistemaParking.Forms.csproj", "{C2FE5EC7-7F6D-4859-9F9A-1F8C26E9943D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Datos", "SistemaParking.Datos\SistemaParking.Datos.csproj", "{183CE10E-D8EF-4BD7-9CE4-33B180322086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Negocio", "SistemaParking.Negocio\SistemaParking.Negocio.csproj", "{BA66407C-703F-4F4D-8D61-257B3F405C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Entitades", "SistemaParking.Entitades\SistemaParking.Entitades.csproj", "{201813BB-8386-4D17-9A2F-97B68CD9091C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{C2FE5EC7-7F6D-4859-9F9A-1F8C26E9943D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2FE5EC7-7F6D-4859-9F9A-1F8C26E9943D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2FE5EC7-7F6D-4859-9F9A-1F8C26E9943D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183CE10E-D8EF-4BD7-9CE4-33B180322086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183CE10E-D8EF-4BD7-9CE4-33B180322086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183CE10E-D8EF-4BD7-9CE4-33B180322086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183CE10E-D8EF-4BD7-9CE4-33B180322086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA66407C-703F-4F4D-8D61-257B3F405C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA66407C-703F-4F4D-8D61-257B3F405C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA66407C-703F-4F4D-8D61-257B3F405C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA66407C-703F-4F4D-8D61-257B3F405C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{201813BB-8386-4D17-9A2F-97B68CD9091C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201813BB-8386-4D17-9A2F-97B68CD9091C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201813BB-8386-4D17-9A2F-97B68CD9091C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201813BB-8386-4D17-9A2F-97B68CD9091C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
