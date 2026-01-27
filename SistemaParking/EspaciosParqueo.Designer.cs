@@ -42,9 +42,10 @@
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(224, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(385, 7);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(371, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(288, 28);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Establecer Espacios del Parqueo";
             // 
@@ -52,18 +53,20 @@
             // 
             this.TxtNumeroEspacios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtNumeroEspacios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNumeroEspacios.Location = new System.Drawing.Point(230, 159);
+            this.TxtNumeroEspacios.Location = new System.Drawing.Point(334, 188);
+            this.TxtNumeroEspacios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtNumeroEspacios.Name = "TxtNumeroEspacios";
-            this.TxtNumeroEspacios.Size = new System.Drawing.Size(129, 32);
+            this.TxtNumeroEspacios.Size = new System.Drawing.Size(181, 27);
             this.TxtNumeroEspacios.TabIndex = 3;
             // 
             // TxtTipoEspacio
             // 
             this.TxtTipoEspacio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtTipoEspacio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTipoEspacio.Location = new System.Drawing.Point(456, 159);
+            this.TxtTipoEspacio.Location = new System.Drawing.Point(572, 188);
+            this.TxtTipoEspacio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtTipoEspacio.Name = "TxtTipoEspacio";
-            this.TxtTipoEspacio.Size = new System.Drawing.Size(129, 32);
+            this.TxtTipoEspacio.Size = new System.Drawing.Size(181, 27);
             this.TxtTipoEspacio.TabIndex = 4;
             // 
             // LblNumeroEspacios
@@ -71,9 +74,10 @@
             this.LblNumeroEspacios.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblNumeroEspacios.AutoSize = true;
             this.LblNumeroEspacios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNumeroEspacios.Location = new System.Drawing.Point(225, 131);
+            this.LblNumeroEspacios.Location = new System.Drawing.Point(351, 149);
+            this.LblNumeroEspacios.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblNumeroEspacios.Name = "LblNumeroEspacios";
-            this.LblNumeroEspacios.Size = new System.Drawing.Size(163, 25);
+            this.LblNumeroEspacios.Size = new System.Drawing.Size(128, 20);
             this.LblNumeroEspacios.TabIndex = 9;
             this.LblNumeroEspacios.Text = "Número Espacios ";
             // 
@@ -82,9 +86,10 @@
             this.LblTipoEspacio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTipoEspacio.AutoSize = true;
             this.LblTipoEspacio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTipoEspacio.Location = new System.Drawing.Point(451, 131);
+            this.LblTipoEspacio.Location = new System.Drawing.Point(595, 149);
+            this.LblTipoEspacio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblTipoEspacio.Name = "LblTipoEspacio";
-            this.LblTipoEspacio.Size = new System.Drawing.Size(144, 25);
+            this.LblTipoEspacio.Size = new System.Drawing.Size(115, 20);
             this.LblTipoEspacio.TabIndex = 10;
             this.LblTipoEspacio.Text = "Tipo de Espacio";
             // 
@@ -98,7 +103,8 @@
             this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
             this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLimpiar.Location = new System.Drawing.Point(424, 261);
+            this.BtnLimpiar.Location = new System.Drawing.Point(804, 376);
+            this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(185, 40);
             this.BtnLimpiar.TabIndex = 12;
@@ -116,7 +122,8 @@
             this.BtnGuardarEspacio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardarEspacio.ForeColor = System.Drawing.Color.White;
             this.BtnGuardarEspacio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardarEspacio.Location = new System.Drawing.Point(203, 261);
+            this.BtnGuardarEspacio.Location = new System.Drawing.Point(599, 376);
+            this.BtnGuardarEspacio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnGuardarEspacio.Name = "BtnGuardarEspacio";
             this.BtnGuardarEspacio.Size = new System.Drawing.Size(185, 40);
             this.BtnGuardarEspacio.TabIndex = 11;
@@ -126,9 +133,9 @@
             // 
             // EspaciosParqueo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1034, 473);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnGuardarEspacio);
             this.Controls.Add(this.LblTipoEspacio);
@@ -137,6 +144,7 @@
             this.Controls.Add(this.TxtNumeroEspacios);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EspaciosParqueo";
             this.Text = "EspaciosParqueo";
             this.Load += new System.EventHandler(this.EspaciosParqueo_Load);
