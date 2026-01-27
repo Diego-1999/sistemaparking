@@ -1,0 +1,11 @@
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\SistemaParking.exe.config
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\SistemaParking.exe
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\SistemaParking.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Form1.resources
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Properties.Resources.resources
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.csproj.GenerateResource.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.exe
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.exe.config

@@ -1,0 +1,6 @@
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\bin\Debug\SistemaParking.Transversal.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\bin\Debug\SistemaParking.Transversal.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\obj\Debug\SistemaParking.Transversal.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\obj\Debug\SistemaParking.Transversal.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\obj\Debug\SistemaParking.Transversal.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Transversal\obj\Debug\SistemaParking.Transversal.pdb

@@ -1,0 +1,9 @@
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\bin\Debug\SistemaParking.Dato.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\bin\Debug\SistemaParking.Dato.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\obj\Debug\SistemaParking.Datos.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\obj\Debug\SistemaParking.Datos.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\obj\Debug\SistemaParking.Dato.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\obj\Debug\SistemaParking.Dato.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\obj\Debug\SistemaP.8D7FCFB1.Up2Date
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\bin\Debug\SistemaParking.Entidad.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking.Dato\bin\Debug\SistemaParking.Entidad.pdb
