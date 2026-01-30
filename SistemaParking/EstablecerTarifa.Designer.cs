@@ -49,7 +49,7 @@
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(429, 18);
+            this.lblTitulo.Location = new System.Drawing.Point(435, 18);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(156, 28);
@@ -59,23 +59,23 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(141, 139);
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtDescripcion.Location = new System.Drawing.Point(121, 193);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(206, 27);
+            this.txtDescripcion.Size = new System.Drawing.Size(206, 33);
             this.txtDescripcion.TabIndex = 41;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(165, 117);
+            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblDescripcion.Location = new System.Drawing.Point(116, 166);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(168, 20);
+            this.lblDescripcion.Size = new System.Drawing.Size(213, 25);
             this.lblDescripcion.TabIndex = 45;
             this.lblDescripcion.Text = "Descripción del la Tarifa";
             // 
@@ -83,99 +83,99 @@
             // 
             this.lblMontoPorHora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMontoPorHora.AutoSize = true;
-            this.lblMontoPorHora.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoPorHora.Location = new System.Drawing.Point(462, 117);
+            this.lblMontoPorHora.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblMontoPorHora.Location = new System.Drawing.Point(435, 166);
             this.lblMontoPorHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMontoPorHora.Name = "lblMontoPorHora";
-            this.lblMontoPorHora.Size = new System.Drawing.Size(114, 20);
+            this.lblMontoPorHora.Size = new System.Drawing.Size(146, 25);
             this.lblMontoPorHora.TabIndex = 46;
             this.lblMontoPorHora.Text = "Monto por hora";
             // 
             // txtMontoHora
             // 
             this.txtMontoHora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMontoHora.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontoHora.Location = new System.Drawing.Point(422, 139);
+            this.txtMontoHora.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtMontoHora.Location = new System.Drawing.Point(440, 193);
             this.txtMontoHora.Margin = new System.Windows.Forms.Padding(2);
             this.txtMontoHora.Name = "txtMontoHora";
-            this.txtMontoHora.Size = new System.Drawing.Size(206, 27);
+            this.txtMontoHora.Size = new System.Drawing.Size(206, 33);
             this.txtMontoHora.TabIndex = 47;
             // 
             // txtFranccionMinuto
             // 
             this.txtFranccionMinuto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFranccionMinuto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFranccionMinuto.Location = new System.Drawing.Point(728, 139);
+            this.txtFranccionMinuto.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtFranccionMinuto.Location = new System.Drawing.Point(748, 193);
             this.txtFranccionMinuto.Margin = new System.Windows.Forms.Padding(2);
             this.txtFranccionMinuto.Name = "txtFranccionMinuto";
-            this.txtFranccionMinuto.Size = new System.Drawing.Size(206, 27);
+            this.txtFranccionMinuto.Size = new System.Drawing.Size(206, 33);
             this.txtFranccionMinuto.TabIndex = 49;
             // 
             // lblFraccionMinuto
             // 
             this.lblFraccionMinuto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFraccionMinuto.AutoSize = true;
-            this.lblFraccionMinuto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFraccionMinuto.Location = new System.Drawing.Point(752, 117);
+            this.lblFraccionMinuto.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblFraccionMinuto.Location = new System.Drawing.Point(743, 166);
             this.lblFraccionMinuto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFraccionMinuto.Name = "lblFraccionMinuto";
-            this.lblFraccionMinuto.Size = new System.Drawing.Size(142, 20);
+            this.lblFraccionMinuto.Size = new System.Drawing.Size(183, 25);
             this.lblFraccionMinuto.TabIndex = 48;
             this.lblFraccionMinuto.Text = "Fracción de Minutos";
             // 
             // txtMontoFranccionMinuto
             // 
             this.txtMontoFranccionMinuto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMontoFranccionMinuto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMontoFranccionMinuto.Location = new System.Drawing.Point(259, 249);
+            this.txtMontoFranccionMinuto.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.txtMontoFranccionMinuto.Location = new System.Drawing.Point(264, 342);
             this.txtMontoFranccionMinuto.Margin = new System.Windows.Forms.Padding(2);
             this.txtMontoFranccionMinuto.Name = "txtMontoFranccionMinuto";
-            this.txtMontoFranccionMinuto.Size = new System.Drawing.Size(206, 27);
+            this.txtMontoFranccionMinuto.Size = new System.Drawing.Size(206, 33);
             this.txtMontoFranccionMinuto.TabIndex = 51;
             // 
             // lblMontoFraccionMinuto
             // 
             this.lblMontoFraccionMinuto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMontoFraccionMinuto.AutoSize = true;
-            this.lblMontoFraccionMinuto.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMontoFraccionMinuto.Location = new System.Drawing.Point(255, 219);
+            this.lblMontoFraccionMinuto.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblMontoFraccionMinuto.Location = new System.Drawing.Point(259, 311);
             this.lblMontoFraccionMinuto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMontoFraccionMinuto.Name = "lblMontoFraccionMinuto";
-            this.lblMontoFraccionMinuto.Size = new System.Drawing.Size(196, 20);
+            this.lblMontoFraccionMinuto.Size = new System.Drawing.Size(252, 25);
             this.lblMontoFraccionMinuto.TabIndex = 50;
             this.lblMontoFraccionMinuto.Text = "Monto Fracción por Minutos";
             // 
             // cmbTipoVehiculo
             // 
             this.cmbTipoVehiculo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoVehiculo.FormattingEnabled = true;
-            this.cmbTipoVehiculo.Location = new System.Drawing.Point(567, 249);
+            this.cmbTipoVehiculo.Location = new System.Drawing.Point(623, 342);
             this.cmbTipoVehiculo.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoVehiculo.Name = "cmbTipoVehiculo";
-            this.cmbTipoVehiculo.Size = new System.Drawing.Size(206, 28);
+            this.cmbTipoVehiculo.Size = new System.Drawing.Size(206, 33);
             this.cmbTipoVehiculo.TabIndex = 53;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(446, 278);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.label3.Location = new System.Drawing.Point(456, 371);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.Size = new System.Drawing.Size(0, 25);
             this.label3.TabIndex = 54;
             // 
             // lblTipoVehiculo
             // 
             this.lblTipoVehiculo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTipoVehiculo.AutoSize = true;
-            this.lblTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoVehiculo.Location = new System.Drawing.Point(607, 219);
+            this.lblTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblTipoVehiculo.Location = new System.Drawing.Point(618, 311);
             this.lblTipoVehiculo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipoVehiculo.Name = "lblTipoVehiculo";
-            this.lblTipoVehiculo.Size = new System.Drawing.Size(120, 20);
+            this.lblTipoVehiculo.Size = new System.Drawing.Size(153, 25);
             this.lblTipoVehiculo.TabIndex = 55;
             this.lblTipoVehiculo.Text = "Tipo de Vehículo";
             // 
@@ -189,7 +189,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(822, 396);
+            this.btnLimpiar.Location = new System.Drawing.Point(662, 536);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(185, 40);
@@ -208,7 +208,7 @@
             this.BtnGuardar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
             this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(613, 396);
+            this.BtnGuardar.Location = new System.Drawing.Point(851, 536);
             this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(185, 40);
@@ -222,7 +222,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1034, 473);
+            this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.lblTipoVehiculo);

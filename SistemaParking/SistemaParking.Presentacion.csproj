@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     <Compile Include="Registro_Vehiculo.Designer.cs">
       <DependentUpon>Registro_Vehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Salida_Vehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,9 @@
       <DependentUpon>Salida_Vehiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="SesionActual.cs" />
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro_Vehiculo.resx">
       <DependentUpon>Registro_Vehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Salida_Vehiculo.resx">
       <DependentUpon>Salida_Vehiculo.cs</DependentUpon>

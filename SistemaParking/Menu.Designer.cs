@@ -77,9 +77,8 @@
             this.MenuVertical.Controls.Add(this.btnEntrada);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 0);
-            this.MenuVertical.Margin = new System.Windows.Forms.Padding(4);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(333, 800);
+            this.MenuVertical.Size = new System.Drawing.Size(250, 650);
             this.MenuVertical.TabIndex = 0;
             // 
             // panelUser
@@ -91,9 +90,8 @@
             this.panelUser.Controls.Add(this.lblPosicion);
             this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUser.Location = new System.Drawing.Point(0, 0);
-            this.panelUser.Margin = new System.Windows.Forms.Padding(4);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(333, 110);
+            this.panelUser.Size = new System.Drawing.Size(250, 89);
             this.panelUser.TabIndex = 0;
             // 
             // label1
@@ -101,9 +99,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-1, 100);
+            this.label1.Location = new System.Drawing.Point(-1, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 23);
+            this.label1.Size = new System.Drawing.Size(255, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "-----------------------------------------";
             // 
@@ -112,9 +111,10 @@
             this.lblNomUsuario.AutoSize = true;
             this.lblNomUsuario.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNomUsuario.Location = new System.Drawing.Point(167, 62);
+            this.lblNomUsuario.Location = new System.Drawing.Point(125, 50);
+            this.lblNomUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomUsuario.Name = "lblNomUsuario";
-            this.lblNomUsuario.Size = new System.Drawing.Size(68, 23);
+            this.lblNomUsuario.Size = new System.Drawing.Size(56, 19);
             this.lblNomUsuario.TabIndex = 6;
             this.lblNomUsuario.Text = "Usuario";
             // 
@@ -122,9 +122,9 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(73, 81);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -134,9 +134,10 @@
             this.lblPosicion.AutoSize = true;
             this.lblPosicion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosicion.ForeColor = System.Drawing.Color.White;
-            this.lblPosicion.Location = new System.Drawing.Point(164, 22);
+            this.lblPosicion.Location = new System.Drawing.Point(123, 18);
+            this.lblPosicion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPosicion.Name = "lblPosicion";
-            this.lblPosicion.Size = new System.Drawing.Size(72, 23);
+            this.lblPosicion.Size = new System.Drawing.Size(58, 19);
             this.lblPosicion.TabIndex = 0;
             this.lblPosicion.Text = "Posición";
             // 
@@ -146,10 +147,9 @@
             this.panelConf.Controls.Add(this.btnEspacios);
             this.panelConf.Controls.Add(this.btnEstablecerTarifas);
             this.panelConf.Controls.Add(this.btnNuevoUsuario);
-            this.panelConf.Location = new System.Drawing.Point(4, 401);
-            this.panelConf.Margin = new System.Windows.Forms.Padding(4);
+            this.panelConf.Location = new System.Drawing.Point(3, 326);
             this.panelConf.Name = "panelConf";
-            this.panelConf.Size = new System.Drawing.Size(333, 154);
+            this.panelConf.Size = new System.Drawing.Size(250, 125);
             this.panelConf.TabIndex = 0;
             // 
             // btnEspacios
@@ -161,10 +161,9 @@
             this.btnEspacios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEspacios.ForeColor = System.Drawing.Color.White;
             this.btnEspacios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEspacios.Location = new System.Drawing.Point(0, 98);
-            this.btnEspacios.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEspacios.Location = new System.Drawing.Point(0, 80);
             this.btnEspacios.Name = "btnEspacios";
-            this.btnEspacios.Size = new System.Drawing.Size(333, 49);
+            this.btnEspacios.Size = new System.Drawing.Size(250, 40);
             this.btnEspacios.TabIndex = 6;
             this.btnEspacios.Text = "Espacios del Parqueo";
             this.btnEspacios.UseVisualStyleBackColor = true;
@@ -179,10 +178,9 @@
             this.btnEstablecerTarifas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstablecerTarifas.ForeColor = System.Drawing.Color.White;
             this.btnEstablecerTarifas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstablecerTarifas.Location = new System.Drawing.Point(0, 49);
-            this.btnEstablecerTarifas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEstablecerTarifas.Location = new System.Drawing.Point(0, 40);
             this.btnEstablecerTarifas.Name = "btnEstablecerTarifas";
-            this.btnEstablecerTarifas.Size = new System.Drawing.Size(333, 49);
+            this.btnEstablecerTarifas.Size = new System.Drawing.Size(250, 40);
             this.btnEstablecerTarifas.TabIndex = 5;
             this.btnEstablecerTarifas.Text = "Establecer Tarifa";
             this.btnEstablecerTarifas.UseVisualStyleBackColor = true;
@@ -198,9 +196,8 @@
             this.btnNuevoUsuario.ForeColor = System.Drawing.Color.White;
             this.btnNuevoUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoUsuario.Location = new System.Drawing.Point(0, 0);
-            this.btnNuevoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevoUsuario.Name = "btnNuevoUsuario";
-            this.btnNuevoUsuario.Size = new System.Drawing.Size(333, 49);
+            this.btnNuevoUsuario.Size = new System.Drawing.Size(250, 40);
             this.btnNuevoUsuario.TabIndex = 5;
             this.btnNuevoUsuario.Text = "Regitrar Usuario";
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
@@ -214,10 +211,9 @@
             this.btnAjustes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(0, 345);
-            this.btnAjustes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAjustes.Location = new System.Drawing.Point(0, 280);
             this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(333, 49);
+            this.btnAjustes.Size = new System.Drawing.Size(250, 40);
             this.btnAjustes.TabIndex = 4;
             this.btnAjustes.Text = "Configuración";
             this.btnAjustes.UseVisualStyleBackColor = true;
@@ -232,10 +228,9 @@
             this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 747);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 607);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(333, 49);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
             this.btnCerrarSesion.TabIndex = 5;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -249,13 +244,13 @@
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(4, 288);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReportes.Location = new System.Drawing.Point(3, 234);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(333, 49);
+            this.btnReportes.Size = new System.Drawing.Size(250, 40);
             this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnClientes
             // 
@@ -265,13 +260,13 @@
             this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(-4, 231);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClientes.Location = new System.Drawing.Point(-3, 188);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(333, 49);
+            this.btnClientes.Size = new System.Drawing.Size(250, 40);
             this.btnClientes.TabIndex = 2;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnSalida
             // 
@@ -281,10 +276,9 @@
             this.btnSalida.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalida.ForeColor = System.Drawing.Color.White;
             this.btnSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalida.Location = new System.Drawing.Point(0, 175);
-            this.btnSalida.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalida.Location = new System.Drawing.Point(0, 142);
             this.btnSalida.Name = "btnSalida";
-            this.btnSalida.Size = new System.Drawing.Size(333, 49);
+            this.btnSalida.Size = new System.Drawing.Size(250, 40);
             this.btnSalida.TabIndex = 1;
             this.btnSalida.Text = "Salida Vehículo";
             this.btnSalida.UseVisualStyleBackColor = true;
@@ -298,10 +292,9 @@
             this.btnEntrada.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrada.ForeColor = System.Drawing.Color.White;
             this.btnEntrada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntrada.Location = new System.Drawing.Point(0, 118);
-            this.btnEntrada.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEntrada.Location = new System.Drawing.Point(0, 96);
             this.btnEntrada.Name = "btnEntrada";
-            this.btnEntrada.Size = new System.Drawing.Size(333, 49);
+            this.btnEntrada.Size = new System.Drawing.Size(250, 40);
             this.btnEntrada.TabIndex = 0;
             this.btnEntrada.Text = " Registro Vehículo";
             this.btnEntrada.UseVisualStyleBackColor = true;
@@ -316,10 +309,9 @@
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Controls.Add(this.btndesplegar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BarraTitulo.Location = new System.Drawing.Point(333, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.BarraTitulo.Location = new System.Drawing.Point(250, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1400, 62);
+            this.BarraTitulo.Size = new System.Drawing.Size(1050, 50);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -327,10 +319,9 @@
             // 
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1309, 4);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRestaurar.Location = new System.Drawing.Point(982, 3);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(33, 31);
+            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -341,10 +332,9 @@
             // 
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1309, 4);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaximizar.Location = new System.Drawing.Point(982, 3);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(33, 31);
+            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMaximizar.TabIndex = 1;
             this.btnMaximizar.TabStop = false;
@@ -354,10 +344,9 @@
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1268, 4);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimizar.Location = new System.Drawing.Point(951, 3);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(33, 31);
+            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
@@ -367,10 +356,9 @@
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1351, 4);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Location = new System.Drawing.Point(1013, 3);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
+            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
@@ -380,10 +368,9 @@
             // 
             this.btndesplegar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndesplegar.Image = ((System.Drawing.Image)(resources.GetObject("btndesplegar.Image")));
-            this.btndesplegar.Location = new System.Drawing.Point(8, 11);
-            this.btndesplegar.Margin = new System.Windows.Forms.Padding(4);
+            this.btndesplegar.Location = new System.Drawing.Point(6, 9);
             this.btndesplegar.Name = "btndesplegar";
-            this.btndesplegar.Size = new System.Drawing.Size(43, 34);
+            this.btndesplegar.Size = new System.Drawing.Size(32, 28);
             this.btndesplegar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btndesplegar.TabIndex = 0;
             this.btndesplegar.TabStop = false;
@@ -393,22 +380,20 @@
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(333, 62);
-            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelContenedor.Location = new System.Drawing.Point(250, 50);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1400, 738);
+            this.PanelContenedor.Size = new System.Drawing.Size(1050, 600);
             this.PanelContenedor.TabIndex = 2;
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1733, 800);
+            this.ClientSize = new System.Drawing.Size(1300, 650);
             this.Controls.Add(this.PanelContenedor);
             this.Controls.Add(this.BarraTitulo);
             this.Controls.Add(this.MenuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Menu_Load);

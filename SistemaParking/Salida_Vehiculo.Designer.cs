@@ -40,9 +40,9 @@
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(287, 24);
+            this.lblTitulo.Location = new System.Drawing.Point(392, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(315, 35);
+            this.lblTitulo.Size = new System.Drawing.Size(248, 28);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registro de Salida Vehículo";
             // 
@@ -56,7 +56,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(432, 302);
+            this.btnLimpiar.Location = new System.Drawing.Point(659, 535);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(185, 40);
             this.btnLimpiar.TabIndex = 8;
@@ -74,7 +74,7 @@
             this.btnRegistrarSalida.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarSalida.ForeColor = System.Drawing.Color.White;
             this.btnRegistrarSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarSalida.Location = new System.Drawing.Point(181, 302);
+            this.btnRegistrarSalida.Location = new System.Drawing.Point(850, 535);
             this.btnRegistrarSalida.Name = "btnRegistrarSalida";
             this.btnRegistrarSalida.Size = new System.Drawing.Size(185, 40);
             this.btnRegistrarSalida.TabIndex = 7;
@@ -86,8 +86,8 @@
             // 
             this.lblPlaca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaca.Location = new System.Drawing.Point(322, 135);
+            this.lblPlaca.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaca.Location = new System.Drawing.Point(473, 219);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(57, 25);
             this.lblPlaca.TabIndex = 12;
@@ -96,18 +96,18 @@
             // txtPlaca
             // 
             this.txtPlaca.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPlaca.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlaca.Location = new System.Drawing.Point(326, 158);
+            this.txtPlaca.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaca.Location = new System.Drawing.Point(441, 256);
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(129, 32);
+            this.txtPlaca.Size = new System.Drawing.Size(129, 33);
             this.txtPlaca.TabIndex = 11;
             // 
             // Salida_Vehiculo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.lblPlaca);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.btnLimpiar);

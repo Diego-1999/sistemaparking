@@ -31,8 +31,7 @@ namespace SistemaParking.Dato
                 INNER JOIN Tarifa t ON t.Codigo = v.Codigo AND t.estado = 1
                 LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
                 WHERE v.placa = @Placa AND s.id_salida IS NULL
-                ORDER BY e.fecha_hora_entrada DESC",
-                        cn))
+                ORDER BY e.fecha_hora_entrada DESC", cn))
                     {
                         command.Parameters.AddWithValue("@Placa", placa);
 

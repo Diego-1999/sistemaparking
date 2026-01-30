@@ -47,6 +47,7 @@
     <Compile Include="DEspaciosParqueo.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DMarca.cs" />
+    <Compile Include="DReportes.cs" />
     <Compile Include="DRol.cs" />
     <Compile Include="DSalidaVehiculo.cs" />
     <Compile Include="DTarifa.cs" />

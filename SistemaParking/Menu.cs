@@ -133,9 +133,9 @@ namespace SistemaParking
        
         private void Menu_Load(object sender, EventArgs e)
         {
-            var rol = SesionActual.Usuario.NombreRol;
+            var rol = SesionActual.Usuario.NombreRol; //se guarda el nombre del rol en la variable
 
-            if (rol == "Operador")
+            if (rol == "Operador") //Se valida que tipo de rol tiene el usuario que inicio sesion para otorgar o no permisos
             {
                 btnEstablecerTarifas.Visible = false;
                 btnNuevoUsuario.Visible = false;
@@ -170,6 +170,16 @@ namespace SistemaParking
         {
             AbrirFormPanel(new EspaciosParqueo());
             OcultarSubMenu();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Reportes());
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Clientes());
         }
     }
 }

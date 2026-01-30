@@ -24,3 +24,5 @@ C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaPark
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Registrar_Usuario.resources
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.EstablecerTarifa.resources
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.EspaciosParqueo.resources
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Reportes.resources
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Clientes.resources

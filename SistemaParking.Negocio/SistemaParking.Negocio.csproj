@@ -46,6 +46,7 @@
     <Compile Include="NEspaciosParqueo.cs" />
     <Compile Include="NLogin.cs" />
     <Compile Include="NMarca.cs" />
+    <Compile Include="NReportes.cs" />
     <Compile Include="NRol.cs" />
     <Compile Include="NSalidaVehiculo.cs" />
     <Compile Include="NTarifa.cs" />
