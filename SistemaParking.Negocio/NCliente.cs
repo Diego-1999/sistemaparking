@@ -1,6 +1,7 @@
 ﻿using SistemaParking.Dato;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,15 @@ namespace SistemaParking.Negocio
                 marca,
                 color
             );
+        }
+        public DataTable BuscarClientes(string busqueda)
+        {
+            return dCliente.BuscarClientes(busqueda);
+        }
+
+        public DataTable MostrarClientes()
+        {
+            return dCliente.MostrarClientes();
         }
     }
 }

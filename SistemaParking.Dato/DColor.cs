@@ -12,31 +12,30 @@ namespace SistemaParking.Dato
 {
     public class DColor : ConnectionSql
     {
+
         //Listar los tipos de vehiculos para el combobox
         public List<EColor> GetColor()
         {
             try
             {
-                var lista = new List<EColor>();
+                var lista = new List<EColor>(); //creamos una lista vacia de tipo EColor y se asigna a la variable
 
-                using (var cn = GetConnection())
+                using (var cn = GetConnection()) //obtenemos la conexion
                 {
-                    cn.Open();
-                    using (var command = new SqlCommand())
+                    cn.Open(); // abrimos conexion
+                    using (var command = new SqlCommand("SELECT * FROM Color", cn)) //se realiza la consulta de tipo SqlCommand y se asigna a command
                     {
-                        command.Connection = cn;
-                        command.CommandText = "SELECT * FROM Color";
-                        command.CommandType = CommandType.Text;
-                        using (SqlDataReader reader = command.ExecuteReader())
+
+                        using (SqlDataReader reader = command.ExecuteReader()) //ejecutamos la consulta y la leemos 
                         {
-                            while (reader.Read())
+                            while (reader.Read()) //leemos fila por fila
                             {
                                 var color = new EColor
                                 {
-                                    id_color = reader.GetInt32(0),
+                                    id_color = reader.GetInt32(0),   //Obtenemos el valor de las columnas y las asignamos al objeto EColor
                                     nombre_color = reader.GetString(1)
                                 };
-                                lista.Add(color);
+                                lista.Add(color); //agregamos el objeto con los valores a la lista
                             }
                         }
 
@@ -53,7 +52,57 @@ namespace SistemaParking.Dato
 
                 throw;
             }
-            
+
+
+
+
+
+
+
+
+            //Listar los tipos de vehiculos para el combobox
+            //public List<EColor> GetColor()
+            //{
+            //    try
+            //    {
+            //        var lista = new List<EColor>();
+
+            //        using (var cn = GetConnection())
+            //        {
+            //            cn.Open();
+            //            using (var command = new SqlCommand())
+            //            {
+            //                command.Connection = cn;
+            //                command.CommandText = "SELECT * FROM Color";
+            //                command.CommandType = CommandType.Text;
+            //                using (SqlDataReader reader = command.ExecuteReader())
+            //                {
+            //                    while (reader.Read())
+            //                    {
+            //                        var color = new EColor
+            //                        {
+            //                            id_color = reader.GetInt32(0),
+            //                            nombre_color = reader.GetString(1)
+            //                        };
+            //                        lista.Add(color);
+            //                    }
+            //                }
+
+            //            }
+            //        }
+            //        return lista;
+            //    }
+            //    catch (SqlException)
+            //    {
+            //        throw;
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //        throw;
+            //    }
+
+            //}
         }
     }
 }

@@ -22,11 +22,9 @@ namespace SistemaParking.Dato
                 using (var cn = GetConnection())
                 {
                     cn.Open();
-                    using (var command = new SqlCommand())
+                    using (var command = new SqlCommand("SELECT * FROM TipoID", cn))
                     {
-                        command.Connection = cn;
-                        command.CommandText = "SELECT * FROM TipoID";
-                        command.CommandType = CommandType.Text;
+
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())

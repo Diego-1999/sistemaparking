@@ -1,6 +1,8 @@
 ﻿using SistemaParking.Datos;
+using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,8 +12,8 @@ namespace SistemaParking.Dato
 {
     public class DUsuario : ConnectionSql
     {
-        public bool RegistrarUsuario(string tipoid,string nombre,string apellido,string telefono,string cedula, string correo,string usuario,
-            string contrasena,string rol)
+        public bool RegistrarUsuario(string tipoid, string nombre, string apellido, string telefono,string cedula, string correo, string usuario,
+                string contrasenaHash, string salt, int iteraciones, string rol)
         {
             try
             {
@@ -62,11 +64,13 @@ namespace SistemaParking.Dato
                     }
 
                     // Insertar Usuario
-                    using (var cmdUsuario = new SqlCommand(@"INSERT INTO Usuario (usuario, contrasena_hash, id_rol, numero_id)
-                        VALUES (@Usuario, @ContrasenaHash, @id_rol, @NumeroID)", cn))
+                    using (var cmdUsuario = new SqlCommand(@"INSERT INTO Usuario (usuario, contrasena_hash, salt, iteraciones, id_rol, numero_id)
+                        VALUES (@Usuario, @ContrasenaHash, @Salt, @Iteraciones, @id_rol, @NumeroID)", cn))
                     {
                         cmdUsuario.Parameters.AddWithValue("@Usuario", usuario);
-                        cmdUsuario.Parameters.AddWithValue("@ContrasenaHash", contrasena);
+                        cmdUsuario.Parameters.AddWithValue("@ContrasenaHash", Convert.FromBase64String(contrasenaHash));
+                        cmdUsuario.Parameters.AddWithValue("@Salt", Convert.FromBase64String(salt));
+                        cmdUsuario.Parameters.AddWithValue("@Iteraciones", iteraciones);
                         cmdUsuario.Parameters.AddWithValue("@id_rol", CodigoRol);
                         cmdUsuario.Parameters.AddWithValue("@NumeroID", cedula);
                         cmdUsuario.ExecuteNonQuery();

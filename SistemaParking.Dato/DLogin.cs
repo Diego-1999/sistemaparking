@@ -13,48 +13,44 @@ namespace SistemaParking.Datos
 {
     public class DLogin : ConnectionSql
     {
-        public UsuarioSesion Login(string user, string pass)
+
+        public UsuarioSesion Login(string user)
         {
-            try
+            using (var cn = GetConnection())
             {
-                using (var cn = GetConnection())
+                cn.Open();
+                using (var command = new SqlCommand(@"SELECT u.id_usuario, u.usuario, 
+                                                    u.id_rol, r.nombre_rol, 
+                                                    u.numero_id, 
+                                                    u.contrasena_hash, 
+                                                    u.salt, 
+                                                    u.iteraciones
+                                             FROM Usuario u
+                                             INNER JOIN Rol r ON u.id_rol = r.id_rol
+                                             WHERE u.usuario = @user", cn))
                 {
-                    cn.Open();
+                    command.Parameters.AddWithValue("@user", user);
 
-                    using (var command = new SqlCommand(@"SELECT u.id_usuario, u.usuario, u.id_rol, r.nombre_rol, u.numero_id FROM Usuario u
-                        INNER JOIN Rol r ON u.id_rol = r.id_rol
-                        WHERE u.usuario = @user AND u.contrasena_hash = @pass", cn))
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@user", user);
-                        command.Parameters.AddWithValue("@pass", pass);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
+                            return new UsuarioSesion
                             {
-                                return new UsuarioSesion
-                                {
-                                    IdUsuario = reader.GetInt32(0),
-                                    Usuario = reader.GetString(1),
-                                    IdRol = reader.GetInt32(2),
-                                    NombreRol = reader.GetString(3),
-                                    NumeroIdColaborador = reader.GetString(4)
-                                };
-                            }
+                                IdUsuario = reader.GetInt32(0),
+                                Usuario = reader.GetString(1),
+                                IdRol = reader.GetInt32(2),
+                                NombreRol = reader.GetString(3),
+                                NumeroIdColaborador = reader.GetString(4),
+                                ContrasenaHash = (byte[])reader["contrasena_hash"],
+                                Salt = (byte[])reader["salt"],
+                                Iteraciones = (int)reader["iteraciones"]
+                            };
                         }
                     }
                 }
-
-                return null;
             }
-            catch (SqlException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return null;
         }
     }
 
