@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+
 
 namespace SistemaParking
 {
@@ -54,7 +54,6 @@ namespace SistemaParking
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
             if (SesionActual.Usuario == null)  //validamos si la sesion esta iniciada
             {
                 MessageBox.Show("Debe iniciar sesión");
@@ -75,7 +74,7 @@ namespace SistemaParking
                 MessageBox.Show("Vehículo registrado correctamente");
             else
                 MessageBox.Show("No se pudo registrar el vehículo");
-           
+
         }
     }
 }

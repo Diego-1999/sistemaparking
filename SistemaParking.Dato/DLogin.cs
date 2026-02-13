@@ -19,15 +19,19 @@ namespace SistemaParking.Datos
             using (var cn = GetConnection())
             {
                 cn.Open();
+
+                // Se agrega c.nombre, c.apellido para que se puedan mostrar en el menu
                 using (var command = new SqlCommand(@"SELECT u.id_usuario, u.usuario, 
-                                                    u.id_rol, r.nombre_rol, 
-                                                    u.numero_id, 
-                                                    u.contrasena_hash, 
-                                                    u.salt, 
-                                                    u.iteraciones
-                                             FROM Usuario u
-                                             INNER JOIN Rol r ON u.id_rol = r.id_rol
-                                             WHERE u.usuario = @user", cn))
+                                u.id_rol, r.nombre_rol, 
+                                u.numero_id, 
+                                u.contrasena_hash, 
+                                u.salt, 
+                                u.iteraciones,
+                                c.nombre, c.apellido
+                         FROM Usuario u
+                         INNER JOIN Rol r ON u.id_rol = r.id_rol
+                         INNER JOIN Colaborador c ON u.numero_id = c.numero_id
+                         WHERE u.usuario = @user", cn))
                 {
                     command.Parameters.AddWithValue("@user", user);
 
@@ -44,7 +48,9 @@ namespace SistemaParking.Datos
                                 NumeroIdColaborador = reader.GetString(4),
                                 ContrasenaHash = (byte[])reader["contrasena_hash"],
                                 Salt = (byte[])reader["salt"],
-                                Iteraciones = (int)reader["iteraciones"]
+                                Iteraciones = (int)reader["iteraciones"],
+                                NombreColaborador = reader.GetString(8),
+                                ApellidoColaborador = reader.GetString(9),
                             };
                         }
                     }

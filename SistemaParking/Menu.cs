@@ -146,6 +146,13 @@ namespace SistemaParking
             {
                 // acceso total
             }
+
+            //Mostrar nombre y posicion en el menu
+            if (SesionActual.Usuario != null)
+            {
+                lblNomUsuario.Text = $"{SesionActual.Usuario.NombreColaborador} {SesionActual.Usuario.ApellidoColaborador}";
+                lblPosicion.Text = SesionActual.Usuario.NombreRol;
+            }
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
