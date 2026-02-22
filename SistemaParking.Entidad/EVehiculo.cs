@@ -8,12 +8,12 @@ namespace SistemaParking.Entidad
 {
     public class EVehiculo
     {
-        public int id_vehiculo { get; set; }
-        public string placa { get; set; }
-        public string id_numero { get; set; }
+        public int IdVehiculo { get; set; }
+        public string Placa { get; set; }
         public string Codigo { get; set; }
-        public int id_marca { get; set; }
-        public int id_modelo { get; set; }
-        public int id_color { get; set; }
+        public string TipoVehiculo { get; set; }
+        public string Marca { get; set; }
+        public string Color { get; set; }
+
     }
 }

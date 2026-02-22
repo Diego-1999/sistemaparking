@@ -1,4 +1,5 @@
-﻿using SistemaParking.Negocio;
+﻿using SistemaParking.Entidad;
+using SistemaParking.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,35 +19,49 @@ namespace SistemaParking
             InitializeComponent();
         }
 
-        private void txtNombreCedula_TextChanged(object sender, EventArgs e)
-        {
-            NCliente negocio = new NCliente();
-            string busqueda = txtNombreCedula.Text.Trim();
+        NCliente nCliente = new NCliente();
 
-            dgwClientes.DataSource = negocio.BuscarClientes(busqueda);
-        }
-
+      
         private void Clientes_Load(object sender, EventArgs e)
         {
-            NCliente negocio = new NCliente();
-            dgwClientes.DataSource = negocio.MostrarClientes();
+            CargarClientes();
+           // dgwClientes.DataSource = negocio.MostrarClientes();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            NCliente negocio = new NCliente();
             string busqueda = txtNombreCedula.Text.Trim();
+            var clientes = nCliente.BuscarClientes(busqueda);
+            MostrarEnGrid(clientes);
+           
+        }
 
-            if (string.IsNullOrEmpty(busqueda))
+        private void CargarClientes()
+        {     
+            var clientes = nCliente.MostrarClientes();
+            MostrarEnGrid(clientes);
+        }
+
+        private void MostrarEnGrid(List<ECliente> clientes)
+        {
+            // Mostrar todos los vehículos en filas separadas
+            var lista = clientes.SelectMany(c => c.Vehiculos.Select(v => new
             {
-                // Si no hay texto, mostrar todos
-                dgwClientes.DataSource = negocio.MostrarClientes();
-            }
-            else
-            {
-                // Si hay texto, mostrar filtrados
-                dgwClientes.DataSource = negocio.BuscarClientes(busqueda);
-            }
+                c.Cedula,
+                c.TipoId,
+                c.Nombre,
+                c.Apellido,
+                c.Telefono,
+                c.Correo,
+                v.Placa,
+                v.TipoVehiculo,
+                v.Marca,
+
+                v.Color
+            })).ToList();
+
+            dgwClientes.AutoGenerateColumns = true;
+            dgwClientes.DataSource = lista;
         }
     }
 }

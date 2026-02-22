@@ -80,5 +80,20 @@ namespace SistemaParking
             cmbTipoIden.SelectedIndex = -1;
             cmbRol.SelectedIndex = -1;
         }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void btnVerUsuarios_Click(object sender, EventArgs e)
+        {
+            // Instancia del formulario que necesito llamar para mostrar en el panel
+            Usuarios frmUsuario = new Usuarios();
+
+            // se llama al método del formulario principal
+            Menu menu = (Menu)this.ParentForm;
+            menu.AbrirFormPanel(frmUsuario);
+        }
     }
 }

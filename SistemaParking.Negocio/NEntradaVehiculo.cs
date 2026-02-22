@@ -15,18 +15,29 @@ namespace SistemaParking.Negocio
 
         public bool RegistroVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
         {
-            // Reglas de negocio
-            if (string.IsNullOrWhiteSpace(placa))
-                throw new ArgumentException("La placa es obligatoria");
-
-            if (string.IsNullOrWhiteSpace(numeroIdColaborador))
-                throw new ArgumentException("Colaborador no válido");
-
+     
             // Delegar a datos
             return dVehiculo.RegistrarVehiculo(
                 placa.Trim(),
                 nombreTipoVehiculo,
                 numeroIdColaborador
+            );
+        }
+
+        public bool RegistrarSegundoVehiculo(string placa, string nombreTipoVehiculo, string numeroIdCliente, string marca, string color)
+        {
+            if (string.IsNullOrWhiteSpace(placa))
+                throw new ArgumentException("La placa es obligatoria");
+
+            if (string.IsNullOrWhiteSpace(numeroIdCliente))
+                throw new ArgumentException("Cliente no válido");
+
+            return dVehiculo.RegistrarSegundoVehiculo(
+                placa.Trim(),
+                nombreTipoVehiculo,
+                numeroIdCliente,
+                marca,
+                color
             );
         }
 

@@ -1,4 +1,5 @@
 ﻿using SistemaParking.Datos;
+using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -113,55 +114,162 @@ namespace SistemaParking.Dato
             }
         }
 
-        //Metodo para buscar los clientes
-        public DataTable BuscarClientes(string busqueda)
+        
+        // Mostrar todos los clientes con sus vehículos
+
+        public List<ECliente> MostrarClientes()
         {
+            List<ECliente> clientes = new List<ECliente>();
+
             using (var cn = GetConnection())
             {
                 cn.Open();
+                using (var cmd = new SqlCommand(@"
+            SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
+                   v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
+                   m.nombre_marca, col.nombre_color
+            FROM Cliente c
+            INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
+            INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
+            INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
+            INNER JOIN Marca m ON v.id_marca = m.id_marca
+            INNER JOIN Color col ON v.id_color = col.id_color;", cn))
+
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string cedula = reader["id_numero"].ToString();
+
+                            // Buscar si ya existe el cliente en la lista
+                            var cliente = clientes.FirstOrDefault(c => c.Cedula == cedula);
+
+                            if (cliente == null)
+                            {
+                                cliente = new ECliente
+                                {
+                                    Cedula = cedula,
+                                    TipoId = reader["tipo_id"].ToString(),
+                                    Nombre = reader["nombre"].ToString(),
+                                    Apellido = reader["apellido"].ToString(),
+                                    Telefono = reader["telefono"].ToString(),
+                                    Correo = reader["correo"].ToString(),
+                                    Vehiculos = new List<EVehiculo>()
+                                };
+                                clientes.Add(cliente);
+                            }
+
+                            // Agregar el vehículo a la lista del cliente
+                            cliente.Vehiculos.Add(new EVehiculo
+                            {
+                                IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]),
+                                Placa = reader["placa"].ToString(),
+                                Codigo = reader["Codigo"].ToString(),
+                                TipoVehiculo = reader["TipoVehiculo"].ToString(),
+                                Marca = reader["nombre_marca"].ToString(),
+                                Color = reader["nombre_color"].ToString()
+
+                            });
+                        }
+                    }
+                }
+            }
+            return clientes;
+        }
 
 
-                //Se realiza la consulta a la base de datos uniendo las tablas relacionadas
-                using (var cmd = new SqlCommand(@"SELECT c.id_numero AS Cedula, c.nombre AS Nombre, c.apellido AS Apellido, v.placa, tv.Descripcion AS TipoVehiculo, m.nombre_marca AS Marca, col.nombre_color AS Color 
-                 FROM Cliente c INNER JOIN Vehiculo v on c.id_numero = v.id_numero
+
+        public List<ECliente> BuscarClientes(string busqueda)
+        {
+            List<ECliente> clientes = new List<ECliente>();
+
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                using (var cmd = new SqlCommand(@"
+                 SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
+                        v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
+                        m.nombre_marca, col.nombre_color
+                 FROM Cliente c
+                 INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
+                 INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
                  INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
                  INNER JOIN Marca m ON v.id_marca = m.id_marca
                  INNER JOIN Color col ON v.id_color = col.id_color
-                 WHERE c.id_numero = @Busqueda OR c.nombre LIKE '%' + @Busqueda + '%'", cn))
+                 WHERE c.nombre LIKE '%' + @Busqueda + '%' OR c.apellido LIKE '%' + @Busqueda + '%';", cn))
                 {
-
                     cmd.Parameters.AddWithValue("@Busqueda", busqueda);
 
-                    //Ejecutar la consulta y llenar el DataTable con los resultados
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string cedula = reader["id_numero"].ToString();
 
-                    //Retorna el DataTable para que se pueda usar en la capa presentacion 
-                    return dt;
+                            // Buscar si ya existe el cliente en la lista
+                            var cliente = clientes.FirstOrDefault(c => c.Cedula == cedula);
 
+                            if (cliente == null)
+                            {
+                                cliente = new ECliente
+                                {
+                                    Cedula = cedula,
+                                    TipoId = reader["tipo_id"].ToString(),
+                                    Nombre = reader["nombre"].ToString(),
+                                    Apellido = reader["apellido"].ToString(),
+                                    Telefono = reader["telefono"].ToString(),
+                                    Correo = reader["correo"].ToString(),
+                                    Vehiculos = new List<EVehiculo>()
+                                };
+                                clientes.Add(cliente);
+                            }
+
+                            // Bloque para agregar el vehículo
+                            cliente.Vehiculos.Add(new EVehiculo
+                            {
+                                IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]),
+                                Placa = reader["placa"].ToString(),
+                                Codigo = reader["Codigo"].ToString(),
+                                TipoVehiculo = reader["TipoVehiculo"].ToString(),
+                                Marca = reader["nombre_marca"].ToString(),
+                                Color = reader["nombre_color"].ToString()
+                            });
+                        }
+                    }
                 }
             }
+            return clientes;
         }
-        public DataTable MostrarClientes()
+
+        //Llamar al Padron electotoral al registrar un cliente
+        public ECliente BuscarPadronElectoral(string cedula)
         {
             using (var cn = GetConnection())
             {
                 cn.Open();
-
-                using (var cmd = new SqlCommand(@"SELECT c.id_numero AS Cedula, c.nombre AS Nombre, c.apellido AS Apellido, v.placa, tv.Descripcion AS TipoVehiculo, m.nombre_marca AS Marca, col.nombre_color AS Color 
-                 FROM Cliente c INNER JOIN Vehiculo v on c.id_numero = v.id_numero
-                 INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
-                 INNER JOIN Marca m ON v.id_marca = m.id_marca
-                 INNER JOIN Color col ON v.id_color = col.id_color", cn))
+                using (var cmd = new SqlCommand(
+                    @"SELECT CEDULA, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO
+                    FROM PADRON_ELECTORAL
+                    WHERE CEDULA = @cedula", cn))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    return dt;
-                }
+                    cmd.Parameters.AddWithValue("@cedula", cedula);
 
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new ECliente
+                            {
+                                Cedula = reader.GetString(0),
+                                Nombre = reader.GetString(1),
+                                Apellido = reader.GetString(2) + " " + reader.GetString(3)
+                            };
+                        }
+                    }
+                }
             }
+            return null;
         }
     }
 }

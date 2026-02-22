@@ -1,4 +1,5 @@
 ﻿using SistemaParking.Dato;
+using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,14 +36,20 @@ namespace SistemaParking.Negocio
                 color
             );
         }
-        public DataTable BuscarClientes(string busqueda)
+        public List<ECliente> MostrarClientes()
+        {
+            return dCliente.MostrarClientes();
+        }
+
+        public List<ECliente> BuscarClientes(string busqueda)
         {
             return dCliente.BuscarClientes(busqueda);
         }
 
-        public DataTable MostrarClientes()
+        //Metodo para Buscar en el Padron Electoral
+        public ECliente BuscarPadronElectoral(string cedula)
         {
-            return dCliente.MostrarClientes();
+            return dCliente.BuscarPadronElectoral(cedula);
         }
     }
 }

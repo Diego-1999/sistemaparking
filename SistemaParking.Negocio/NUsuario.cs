@@ -67,6 +67,20 @@ namespace SistemaParking.Negocio
                 return Convert.ToBase64String(pbkdf2.GetBytes(32)); // 256 bits
             }
         }
+
+        //Metodo Mostrar Usuarios 
+        public List<EUsuario> MostrarUsuarios()
+        {
+            return dUsuario.MostrarUsuarios();
+        }
+        public List<EUsuario> BuscarUsuarios(string criterio)
+        {
+            return dUsuario.BuscarUsuarios(criterio);
+        }
+        public bool EliminarUsuario(string cedula)
+        {
+            return dUsuario.EliminarUsuario(cedula);
+        }
     }
 }
 

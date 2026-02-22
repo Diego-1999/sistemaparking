@@ -51,6 +51,7 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
+            this.btnVerUsuarios = new System.Windows.Forms.Button();
             this.gpbInfoCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -299,6 +300,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(181, 33);
             this.txtContrasena.TabIndex = 8;
+            this.txtContrasena.TextChanged += new System.EventHandler(this.txtContrasena_TextChanged);
             // 
             // txtUsuario
             // 
@@ -348,12 +350,32 @@
             this.btnRegistrarUsuario.UseVisualStyleBackColor = false;
             this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
             // 
+            // btnVerUsuarios
+            // 
+            this.btnVerUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnVerUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnVerUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnVerUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnVerUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerUsuarios.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnVerUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerUsuarios.Location = new System.Drawing.Point(24, 536);
+            this.btnVerUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVerUsuarios.Name = "btnVerUsuarios";
+            this.btnVerUsuarios.Size = new System.Drawing.Size(185, 40);
+            this.btnVerUsuarios.TabIndex = 53;
+            this.btnVerUsuarios.Text = "Ver Usuarios";
+            this.btnVerUsuarios.UseVisualStyleBackColor = false;
+            this.btnVerUsuarios.Click += new System.EventHandler(this.btnVerUsuarios_Click);
+            // 
             // Registrar_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.Controls.Add(this.btnVerUsuarios);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrarUsuario);
             this.Controls.Add(this.groupBox1);
@@ -397,5 +419,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegistrarUsuario;
+        private System.Windows.Forms.Button btnVerUsuarios;
     }
 }

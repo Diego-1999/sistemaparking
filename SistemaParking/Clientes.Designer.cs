@@ -87,7 +87,6 @@
             this.txtNombreCedula.Name = "txtNombreCedula";
             this.txtNombreCedula.Size = new System.Drawing.Size(281, 39);
             this.txtNombreCedula.TabIndex = 45;
-            this.txtNombreCedula.TextChanged += new System.EventHandler(this.txtNombreCedula_TextChanged);
             // 
             // lblTitulo
             // 

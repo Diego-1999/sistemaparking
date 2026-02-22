@@ -41,10 +41,10 @@
             this.cmbTipoVehiculo = new System.Windows.Forms.ComboBox();
             this.txtPlaca = new System.Windows.Forms.TextBox();
             this.gpbInfoCliente = new System.Windows.Forms.GroupBox();
+            this.mskCedula = new System.Windows.Forms.MaskedTextBox();
             this.cmbTipoIden = new System.Windows.Forms.ComboBox();
             this.lblTipoIdenti = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnRegistrarSegundoVehiculo = new System.Windows.Forms.Button();
             this.gpbInfoVehiculo.SuspendLayout();
             this.gpbInfoCliente.SuspendLayout();
             this.SuspendLayout();
@@ -207,10 +208,10 @@
             // 
             // gpbInfoCliente
             // 
+            this.gpbInfoCliente.Controls.Add(this.mskCedula);
             this.gpbInfoCliente.Controls.Add(this.cmbTipoIden);
             this.gpbInfoCliente.Controls.Add(this.lblTipoIdenti);
             this.gpbInfoCliente.Controls.Add(this.lblCedula);
-            this.gpbInfoCliente.Controls.Add(this.txtCedula);
             this.gpbInfoCliente.Controls.Add(this.lblCorreo);
             this.gpbInfoCliente.Controls.Add(this.lblTelefono);
             this.gpbInfoCliente.Controls.Add(this.lblApellidos);
@@ -227,22 +228,32 @@
             this.gpbInfoCliente.TabStop = false;
             this.gpbInfoCliente.Text = "Información del Cliente";
             // 
+            // mskCedula
+            // 
+            this.mskCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.mskCedula.Location = new System.Drawing.Point(412, 66);
+            this.mskCedula.Name = "mskCedula";
+            this.mskCedula.Size = new System.Drawing.Size(181, 33);
+            this.mskCedula.TabIndex = 52;
+            this.mskCedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCedula_KeyDown);
+            // 
             // cmbTipoIden
             // 
             this.cmbTipoIden.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
-            this.cmbTipoIden.Location = new System.Drawing.Point(116, 60);
+            this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(181, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(236, 33);
             this.cmbTipoIden.TabIndex = 51;
+            this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
             // lblTipoIdenti
             // 
             this.lblTipoIdenti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTipoIdenti.AutoSize = true;
             this.lblTipoIdenti.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblTipoIdenti.Location = new System.Drawing.Point(115, 32);
+            this.lblTipoIdenti.Location = new System.Drawing.Point(95, 32);
             this.lblTipoIdenti.Name = "lblTipoIdenti";
             this.lblTipoIdenti.Size = new System.Drawing.Size(194, 25);
             this.lblTipoIdenti.TabIndex = 50;
@@ -258,15 +269,6 @@
             this.lblCedula.Size = new System.Drawing.Size(71, 25);
             this.lblCedula.TabIndex = 49;
             this.lblCedula.Text = "Cédula";
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtCedula.Location = new System.Drawing.Point(412, 59);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(181, 33);
-            this.txtCedula.TabIndex = 48;
             // 
             // lblCorreo
             // 
@@ -348,12 +350,31 @@
             this.txtNombre.Size = new System.Drawing.Size(181, 33);
             this.txtNombre.TabIndex = 40;
             // 
+            // btnRegistrarSegundoVehiculo
+            // 
+            this.btnRegistrarSegundoVehiculo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegistrarSegundoVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnRegistrarSegundoVehiculo.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarSegundoVehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnRegistrarSegundoVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarSegundoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarSegundoVehiculo.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarSegundoVehiculo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarSegundoVehiculo.Location = new System.Drawing.Point(12, 521);
+            this.btnRegistrarSegundoVehiculo.Name = "btnRegistrarSegundoVehiculo";
+            this.btnRegistrarSegundoVehiculo.Size = new System.Drawing.Size(185, 54);
+            this.btnRegistrarSegundoVehiculo.TabIndex = 29;
+            this.btnRegistrarSegundoVehiculo.Text = "Registrar segundo Vehiculo";
+            this.btnRegistrarSegundoVehiculo.UseVisualStyleBackColor = false;
+            this.btnRegistrarSegundoVehiculo.Click += new System.EventHandler(this.btnRegistrarSegundoVehiculo_Click);
+            // 
             // Registro_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.Controls.Add(this.btnRegistrarSegundoVehiculo);
             this.Controls.Add(this.gpbInfoCliente);
             this.Controls.Add(this.gpbInfoVehiculo);
             this.Controls.Add(this.btnLimpiar);
@@ -390,7 +411,6 @@
         private System.Windows.Forms.ComboBox cmbTipoIden;
         private System.Windows.Forms.Label lblTipoIdenti;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblApellidos;
@@ -400,5 +420,7 @@
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox cmbColor;
+        private System.Windows.Forms.MaskedTextBox mskCedula;
+        private System.Windows.Forms.Button btnRegistrarSegundoVehiculo;
     }
 }

@@ -88,74 +88,71 @@ namespace SistemaParking.Dato
             }
         }
 
+        public bool RegistrarSegundoVehiculo(string placa, string nombreTipoVehiculo, string numeroIdCliente, string marca, string color)
+        {
+            try
+            {
+                using (var cn = GetConnection())
+                {
+                    cn.Open();
+
+                    // 1. Obtener código del tipo de vehículo
+                    string codigoTipoVehiculo;
+                    using (var cmdSelect = new SqlCommand(
+                        "SELECT Codigo FROM TiposVehiculo WHERE Descripcion = @Descripcion", cn))
+                    {
+                        cmdSelect.Parameters.AddWithValue("@Descripcion", nombreTipoVehiculo);
+                        codigoTipoVehiculo = cmdSelect.ExecuteScalar()?.ToString();
+                    }
+                    if (string.IsNullOrEmpty(codigoTipoVehiculo))
+                        return false;
+
+                    //Obtener marcar
+                    string codigoMarca;
+                    using (var cmdMarca = new SqlCommand(
+                        "SELECT id_marca FROM Marca WHERE nombre_marca = @nombre_marca", cn))
+                    {
+                        cmdMarca.Parameters.AddWithValue("@nombre_marca", marca);
+                        codigoMarca = cmdMarca.ExecuteScalar()?.ToString();
+                    }
+
+                    if (string.IsNullOrEmpty(codigoMarca))
+                        return false;
 
 
+                    //Obtener color
+                    string codigoColor;
+                    using (var cmdColor = new SqlCommand(
+                        "SELECT id_color FROM Color WHERE nombre_color = @nombre_color", cn))
+                    {
+                        cmdColor.Parameters.AddWithValue("@nombre_color", color);
+                        codigoColor = cmdColor.ExecuteScalar()?.ToString();
+                    }
 
+                    if (string.IsNullOrEmpty(codigoColor))
+                        return false;
 
+                    // Insertar vehículo asociado al cliente
+                    using (var cmdVehiculo = new SqlCommand(
+                      @"INSERT INTO Vehiculo (Placa, Codigo, id_numero, id_marca, id_color) 
+                        VALUES (@Placa, @Codigo, @IdNumero, @id_marca, @id_color)", cn))
+                    {
+                        cmdVehiculo.Parameters.AddWithValue("@Placa", placa);
+                        cmdVehiculo.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
+                        cmdVehiculo.Parameters.AddWithValue("@IdNumero", numeroIdCliente);
+                        cmdVehiculo.Parameters.AddWithValue("@id_marca", codigoMarca);
+                        cmdVehiculo.Parameters.AddWithValue("@id_color", codigoColor);
+                        cmdVehiculo.ExecuteNonQuery();
+                    }
 
-
-
-
-
-
-
-
-
-        //public bool RegistrarVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
-        //{
-        //    try
-        //    {
-        //        using (var cn = GetConnection())
-        //        {
-        //            cn.Open();
-
-        //            // 1. Obtener código del tipo de vehículo
-        //            string codigoTipoVehiculo;
-        //            using (var cmdSelect = new SqlCommand("SELECT Codigo FROM TiposVehiculo WHERE Descripcion = @Descripcion", cn))
-        //            {
-        //                cmdSelect.Parameters.AddWithValue("@Descripcion", nombreTipoVehiculo);
-        //                codigoTipoVehiculo = cmdSelect.ExecuteScalar()?.ToString();
-        //            }
-
-        //            if (string.IsNullOrEmpty(codigoTipoVehiculo))
-        //                return false;
-
-        //            // 2. Insertar vehículo y obtener ID
-        //            int idVehiculo;
-        //            using (var cmdInsertVehiculo = new SqlCommand(@"INSERT INTO Vehiculo (Placa, Codigo) VALUES (@Placa, @Codigo);
-        //                    SELECT CAST(SCOPE_IDENTITY() AS INT);", cn))
-        //            {
-        //                cmdInsertVehiculo.Parameters.AddWithValue("@Placa", placa);
-        //                cmdInsertVehiculo.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
-
-        //                idVehiculo = (int)cmdInsertVehiculo.ExecuteScalar();
-        //            }
-
-        //            // 3. Insertar entrada
-        //            using (var cmdInsertEntrada = new SqlCommand( @"INSERT INTO Entrada (fecha_hora_entrada, id_vehiculo, numero_id)
-        //                    VALUES (GETDATE(), @IdVehiculo, @NumeroId)", cn))
-        //            {
-        //                cmdInsertEntrada.Parameters.AddWithValue("@IdVehiculo", idVehiculo);
-        //                cmdInsertEntrada.Parameters.AddWithValue("@NumeroId", numeroIdColaborador);
-
-        //                return cmdInsertEntrada.ExecuteNonQuery() > 0;
-        //            }
-        //        }
-        //    }
-        //    catch (SqlException sqlex)
-        //    {
-        //        throw sqlex;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
-
-
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
-
-
 }
 
