@@ -1,10 +1,12 @@
-﻿using SistemaParking.Entidad;
+﻿using Infraestructura;
+using SistemaParking.Entidad;
 using SistemaParking.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,10 +36,31 @@ namespace SistemaParking
         {
             try
             {
-                NSalidaVehiculo negocio = new NSalidaVehiculo(); //se encarga de procesar la salida y calcular el total
-                decimal total = negocio.RegistrarSalida(txtPlaca.Text, SesionActual.Usuario.NumeroIdColaborador); //se captura la placa y el usuario actual
+                NSalidaVehiculo negocio = new NSalidaVehiculo();
+                // Procesa la salida y calcula el total
+                ETiqueteSalida tiquetesalida = negocio.GenerarTiqueteSalida(
+                    txtPlaca.Text,
+                    SesionActual.Usuario.NumeroIdColaborador
+                    
+                );
+               
+                // Generar PDF
+                string ruta = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                    "TiqueteSalida.pdf"
+                );
 
-                MessageBox.Show($"Total a pagar: ₡{total}");
+                PdfHelper.GenerarTiqueteSalidaPDF(tiquetesalida, ruta);
+
+                // Abrir PDF automáticamente
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = ruta,
+                    UseShellExecute = true
+                });
+
+                txtPlaca.Clear();
+                txtPlaca.Focus();
             }
             catch (Exception ex)
             {
@@ -46,4 +69,6 @@ namespace SistemaParking
         }
 
     }
+
 }
+

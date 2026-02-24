@@ -53,6 +53,8 @@
     <Compile Include="ETarifa.cs" />
     <Compile Include="ETipoId.cs" />
     <Compile Include="ETiposVehiculo.cs" />
+    <Compile Include="ETiqueteEntrada.cs" />
+    <Compile Include="ETiqueteSalida.cs" />
     <Compile Include="EUsuario.cs" />
     <Compile Include="EVehiculo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

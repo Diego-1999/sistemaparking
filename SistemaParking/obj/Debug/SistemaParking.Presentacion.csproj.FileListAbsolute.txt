@@ -52,3 +52,9 @@ C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\System.Memo
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Usuarios.resources
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\Infraestructura.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\itextsharp.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\Infraestructura.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\itextsharp.xml
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\BouncyCastle.Cryptography.xml

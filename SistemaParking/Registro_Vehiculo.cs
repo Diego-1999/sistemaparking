@@ -1,13 +1,16 @@
-﻿using SistemaParking.Negocio;
+﻿using SistemaParking.Entidad;
+using SistemaParking.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Infraestructura;
 
 
 namespace SistemaParking
@@ -54,27 +57,55 @@ namespace SistemaParking
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (SesionActual.Usuario == null)  //validamos si la sesion esta iniciada
+
+            if (SesionActual.Usuario == null)
             {
                 MessageBox.Show("Debe iniciar sesión");
                 return;
             }
 
-            string numeroIdColaborador = SesionActual.Usuario.NumeroIdColaborador; //el usuario que inicia sesion se asigna a una variab;e 
-
-            //instanciamos la capa negocio 
+            string numeroIdColaborador = SesionActual.Usuario.NumeroIdColaborador;
             NEntradaVehiculo negocio = new NEntradaVehiculo();
+
             bool ok = negocio.RegistroVehiculo(
                 txtPlaca.Text,
-                cmbTipoVehiculo.Text,     //pasamos los parametros a la capa negocio 
+                cmbTipoVehiculo.Text,
                 numeroIdColaborador
             );
 
             if (ok)
-                MessageBox.Show("Vehículo registrado correctamente");
-            else
-                MessageBox.Show("No se pudo registrar el vehículo");
+            {
+                // Generar tiquete en memoria
+                var tiquete = new ETiqueteEntrada
+                {
+                    Tiquete = ContadorHelper.ObtenerSiguienteCodigo(),
+                    Codigo = Guid.NewGuid(),
+                    PlacaVehiculo = txtPlaca.Text.Trim(),
+                    FechaEmision = DateTime.Now,
+                    tipovehiculo = cmbTipoVehiculo.Text
 
+                };
+
+ 
+                // Generar PDF
+                string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TiqueteEntrada.pdf");
+                PdfHelper.GenerarTiqueteEntradaPDF(tiquete, ruta);
+
+                // Abrir PDF automáticamente para imprimir
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = ruta,
+                    UseShellExecute = true
+                });
+            }
+            else
+            {
+                MessageBox.Show("No se pudo registrar el vehículo");
+            }
+
+            txtPlaca.Clear();
+            cmbTipoVehiculo.SelectedIndex = -1;
+            txtPlaca.Focus();
         }
     }
 }

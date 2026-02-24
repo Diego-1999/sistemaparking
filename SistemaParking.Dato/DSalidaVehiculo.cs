@@ -21,17 +21,17 @@ namespace SistemaParking.Dato
                     cn.Open();
 
                     using (var command = new SqlCommand(@"SELECT TOP 1
-                e.id_entrada,
-                e.fecha_hora_entrada,
-                t.id_tarifa,
-                t.monto_por_hora,
-                t.fraccion_minutos,
-                t.monto_fraccion
-                FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
-                INNER JOIN Tarifa t ON t.Codigo = v.Codigo AND t.estado = 1
-                LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
-                WHERE v.placa = @Placa AND s.id_salida IS NULL
-                ORDER BY e.fecha_hora_entrada DESC", cn))
+                                                                e.id_entrada,
+                                                                e.fecha_hora_entrada,
+                                                                t.id_tarifa,
+                                                                t.monto_por_hora,
+                                                                t.fraccion_minutos,
+                                                                t.monto_fraccion
+                                                        FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
+                                                        INNER JOIN Tarifa t ON t.Codigo = v.Codigo AND t.estado = 1
+                                                        LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
+                                                        WHERE v.placa = @Placa AND s.id_salida IS NULL
+                                                        ORDER BY e.fecha_hora_entrada DESC", cn))
                     {
                         command.Parameters.AddWithValue("@Placa", placa);
 
@@ -85,12 +85,11 @@ namespace SistemaParking.Dato
 
                             // 1. Entrada activa
                             using (var command = new SqlCommand(@" SELECT TOP 1 
-                            e.id_entrada, 
-                            v.Codigo 
-                            FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo 
-                            LEFT JOIN Salida s ON s.id_entrada = e.id_entrada WHERE v.placa = @Placa AND s.id_salida IS NULL
-                            ORDER BY e.fecha_hora_entrada DESC",
-                                cn, tx))
+                                                                        e.id_entrada, 
+                                                                        v.Codigo 
+                                                                FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo 
+                                                                LEFT JOIN Salida s ON s.id_entrada = e.id_entrada WHERE v.placa = @Placa AND s.id_salida IS NULL
+                                                                ORDER BY e.fecha_hora_entrada DESC", cn, tx))
                             {
                                 command.Parameters.AddWithValue("@Placa", placa); //Se asignan parametros
                                 using (var result = command.ExecuteReader()) //Se ejecuta la consulta 
@@ -106,17 +105,15 @@ namespace SistemaParking.Dato
                             // 2. Obtener tarifa SOLO para el ID
                             int idTarifa;
                             using (var command = new SqlCommand(@"SELECT TOP 1 id_tarifa FROM Tarifa
-                                WHERE Codigo = @Codigo AND estado = 1",
-                                cn, tx))
+                                WHERE Codigo = @Codigo AND estado = 1", cn, tx))
                             {
                                 command.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
                                 idTarifa = (int)command.ExecuteScalar();
                             }
 
-                            // 3. Registrar salida (YA CON TOTAL)
+                            // 3. Registrar salida (CON TOTAL)
                             using (var command = new SqlCommand(@"INSERT INTO Salida (fecha_hora_salida, total_pagar, id_entrada, id_tarifa, numero_id)
-                                VALUES (GETDATE(), @Total, @IdEntrada, @IdTarifa, @NumeroId)",
-                                cn, tx))
+                                VALUES (GETDATE(), @Total, @IdEntrada, @IdTarifa, @NumeroId)", cn, tx))
                             {
                                 command.Parameters.AddWithValue("@Total", total);
                                 command.Parameters.AddWithValue("@IdEntrada", idEntrada);
@@ -144,7 +141,6 @@ namespace SistemaParking.Dato
 
                 throw;
             }
-            
         }
     }
 }

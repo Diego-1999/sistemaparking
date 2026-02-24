@@ -1,0 +1,17 @@
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\Infraestructura.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\Infraestructura.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\itextsharp.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Dato.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Entidad.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Negocio.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Dato.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Entidad.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\SistemaParking.Negocio.pdb
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\bin\Debug\itextsharp.xml
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\obj\Debug\Infraestructura.csproj.AssemblyReference.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\obj\Debug\Infraestructura.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\obj\Debug\Infraest.8F2C356E.Up2Date
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\obj\Debug\Infraestructura.dll
+C:\Users\diego\Desktop\Tesis\SistemaParking\Infraestructura\obj\Debug\Infraestructura.pdb

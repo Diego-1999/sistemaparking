@@ -219,6 +219,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{6cd69f63-0917-4d6a-abc6-3b3f127ed547}</Project>
+      <Name>Infraestructura</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SistemaParking.Entidad\SistemaParking.Entidad.csproj">
       <Project>{b7e25ff1-ff76-460c-a6a8-5fb1f088a3ba}</Project>
       <Name>SistemaParking.Entidad</Name>
