@@ -141,8 +141,9 @@ namespace Infraestructura
                 }
 
 
-                    // Pie de página
-                    doc.Add(new Paragraph("--------------------------------------------------", fuentePequena));
+                // Pie de página
+                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
                 doc.Add(new Paragraph("¡Gracias por su visita!", fuenteNormal) { Alignment = Element.ALIGN_CENTER });
 
                 doc.Close();

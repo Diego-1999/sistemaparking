@@ -46,6 +46,7 @@
     <Compile Include="EColor.cs" />
     <Compile Include="EEntrada.cs" />
     <Compile Include="EEspaciosParqueo.cs" />
+    <Compile Include="EmailSettings.cs" />
     <Compile Include="EMarca.cs" />
     <Compile Include="EReportes.cs" />
     <Compile Include="ERol.cs" />

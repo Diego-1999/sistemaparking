@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Negocio", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Entidad", "SistemaParking.Entidad\SistemaParking.Entidad.csproj", "{B7E25FF1-FF76-460C-A6A8-5FB1F088A3BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infraestructura", "Infraestructura\Infraestructura.csproj", "{6CD69F63-0917-4D6A-ABC6-3B3F127ED547}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaParking.Infraestructura", "Infraestructura\SistemaParking.Infraestructura.csproj", "{6CD69F63-0917-4D6A-ABC6-3B3F127ED547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

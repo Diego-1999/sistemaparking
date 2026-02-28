@@ -75,7 +75,6 @@ namespace SistemaParking
 
             if (ok)
             {
-                // Generar tiquete en memoria
                 var tiquete = new ETiqueteEntrada
                 {
                     Tiquete = ContadorHelper.ObtenerSiguienteCodigo(),
@@ -83,21 +82,68 @@ namespace SistemaParking
                     PlacaVehiculo = txtPlaca.Text.Trim(),
                     FechaEmision = DateTime.Now,
                     tipovehiculo = cmbTipoVehiculo.Text
-
                 };
 
- 
                 // Generar PDF
-                string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TiqueteEntrada.pdf");
+                string ruta = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                    "TiqueteEntrada.pdf"
+                );
                 PdfHelper.GenerarTiqueteEntradaPDF(tiquete, ruta);
 
-                // Abrir PDF automáticamente para imprimir
+                // Abrir PDF automáticamente
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = ruta,
                     UseShellExecute = true
                 });
+
+                // --- Enviar correo ---
+                var notificacionService = provider.GetRequiredService<NotificacionService>();
+
+                // Buscar cliente por placa
+                var cliente = negocio.BuscarClientePorPlaca(txtPlaca.Text.Trim());
+
+                string destinatario = cliente?.Email ?? "correo_generico@dominio.com";
+                string asunto = "Tiquete de Parqueo";
+                string cuerpo = $"Estimado {cliente?.Nombre ?? "Visitante"},\n\n" +
+                                $"Su tiquete de parqueo ha sido generado.\n" +
+                                $"Placa: {tiquete.PlacaVehiculo}\n" +
+                                $"Fecha: {tiquete.FechaEmision}\n" +
+                                $"Tipo: {tiquete.tipovehiculo}\n" +
+                                $"Código: {tiquete.Tiquete}";
+
+                await notificacionService.NotificarAsync(destinatario, asunto, cuerpo, ruta);
             }
+
+
+
+
+            //if (ok)
+            //{
+            //    // Generar tiquete en memoria
+            //    var tiquete = new ETiqueteEntrada
+            //    {
+            //        Tiquete = ContadorHelper.ObtenerSiguienteCodigo(),
+            //        Codigo = Guid.NewGuid(),
+            //        PlacaVehiculo = txtPlaca.Text.Trim(),
+            //        FechaEmision = DateTime.Now,
+            //        tipovehiculo = cmbTipoVehiculo.Text
+
+            //    };
+
+
+            //    // Generar PDF
+            //    string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TiqueteEntrada.pdf");
+            //    PdfHelper.GenerarTiqueteEntradaPDF(tiquete, ruta);
+
+            //    // Abrir PDF automáticamente para imprimir
+            //    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            //    {
+            //        FileName = ruta,
+            //        UseShellExecute = true
+            //    });
+        }
             else
             {
                 MessageBox.Show("No se pudo registrar el vehículo");

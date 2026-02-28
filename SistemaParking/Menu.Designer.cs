@@ -165,7 +165,7 @@
             this.btnEspacios.Name = "btnEspacios";
             this.btnEspacios.Size = new System.Drawing.Size(250, 40);
             this.btnEspacios.TabIndex = 6;
-            this.btnEspacios.Text = "Espacios del Parqueo";
+            this.btnEspacios.Text = "Establecer Espacios";
             this.btnEspacios.UseVisualStyleBackColor = true;
             this.btnEspacios.Click += new System.EventHandler(this.btnEspacios_Click);
             // 

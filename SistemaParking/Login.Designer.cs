@@ -46,9 +46,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(333, 406);
+            this.panel1.Size = new System.Drawing.Size(250, 330);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -56,10 +55,9 @@
             // 
             this.lblLinea1.AutoSize = true;
             this.lblLinea1.ForeColor = System.Drawing.Color.DimGray;
-            this.lblLinea1.Location = new System.Drawing.Point(383, 119);
-            this.lblLinea1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLinea1.Location = new System.Drawing.Point(287, 97);
             this.lblLinea1.Name = "lblLinea1";
-            this.lblLinea1.Size = new System.Drawing.Size(518, 16);
+            this.lblLinea1.Size = new System.Drawing.Size(445, 13);
             this.lblLinea1.TabIndex = 2;
             this.lblLinea1.Text = "_________________________________________________________________________";
             // 
@@ -67,10 +65,9 @@
             // 
             this.lblLinea2.AutoSize = true;
             this.lblLinea2.ForeColor = System.Drawing.Color.DimGray;
-            this.lblLinea2.Location = new System.Drawing.Point(383, 214);
-            this.lblLinea2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLinea2.Location = new System.Drawing.Point(287, 174);
             this.lblLinea2.Name = "lblLinea2";
-            this.lblLinea2.Size = new System.Drawing.Size(518, 16);
+            this.lblLinea2.Size = new System.Drawing.Size(445, 13);
             this.lblLinea2.TabIndex = 3;
             this.lblLinea2.Text = "_________________________________________________________________________";
             // 
@@ -80,10 +77,9 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(387, 89);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.Location = new System.Drawing.Point(290, 72);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(621, 27);
+            this.txtUsuario.Size = new System.Drawing.Size(466, 22);
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "USUARIO";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
@@ -95,10 +91,9 @@
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPass.Location = new System.Drawing.Point(387, 183);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPass.Location = new System.Drawing.Point(290, 149);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(621, 27);
+            this.txtPass.Size = new System.Drawing.Size(466, 22);
             this.txtPass.TabIndex = 2;
             this.txtPass.Text = "CONTRASEÑA";
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
@@ -112,10 +107,9 @@
             this.lblErrorMensaje.ForeColor = System.Drawing.Color.DimGray;
             this.lblErrorMensaje.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMensaje.Image")));
             this.lblErrorMensaje.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblErrorMensaje.Location = new System.Drawing.Point(391, 246);
-            this.lblErrorMensaje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorMensaje.Location = new System.Drawing.Point(293, 200);
             this.lblErrorMensaje.Name = "lblErrorMensaje";
-            this.lblErrorMensaje.Size = new System.Drawing.Size(115, 25);
+            this.lblErrorMensaje.Size = new System.Drawing.Size(90, 19);
             this.lblErrorMensaje.TabIndex = 9;
             this.lblErrorMensaje.Text = "ErrorMensaje";
             this.lblErrorMensaje.Visible = false;
@@ -125,10 +119,9 @@
             this.lbllLogin.AutoSize = true;
             this.lbllLogin.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbllLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.lbllLogin.Location = new System.Drawing.Point(607, 11);
-            this.lbllLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbllLogin.Location = new System.Drawing.Point(455, 9);
             this.lbllLogin.Name = "lbllLogin";
-            this.lbllLogin.Size = new System.Drawing.Size(118, 46);
+            this.lbllLogin.Size = new System.Drawing.Size(95, 37);
             this.lbllLogin.TabIndex = 10;
             this.lbllLogin.Text = "LOGIN";
             // 
@@ -140,10 +133,9 @@
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.LightGray;
-            this.btnLogin.Location = new System.Drawing.Point(396, 322);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(297, 262);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(580, 49);
+            this.btnLogin.Size = new System.Drawing.Size(435, 40);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "ACCEDER";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -156,10 +148,9 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(968, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimizar.Location = new System.Drawing.Point(726, 0);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(40, 37);
+            this.btnMinimizar.Size = new System.Drawing.Size(30, 30);
             this.btnMinimizar.TabIndex = 12;
             this.btnMinimizar.Text = "–";
             this.btnMinimizar.UseVisualStyleBackColor = true;
@@ -172,10 +163,9 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(1004, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Location = new System.Drawing.Point(753, 0);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(40, 37);
+            this.btnCerrar.Size = new System.Drawing.Size(30, 30);
             this.btnCerrar.TabIndex = 13;
             this.btnCerrar.Text = "✕";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -183,10 +173,10 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1040, 406);
+            this.ClientSize = new System.Drawing.Size(780, 330);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnLogin);
@@ -198,11 +188,11 @@
             this.Controls.Add(this.lblLinea1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

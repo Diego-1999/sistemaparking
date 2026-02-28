@@ -1,4 +1,5 @@
-﻿using SistemaParking.Entidad;
+﻿using Infraestructura;
+using SistemaParking.Entidad;
 using SistemaParking.Negocio;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,8 @@ namespace SistemaParking
         [DllImport("user32.Dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.Dll", EntryPoint = "SendMessage")]
+
+
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         private void Login_MouseDown(object sender, MouseEventArgs e)
@@ -164,6 +168,22 @@ namespace SistemaParking
             {
                 btnLogin.PerformClick();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            ProbarConexionAsync();
+
+        }
+
+
+        public async Task ProbarConexionAsync()
+        {
+            HttpClient httpClient = new HttpClient();
+            ApiClient apiClient = new ApiClient(httpClient);
+            ParkingService service = new ParkingService(apiClient);
+
+            await service.ProcesarDatosAsync();
         }
     }
 }

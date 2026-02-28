@@ -127,7 +127,7 @@
             this.BtnGuardarEspacio.Name = "BtnGuardarEspacio";
             this.BtnGuardarEspacio.Size = new System.Drawing.Size(185, 40);
             this.BtnGuardarEspacio.TabIndex = 11;
-            this.BtnGuardarEspacio.Text = "Registrar Vehiculo";
+            this.BtnGuardarEspacio.Text = "Guardar Espacios";
             this.BtnGuardarEspacio.UseVisualStyleBackColor = false;
             this.BtnGuardarEspacio.Click += new System.EventHandler(this.BtnGuardarEspacio_Click);
             // 
