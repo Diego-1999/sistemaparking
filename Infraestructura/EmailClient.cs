@@ -1,6 +1,7 @@
 ﻿using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -16,8 +17,11 @@ namespace Infraestructura
 
         public EmailClient(EmailSettings settings)
         {
+            
+            _from = settings.From; // ← aquí se guarda el remitente configurado
             _smtpClient = new SmtpClient(settings.Host, settings.Port)
             {
+
                 Credentials = new NetworkCredential(settings.User, settings.Password),
                 EnableSsl = true // Seguridad con TLS/SSL
             };
@@ -25,35 +29,18 @@ namespace Infraestructura
             _from = settings.From;
         }
 
-        public async Task EnviarCorreoAsync(string destinatario, string asunto, string cuerpo)
+        public async Task EnviarCorreoAsync(string destinatario, string asunto, string cuerpo, string rutaAdjunto = null)
         {
             using (var mensaje = new MailMessage(_from, destinatario, asunto, cuerpo))
             {
+                if (!string.IsNullOrEmpty(rutaAdjunto) && File.Exists(rutaAdjunto))
+                {
+                    mensaje.Attachments.Add(new Attachment(rutaAdjunto));
+                }
+
                 await _smtpClient.SendMailAsync(mensaje);
             }
-
         }
-
-
-
-
-
-        //private readonly SmtpClient _smtpClient;
-
-        //public EmailClient(string host, int port, string user, string password)
-        //{
-        //    _smtpClient = new SmtpClient(host, port)
-        //    {
-        //        Credentials = new NetworkCredential(user, password),
-        //        EnableSsl = true // Seguridad con TLS/SSL
-        //    };
-        //}
-
-        //public async Task EnviarCorreoAsync(string destinatario, string asunto, string cuerpo)
-        //{
-        //    var mensaje = new MailMessage("tu_correo@dominio.com", destinatario, asunto, cuerpo);
-        //    await _smtpClient.SendMailAsync(mensaje);
-        //}
 
     }
 }

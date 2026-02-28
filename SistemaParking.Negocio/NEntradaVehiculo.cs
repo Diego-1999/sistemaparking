@@ -13,30 +13,37 @@ namespace SistemaParking.Negocio
 
         //instancia con DVehiculo
         DEntradaVehiculo dVehiculo = new DEntradaVehiculo();
+        DCliente dcliente = new DCliente();
 
         //variable
         private static int contador = 0;  // contador en memoria
 
-
-        // Método actual: mantiene compatibilidad con tu presentación
-        public bool RegistroVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
+        public (bool registrado, string idCliente) RegistroVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
         {
-            return dVehiculo.RegistrarVehiculo(
-                placa.Trim(),
-                nombreTipoVehiculo,
-                numeroIdColaborador
-            );
+            return dVehiculo.RegistrarVehiculo(placa.Trim(), nombreTipoVehiculo, numeroIdColaborador);
         }
+
+        public string ObtenerCorreoCliente(string placa)
+        {
+            string idCliente = dVehiculo.ObtenerIdClientePorPlaca(placa);
+            if (!string.IsNullOrEmpty(idCliente))
+            {
+                return dcliente.ObtenerCorreoPorId(idCliente);
+            }
+            return null;
+        }
+
+
 
         // Método genera el tiquete si el registro fue exitoso
         public ETiqueteEntrada GenerarTiqueteEntrada(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
         {
-            bool registrado = RegistroVehiculo(placa, nombreTipoVehiculo, numeroIdColaborador);
+            var resultado = dVehiculo.RegistrarVehiculo(placa.Trim(), nombreTipoVehiculo, numeroIdColaborador);
 
-            if (!registrado)
+            if (!resultado.registrado)
                 return null;
 
-            contador++; // aumentar el conteo
+            contador++;
 
             return new ETiqueteEntrada
             {
@@ -44,8 +51,8 @@ namespace SistemaParking.Negocio
                 Tiquete = contador,
                 PlacaVehiculo = placa.Trim(),
                 FechaEmision = DateTime.Now,
-                tipovehiculo = nombreTipoVehiculo
-
+                tipovehiculo = nombreTipoVehiculo,
+                IdCliente = resultado.idCliente // este campo lo puedes agregar a ETiqueteEntrada
             };
         }
 

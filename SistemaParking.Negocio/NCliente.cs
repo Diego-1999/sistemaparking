@@ -51,5 +51,12 @@ namespace SistemaParking.Negocio
         {
             return dCliente.BuscarPadronElectoral(cedula);
         }
+                    
+
+        public string ObtenerCorreoPorId(string idCliente)
+        {
+                return dCliente.ObtenerCorreoPorId(idCliente);
+        }
+       
     }
 }

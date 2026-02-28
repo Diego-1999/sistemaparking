@@ -271,5 +271,27 @@ namespace SistemaParking.Dato
             }
             return null;
         }
+
+
+        public string ObtenerCorreoPorId(string idCliente)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                using (var cmd = new SqlCommand(@"
+            SELECT TOP 1 cc.correo
+            FROM ContactoCliente cc
+            INNER JOIN Cliente c ON c.id_numero = cc.id_numero
+            WHERE c.id_numero = @Id AND cc.correo IS NOT NULL
+        ", cn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", idCliente);
+                    var result = cmd.ExecuteScalar();
+                    return result?.ToString();
+                }
+            }
+
+        }
     }
+
 }

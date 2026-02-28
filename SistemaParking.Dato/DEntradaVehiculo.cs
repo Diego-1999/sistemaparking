@@ -12,7 +12,9 @@ namespace SistemaParking.Dato
 {
     public class DEntradaVehiculo: ConnectionSql 
     {
-        public bool RegistrarVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
+
+
+        public (bool registrado, string idCliente) RegistrarVehiculo(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
         {
             try
             {
@@ -49,7 +51,7 @@ namespace SistemaParking.Dato
                         }
 
                         if (string.IsNullOrEmpty(codigoTipoVehiculo))
-                            return false;
+                            return (false, null);
 
                         using (var cmdInsertVehiculo = new SqlCommand(@"INSERT INTO Vehiculo (Placa, Codigo) 
                             VALUES (@Placa, @Codigo);
@@ -63,8 +65,8 @@ namespace SistemaParking.Dato
                     }
 
                     // 3. Insertar entrada (con cliente si existe)
-                    using (var cmdInsertEntrada = new SqlCommand(@"INSERT INTO Entrada (fecha_hora_entrada, id_vehiculo, numero_id, id_numero) 
-                        VALUES (GETDATE(), @IdVehiculo, @NumeroId, @IdCliente)", cn))
+                    using (var cmdInsertEntrada = new SqlCommand(@"INSERT INTO Entrada (fecha_hora_entrada, id_vehiculo, numero_id, id_numero)  
+                            VALUES (GETDATE(), @IdVehiculo, @NumeroId, @IdCliente)", cn))
                     {
                         cmdInsertEntrada.Parameters.AddWithValue("@IdVehiculo", idVehiculo);
                         cmdInsertEntrada.Parameters.AddWithValue("@NumeroId", numeroIdColaborador);
@@ -74,7 +76,8 @@ namespace SistemaParking.Dato
                         else
                             cmdInsertEntrada.Parameters.AddWithValue("@IdCliente", DBNull.Value);
 
-                        return cmdInsertEntrada.ExecuteNonQuery() > 0;
+                        bool exito = cmdInsertEntrada.ExecuteNonQuery() > 0;
+                        return (exito, idCliente);
                     }
                 }
             }
@@ -151,6 +154,21 @@ namespace SistemaParking.Dato
             catch
             {
                 return false;
+            }
+        }
+
+
+        public string ObtenerIdClientePorPlaca(string placa)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                using (var cmd = new SqlCommand("SELECT id_numero FROM Vehiculo WHERE Placa = @Placa", cn))
+                {
+                    cmd.Parameters.AddWithValue("@Placa", placa);
+                    var result = cmd.ExecuteScalar();
+                    return result?.ToString();
+                }
             }
         }
     }
