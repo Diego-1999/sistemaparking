@@ -93,3 +93,4 @@ C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\Microsoft.E
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\Microsoft.Extensions.FileSystemGlobbing.xml
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\bin\Debug\System.ValueTuple.xml
+C:\Users\diego\Desktop\Tesis\SistemaParking\SistemaParking\obj\Debug\SistemaParking.Vehiculos.resources

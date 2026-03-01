@@ -1,4 +1,5 @@
 ﻿using SistemaParking.Datos;
+using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -157,7 +158,7 @@ namespace SistemaParking.Dato
             }
         }
 
-
+        //Metodo para obtener la placa
         public string ObtenerIdClientePorPlaca(string placa)
         {
             using (var cn = GetConnection())
@@ -171,6 +172,87 @@ namespace SistemaParking.Dato
                 }
             }
         }
+
+
+        //Litado de los vehiculos en parqueo
+        public List<ERegistroVehiculo> ObtenerVehiculosEnParqueo()
+        {
+            var lista = new List<ERegistroVehiculo>();
+
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                string query = @"
+    SELECT e.id_entrada, v.placa, tv.Descripcion AS TipoVehiculo,
+           e.fecha_hora_entrada
+    FROM Entrada e
+    INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
+    INNER JOIN TiposVehiculo tv ON tv.Codigo = v.Codigo
+    LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
+    WHERE s.id_salida IS NULL";
+
+                using (var cmd = new SqlCommand(query, cn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new ERegistroVehiculo
+                        {
+                            IdEntrada = reader.GetInt32(0),   // 👈 nuevo campo
+                            Placa = reader.GetString(1),
+                            TipoVehiculo = reader.GetString(2),
+                            FechaHoraEntrada = reader.GetDateTime(3)
+                        });
+                    }
+                }
+            }
+            return lista;
+        }
+
+        //Elimina los vehiculos en entrada
+        public bool EliminarEntrada(int idEntrada)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+
+                // Primero eliminar salidas asociadas (relación es por id_entrada)
+                using (var cmdSalida = new SqlCommand("DELETE FROM Salida WHERE id_entrada = @idEntrada", cn))
+                {
+                    cmdSalida.Parameters.AddWithValue("@idEntrada", idEntrada);
+                    cmdSalida.ExecuteNonQuery();
+                }
+
+                // Luego eliminar la entrada
+                using (var cmdEntrada = new SqlCommand("DELETE FROM Entrada WHERE id_entrada = @idEntrada", cn))
+                {
+                    cmdEntrada.Parameters.AddWithValue("@idEntrada", idEntrada);
+                    int filas = cmdEntrada.ExecuteNonQuery();
+                    return filas > 0;
+                }
+            }
+        }
+
+        public int ContarVehiculosEnParqueo()
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                string query = @"
+                 SELECT COUNT(*) 
+                 FROM Entrada e
+                 LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
+                 WHERE s.id_salida IS NULL";
+
+                using (var cmd = new SqlCommand(query, cn))
+                {
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+
+
     }
 }
 

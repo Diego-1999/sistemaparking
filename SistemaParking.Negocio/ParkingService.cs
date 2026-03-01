@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
 using System.Text.Json;
 
 
@@ -72,7 +71,7 @@ namespace SistemaParking.Negocio
             // Aquí aplicas reglas de negocio sobre los datos
             var objeto = JsonSerializer.Deserialize<Post>(jsonData);
 
-            // Ejemplo: validación de negocio
+            // validación de negocio
             if (string.IsNullOrWhiteSpace(objeto.Title))
             {
                 throw new Exception("El título del post no puede estar vacío según las reglas de negocio.");

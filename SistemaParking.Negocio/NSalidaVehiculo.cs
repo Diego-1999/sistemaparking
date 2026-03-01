@@ -47,44 +47,22 @@ namespace SistemaParking.Negocio
 
         public ETiqueteSalida GenerarTiqueteSalida(string placa, string numeroIdColaborador)
         {
-            // Obtener datos de entrada
-            var datos = dSalida.ObtenerInfoSalida(placa);
+            var datos = new DSalidaVehiculo().RegistrarSalida(placa, numeroIdColaborador, 0); // el total lo calculás antes
 
-            // Validar tarifa
-            var tarifa = dtarifa.ObtenerTarifa(datos.tarifa.id_tarifa);
-            if (tarifa == null)
-                throw new Exception("No existe una tarifa activa para el ID especificado.");
+            if (!datos.registrado) return null;
 
-            // Calcular monto
-            decimal total = nTarifa.CalcularMonto(
-                datos.fechaEntrada,
-                DateTime.Now,
-                datos.tarifa
-            );
-
-            // Registrar salida en datos
-            dSalida.RegistrarSalida(
-                placa,
-                numeroIdColaborador,
-                total
-            );
-
-            contador++; // aumentar el conteo
-
-            // Construir tiquete en memoria
             return new ETiqueteSalida
             {
                 Codigo = Guid.NewGuid(),
-                PlacaVehiculo = placa.Trim(),
-                Tiquete = contador,
-                //TipoVehiculo = descripcionTipoVehiculo,
-                FechaSalida = DateTime.Now,
-                MontoCobrado = total
+                Tiquete = new Random().Next(1000, 9999), 
+                PlacaVehiculo = placa,
+                FechaEntrada = datos.fechaEntrada,
+                FechaSalida = datos.fechaSalida,
+                TiempoTotal = datos.fechaSalida - datos.fechaEntrada,
+                MontoCobrado = datos.total,
+                IdCliente = datos.idCliente 
             };
         }
-
-
-
-
+      
     }
 }

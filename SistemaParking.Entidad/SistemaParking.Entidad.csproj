@@ -48,6 +48,7 @@
     <Compile Include="EEspaciosParqueo.cs" />
     <Compile Include="EmailSettings.cs" />
     <Compile Include="EMarca.cs" />
+    <Compile Include="ERegistroVehiculo.cs" />
     <Compile Include="EReportes.cs" />
     <Compile Include="ERol.cs" />
     <Compile Include="ESalida.cs" />

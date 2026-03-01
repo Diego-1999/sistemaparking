@@ -41,6 +41,7 @@ namespace SistemaParking.Negocio
             return dCliente.MostrarClientes();
         }
 
+        //Metodo Buscar cliente en el data
         public List<ECliente> BuscarClientes(string busqueda)
         {
             return dCliente.BuscarClientes(busqueda);
@@ -52,7 +53,7 @@ namespace SistemaParking.Negocio
             return dCliente.BuscarPadronElectoral(cedula);
         }
                     
-
+        //Metodo que obtiene el correo del cliente
         public string ObtenerCorreoPorId(string idCliente)
         {
                 return dCliente.ObtenerCorreoPorId(idCliente);

@@ -19,7 +19,12 @@ namespace SistemaParking
         {
             InitializeComponent();
             PersonalizarDiseno();
+            ActualizarLabels();
+
         }
+
+        NEspaciosParqueo nEspaciosParqueo = new NEspaciosParqueo();
+        NEntradaVehiculo nEntradaVehiculo = new NEntradaVehiculo();
 
         //
         [DllImport("user32.Dll", EntryPoint = "ReleaseCapture")]
@@ -187,6 +192,31 @@ namespace SistemaParking
         private void btnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new Clientes());
+        }
+
+
+        public void ActualizarContador()
+        {
+            int ocupados = nEntradaVehiculo.ContarVehiculosEnParqueo();
+            lblVehiculosDisponibles.Text = $"Espacios ocupados: {ocupados}";
+        }
+
+
+        // Método para actualizar los labels
+        public void ActualizarLabels()
+        {
+            lblVehiculosDisponibles.Text = $" {nEspaciosParqueo.ObtenerEspaciosVehiculosDisponibles()}";
+            lblMotosDisponibles.Text = $" {nEspaciosParqueo.ObtenerEspaciosMotosDisponibles()}";
+        }
+
+        private void btnVehiculos_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Vehiculos());
+        }
+
+        private void btnCarros_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Vehiculos());
         }
     }
 }

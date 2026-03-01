@@ -22,5 +22,26 @@ namespace SistemaParking.Negocio
                 tipoEspacio.Trim()
             );
         }
+
+        private DEspaciosParqueo datos = new DEspaciosParqueo();
+        public int ObtenerEspaciosVehiculosDisponibles()
+        {
+            // Todos los códigos que ocupan espacios de carro
+            string[] codigosVehiculo = { "PART", "C", "CL", "TA", "TC", "TG", "TH", "TL", "TP", "TSJ", "TMP", "USA", "D" };
+
+            int ocupados = 0;
+            foreach (var codigo in codigosVehiculo)
+            {
+                ocupados += datos.ObtenerOcupadosPorCodigo(codigo);
+            }
+
+            return 52 - ocupados;
+        }
+
+        public int ObtenerEspaciosMotosDisponibles()
+        {
+            return 5 - datos.ObtenerOcupadosPorCodigo("MOT");
+        }
+
     }
 }

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using System.IO;
 using SistemaParking.Entidad;
 
 

@@ -113,6 +113,17 @@ namespace SistemaParking
             cmbTipoVehiculo.SelectedIndex = -1;
             txtPlaca.Focus();
 
+            bool ok = true;
+            if (ok)
+            {
+                MessageBox.Show("Vehículo registrado correctamente");
+
+                //Refrescar los labels de espacios
+                var menu = Application.OpenForms.OfType<Menu>().FirstOrDefault();
+                if (menu != null)
+                    menu.ActualizarLabels();
+            }
+
         }
     }
 }

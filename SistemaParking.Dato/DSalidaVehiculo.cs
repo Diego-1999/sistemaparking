@@ -68,8 +68,7 @@ namespace SistemaParking.Dato
             
         }
 
-
-        public void RegistrarSalida(string placa, string numeroIdColaborador, decimal total)
+        public (bool registrado, string idCliente, DateTime fechaEntrada, DateTime fechaSalida, decimal total) RegistrarSalida(string placa, string numeroIdColaborador, decimal total)
         {
             try
             {
@@ -82,38 +81,47 @@ namespace SistemaParking.Dato
                         {
                             int idEntrada;
                             string codigoTipoVehiculo;
+                            string idCliente = null;
+                            DateTime fechaEntrada;
 
-                            // 1. Entrada activa
-                            using (var command = new SqlCommand(@" SELECT TOP 1 
-                                                                        e.id_entrada, 
-                                                                        v.Codigo 
-                                                                FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo 
-                                                                LEFT JOIN Salida s ON s.id_entrada = e.id_entrada WHERE v.placa = @Placa AND s.id_salida IS NULL
-                                                                ORDER BY e.fecha_hora_entrada DESC", cn, tx))
+                            // 1. Buscar entrada activa con cliente
+                            using (var command = new SqlCommand(@"
+                        SELECT TOP 1 e.id_entrada, v.Codigo, e.id_numero, e.fecha_hora_entrada
+                        FROM Entrada e 
+                        INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
+                        LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
+                        WHERE v.placa = @Placa AND s.id_salida IS NULL
+                        ORDER BY e.fecha_hora_entrada DESC", cn, tx))
                             {
-                                command.Parameters.AddWithValue("@Placa", placa); //Se asignan parametros
-                                using (var result = command.ExecuteReader()) //Se ejecuta la consulta 
+                                command.Parameters.AddWithValue("@Placa", placa);
+                                using (var result = command.ExecuteReader())
                                 {
                                     if (!result.Read())
                                         throw new Exception("No existe entrada activa");
 
                                     idEntrada = result.GetInt32(0);
                                     codigoTipoVehiculo = result.GetString(1);
+                                    if (!result.IsDBNull(2))
+                                        idCliente = result.GetString(2);
+                                    fechaEntrada = result.GetDateTime(3);
                                 }
                             }
 
-                            // 2. Obtener tarifa SOLO para el ID
+                            // 2. Obtener tarifa
                             int idTarifa;
-                            using (var command = new SqlCommand(@"SELECT TOP 1 id_tarifa FROM Tarifa
-                                WHERE Codigo = @Codigo AND estado = 1", cn, tx))
+                            using (var command = new SqlCommand(@"
+                        SELECT TOP 1 id_tarifa 
+                        FROM Tarifa
+                        WHERE Codigo = @Codigo AND estado = 1", cn, tx))
                             {
                                 command.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
                                 idTarifa = (int)command.ExecuteScalar();
                             }
 
-                            // 3. Registrar salida (CON TOTAL)
-                            using (var command = new SqlCommand(@"INSERT INTO Salida (fecha_hora_salida, total_pagar, id_entrada, id_tarifa, numero_id)
-                                VALUES (GETDATE(), @Total, @IdEntrada, @IdTarifa, @NumeroId)", cn, tx))
+                            // 3. Registrar salida
+                            using (var command = new SqlCommand(@"
+                        INSERT INTO Salida (fecha_hora_salida, total_pagar, id_entrada, id_tarifa, numero_id)
+                        VALUES (GETDATE(), @Total, @IdEntrada, @IdTarifa, @NumeroId)", cn, tx))
                             {
                                 command.Parameters.AddWithValue("@Total", total);
                                 command.Parameters.AddWithValue("@IdEntrada", idEntrada);
@@ -123,6 +131,8 @@ namespace SistemaParking.Dato
                             }
 
                             tx.Commit();
+
+                            return (true, idCliente, fechaEntrada, DateTime.Now, total);
                         }
                         catch
                         {
@@ -132,15 +142,86 @@ namespace SistemaParking.Dato
                     }
                 }
             }
-            catch (SqlException)
+            catch
             {
-                throw;
-            }
-            catch (Exception)
-            {
-
                 throw;
             }
         }
+
+
+
+        //public void RegistrarSalida(string placa, string numeroIdColaborador, decimal total)
+        //{
+        //    try
+        //    {
+        //        using (var cn = GetConnection())
+        //        {
+        //            cn.Open();
+        //            using (var tx = cn.BeginTransaction())
+        //            {
+        //                try
+        //                {
+        //                    int idEntrada;
+        //                    string codigoTipoVehiculo;
+
+        //                    // 1. Entrada activa
+        //                    using (var command = new SqlCommand(@" SELECT TOP 1 
+        //                                                                e.id_entrada, 
+        //                                                                v.Codigo 
+        //                                                        FROM Entrada e INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo 
+        //                                                        LEFT JOIN Salida s ON s.id_entrada = e.id_entrada WHERE v.placa = @Placa AND s.id_salida IS NULL
+        //                                                        ORDER BY e.fecha_hora_entrada DESC", cn, tx))
+        //                    {
+        //                        command.Parameters.AddWithValue("@Placa", placa); //Se asignan parametros
+        //                        using (var result = command.ExecuteReader()) //Se ejecuta la consulta 
+        //                        {
+        //                            if (!result.Read())
+        //                                throw new Exception("No existe entrada activa");
+
+        //                            idEntrada = result.GetInt32(0);
+        //                            codigoTipoVehiculo = result.GetString(1);
+        //                        }
+        //                    }
+
+        //                    // 2. Obtener tarifa SOLO para el ID
+        //                    int idTarifa;
+        //                    using (var command = new SqlCommand(@"SELECT TOP 1 id_tarifa FROM Tarifa
+        //                        WHERE Codigo = @Codigo AND estado = 1", cn, tx))
+        //                    {
+        //                        command.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
+        //                        idTarifa = (int)command.ExecuteScalar();
+        //                    }
+
+        //                    // 3. Registrar salida (CON TOTAL)
+        //                    using (var command = new SqlCommand(@"INSERT INTO Salida (fecha_hora_salida, total_pagar, id_entrada, id_tarifa, numero_id)
+        //                        VALUES (GETDATE(), @Total, @IdEntrada, @IdTarifa, @NumeroId)", cn, tx))
+        //                    {
+        //                        command.Parameters.AddWithValue("@Total", total);
+        //                        command.Parameters.AddWithValue("@IdEntrada", idEntrada);
+        //                        command.Parameters.AddWithValue("@IdTarifa", idTarifa);
+        //                        command.Parameters.AddWithValue("@NumeroId", numeroIdColaborador);
+        //                        command.ExecuteNonQuery();
+        //                    }
+
+        //                    tx.Commit();
+        //                }
+        //                catch
+        //                {
+        //                    tx.Rollback();
+        //                    throw;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (SqlException)
+        //    {
+        //        throw;
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }

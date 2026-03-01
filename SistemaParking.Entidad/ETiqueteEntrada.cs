@@ -13,8 +13,6 @@ namespace SistemaParking.Entidad
             public DateTime FechaEmision { get; set; } = DateTime.Now;
             public string PlacaVehiculo { get; set; }
             public string tipovehiculo { get; set; }
-
-            // ✅ Agregar esta propiedad
             public string IdCliente { get; set; }
 
     }

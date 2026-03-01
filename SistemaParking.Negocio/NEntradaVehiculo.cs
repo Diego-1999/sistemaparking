@@ -23,6 +23,7 @@ namespace SistemaParking.Negocio
             return dVehiculo.RegistrarVehiculo(placa.Trim(), nombreTipoVehiculo, numeroIdColaborador);
         }
 
+        //Metodo obtiene el correo del cliente
         public string ObtenerCorreoCliente(string placa)
         {
             string idCliente = dVehiculo.ObtenerIdClientePorPlaca(placa);
@@ -32,8 +33,6 @@ namespace SistemaParking.Negocio
             }
             return null;
         }
-
-
 
         // Método genera el tiquete si el registro fue exitoso
         public ETiqueteEntrada GenerarTiqueteEntrada(string placa, string nombreTipoVehiculo, string numeroIdColaborador)
@@ -73,5 +72,22 @@ namespace SistemaParking.Negocio
             );
         }
 
+        public List<ERegistroVehiculo> MostrarVehiculosEnParqueo()
+        {
+            return dVehiculo.ObtenerVehiculosEnParqueo();
+        }
+
+
+        private DEntradaVehiculo eliminar = new DEntradaVehiculo();
+
+        public bool EliminarEntrada(int idEntrada)
+        {
+            return eliminar.EliminarEntrada(idEntrada);
+        }
+
+        public int ContarVehiculosEnParqueo()
+        {
+            return dVehiculo.ContarVehiculosEnParqueo();
+        }
     }
 }

@@ -46,6 +46,10 @@
             this.btnSalida = new System.Windows.Forms.Button();
             this.btnEntrada = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.btnCarros = new System.Windows.Forms.PictureBox();
+            this.btnVehiculos = new System.Windows.Forms.PictureBox();
+            this.lblMotosDisponibles = new System.Windows.Forms.Label();
+            this.lblVehiculosDisponibles = new System.Windows.Forms.Label();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -57,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelConf.SuspendLayout();
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCarros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVehiculos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -303,6 +309,10 @@
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BarraTitulo.Controls.Add(this.btnCarros);
+            this.BarraTitulo.Controls.Add(this.btnVehiculos);
+            this.BarraTitulo.Controls.Add(this.lblMotosDisponibles);
+            this.BarraTitulo.Controls.Add(this.lblVehiculosDisponibles);
             this.BarraTitulo.Controls.Add(this.btnRestaurar);
             this.BarraTitulo.Controls.Add(this.btnMaximizar);
             this.BarraTitulo.Controls.Add(this.btnMinimizar);
@@ -314,6 +324,54 @@
             this.BarraTitulo.Size = new System.Drawing.Size(1050, 50);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // btnCarros
+            // 
+            this.btnCarros.Image = ((System.Drawing.Image)(resources.GetObject("btnCarros.Image")));
+            this.btnCarros.Location = new System.Drawing.Point(192, 12);
+            this.btnCarros.Name = "btnCarros";
+            this.btnCarros.Size = new System.Drawing.Size(32, 32);
+            this.btnCarros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnCarros.TabIndex = 0;
+            this.btnCarros.TabStop = false;
+            this.btnCarros.Click += new System.EventHandler(this.btnCarros_Click);
+            // 
+            // btnVehiculos
+            // 
+            this.btnVehiculos.Image = ((System.Drawing.Image)(resources.GetObject("btnVehiculos.Image")));
+            this.btnVehiculos.Location = new System.Drawing.Point(70, 12);
+            this.btnVehiculos.Name = "btnVehiculos";
+            this.btnVehiculos.Size = new System.Drawing.Size(32, 32);
+            this.btnVehiculos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnVehiculos.TabIndex = 0;
+            this.btnVehiculos.TabStop = false;
+            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
+            // 
+            // lblMotosDisponibles
+            // 
+            this.lblMotosDisponibles.AutoSize = true;
+            this.lblMotosDisponibles.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotosDisponibles.ForeColor = System.Drawing.Color.Black;
+            this.lblMotosDisponibles.Location = new System.Drawing.Point(229, 18);
+            this.lblMotosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMotosDisponibles.Name = "lblMotosDisponibles";
+            this.lblMotosDisponibles.Size = new System.Drawing.Size(43, 19);
+            this.lblMotosDisponibles.TabIndex = 9;
+            this.lblMotosDisponibles.Text = "Moto";
+            this.lblMotosDisponibles.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // lblVehiculosDisponibles
+            // 
+            this.lblVehiculosDisponibles.AutoSize = true;
+            this.lblVehiculosDisponibles.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehiculosDisponibles.ForeColor = System.Drawing.Color.Black;
+            this.lblVehiculosDisponibles.Location = new System.Drawing.Point(107, 18);
+            this.lblVehiculosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVehiculosDisponibles.Name = "lblVehiculosDisponibles";
+            this.lblVehiculosDisponibles.Size = new System.Drawing.Size(60, 19);
+            this.lblVehiculosDisponibles.TabIndex = 8;
+            this.lblVehiculosDisponibles.Text = "Vehiculo";
+            this.lblVehiculosDisponibles.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // btnRestaurar
             // 
@@ -403,6 +461,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelConf.ResumeLayout(false);
             this.BarraTitulo.ResumeLayout(false);
+            this.BarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCarros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVehiculos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -437,6 +498,10 @@
         private System.Windows.Forms.Button btnEstablecerTarifas;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.Panel panelUser;
+        private System.Windows.Forms.Label lblMotosDisponibles;
+        private System.Windows.Forms.Label lblVehiculosDisponibles;
+        private System.Windows.Forms.PictureBox btnVehiculos;
+        private System.Windows.Forms.PictureBox btnCarros;
     }
 }
 

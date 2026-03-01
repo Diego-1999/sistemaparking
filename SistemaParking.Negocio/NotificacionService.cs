@@ -43,5 +43,29 @@ namespace SistemaParking.Negocio
 
             await _emailClient.EnviarCorreoAsync(destinatario, asunto, cuerpo, rutaAdjunto);
         }
+
+
+        public async Task NotificarConTiqueteSalidaAsync(ETiqueteSalida tiquete, string rutaAdjunto)
+        {
+            string correoCliente = null;
+
+            if (!string.IsNullOrEmpty(tiquete.IdCliente))
+            {
+                correoCliente = _nCliente.ObtenerCorreoPorId(tiquete.IdCliente);
+            }
+
+            string destinatario = correoCliente ?? "correo_generico@dominio.com";
+            string asunto = "Tiquete de Salida - Parqueo";
+            string cuerpo = $"Estimado {(correoCliente != null ? "Cliente" : "Visitante")},\n\n" +
+                            $"Su tiquete de salida ha sido generado.\n\n" +
+                            $"📌 Placa: {tiquete.PlacaVehiculo}\n" +
+                            $"📅 Entrada: {tiquete.FechaEntrada}\n" +
+                            $"📅 Salida: {tiquete.FechaSalida}\n" +
+                            $"⏱ Tiempo total: {tiquete.TiempoTotal}\n" +
+                            $"💲 Monto: {tiquete.MontoCobrado}\n" +
+                            $"🎫 Código: {tiquete.Tiquete}";
+
+            await _emailClient.EnviarCorreoAsync(destinatario, asunto, cuerpo, rutaAdjunto);
+        }
     }
 }
