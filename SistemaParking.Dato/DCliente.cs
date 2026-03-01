@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SistemaParking.Dato
@@ -114,9 +116,8 @@ namespace SistemaParking.Dato
             }
         }
 
-        
-        // Mostrar todos los clientes con sus vehículos
 
+        // Mostrar todos los clientes con sus vehículos
         public List<ECliente> MostrarClientes()
         {
             List<ECliente> clientes = new List<ECliente>();
@@ -125,15 +126,15 @@ namespace SistemaParking.Dato
             {
                 cn.Open();
                 using (var cmd = new SqlCommand(@"
-            SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
-                   v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
-                   m.nombre_marca, col.nombre_color
-            FROM Cliente c
-            INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
-            INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
-            INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
-            INNER JOIN Marca m ON v.id_marca = m.id_marca
-            INNER JOIN Color col ON v.id_color = col.id_color;", cn))
+             SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
+                    v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
+                    v.id_marca, m.nombre_marca, v.id_color, col.nombre_color
+             FROM Cliente c
+             INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
+             INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
+             INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
+             INNER JOIN Marca m ON v.id_marca = m.id_marca
+             INNER JOIN Color col ON v.id_color = col.id_color;", cn))
 
                 {
                     using (var reader = cmd.ExecuteReader())
@@ -167,8 +168,11 @@ namespace SistemaParking.Dato
                                 Placa = reader["placa"].ToString(),
                                 Codigo = reader["Codigo"].ToString(),
                                 TipoVehiculo = reader["TipoVehiculo"].ToString(),
+                                IdMarca = Convert.ToInt32(reader["id_marca"]),
                                 Marca = reader["nombre_marca"].ToString(),
+                                IdColor = Convert.ToInt32(reader["id_color"]),
                                 Color = reader["nombre_color"].ToString()
+
 
                             });
                         }
@@ -178,8 +182,7 @@ namespace SistemaParking.Dato
             return clientes;
         }
 
-
-
+  
         public List<ECliente> BuscarClientes(string busqueda)
         {
             List<ECliente> clientes = new List<ECliente>();
@@ -292,6 +295,72 @@ namespace SistemaParking.Dato
             }
 
         }
+
+        public bool EditarClienteYVehiculo(ECliente cliente)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                SqlTransaction tran = cn.BeginTransaction();
+
+                try
+                {
+                    // Actualizar Cliente
+                    string sqlCliente = @"UPDATE Cliente 
+                          SET tipo_id=@TipoId, nombre=@Nombre, apellido=@Apellido
+                          WHERE id_numero=@Cedula";
+                    using (var cmd = new SqlCommand(sqlCliente, cn, tran))
+                    {
+                        cmd.Parameters.AddWithValue("@TipoId", cliente.TipoId);
+                        cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                        cmd.Parameters.AddWithValue("@Apellido", cliente.Apellido);
+                        cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Actualizar ContactoCliente
+                    string sqlContacto = @"UPDATE ContactoCliente 
+                    SET telefono=@Telefono, correo=@Correo
+                    WHERE id_numero=@Cedula";
+                    using (var cmd = new SqlCommand(sqlContacto, cn, tran))
+                    {
+                        cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+                        cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+                        cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Actualizar Vehiculo
+                    if (cliente.Vehiculos != null && cliente.Vehiculos.Count > 0)
+                    {
+                        EVehiculo v = cliente.Vehiculos[0];
+                        string sqlVehiculo = @"UPDATE Vehiculo 
+                        SET placa=@Placa, Codigo=@Codigo, id_marca=@IdMarca, id_color=@IdColor
+                        WHERE id_vehiculo=@IdVehiculo";
+                        using (var cmd = new SqlCommand(sqlVehiculo, cn, tran))
+                        {
+                            cmd.Parameters.AddWithValue("@Placa", v.Placa);
+                            cmd.Parameters.AddWithValue("@Codigo", v.Codigo);
+                            cmd.Parameters.AddWithValue("@IdMarca", v.IdMarca);
+                            cmd.Parameters.AddWithValue("@IdColor", v.IdColor);
+                            cmd.Parameters.AddWithValue("@IdVehiculo", v.IdVehiculo);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    tran.Commit();
+                    return true;
+                }
+                catch
+                {
+                    tran.Rollback();
+                    return false;
+                }
+            }
+        }
+
+
     }
 
 }
+
+

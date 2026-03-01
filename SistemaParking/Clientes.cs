@@ -21,11 +21,11 @@ namespace SistemaParking
 
         NCliente nCliente = new NCliente();
 
-      
+   
         private void Clientes_Load(object sender, EventArgs e)
         {
             CargarClientes();
-           // dgwClientes.DataSource = negocio.MostrarClientes();
+           
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -37,31 +37,52 @@ namespace SistemaParking
         }
 
         private void CargarClientes()
-        {     
+        {
             var clientes = nCliente.MostrarClientes();
             MostrarEnGrid(clientes);
         }
 
         private void MostrarEnGrid(List<ECliente> clientes)
         {
-            // Mostrar todos los vehículos en filas separadas
-            var lista = clientes.SelectMany(c => c.Vehiculos.Select(v => new
-            {
-                c.Cedula,
-                c.TipoId,
-                c.Nombre,
-                c.Apellido,
-                c.Telefono,
-                c.Correo,
-                v.Placa,
-                v.TipoVehiculo,
-                v.Marca,
+            dgwClientes.AutoGenerateColumns = false;
+            dgwClientes.Columns.Clear();
 
-                v.Color
-            })).ToList();
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cédula", DataPropertyName = "Cedula" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Nombre", DataPropertyName = "Nombre" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Apellido", DataPropertyName = "Apellido" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Teléfono", DataPropertyName = "Telefono" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Correo", DataPropertyName = "Correo" });
 
-            dgwClientes.AutoGenerateColumns = true;
-            dgwClientes.DataSource = lista;
+            // Mostrar solo el primer vehículo
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Placa", DataPropertyName = "Placa" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Marca", DataPropertyName = "Marca" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Color", DataPropertyName = "Color" });
+            dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo Vehículo", DataPropertyName = "TipoVehiculo" });
+
+            dgwClientes.DataSource = clientes;
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+            if (dgwClientes.CurrentRow != null)
+            {
+                ECliente clienteSeleccionado = (ECliente)dgwClientes.CurrentRow.DataBoundItem;
+
+
+                Editar_Cliente frmEditar = new Editar_Cliente(clienteSeleccionado);
+
+                Menu menu = (Menu)this.ParentForm;
+                menu.AbrirFormPanel(frmEditar);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente para editar.");
+            }
+
+
+           
+            }       
+        
     }
 }

@@ -58,6 +58,12 @@ namespace SistemaParking.Negocio
         {
                 return dCliente.ObtenerCorreoPorId(idCliente);
         }
-       
+
+        public bool EditarClienteYVehiculo(ECliente cliente)
+        {
+            return dCliente.EditarClienteYVehiculo(cliente);
+        }
+
+
     }
 }

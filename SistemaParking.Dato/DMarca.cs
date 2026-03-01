@@ -13,45 +13,26 @@ namespace SistemaParking.Dato
     public class DMarca : ConnectionSql
     {
         //Listar los tipos de vehiculos para el combobox
-        public List<EMarca> GetMarca()
+        public List<EMarca> GetTiposDeMarca()
         {
-            try
+            var lista = new List<EMarca>();
+            using (var cn = GetConnection())
             {
-                var lista = new List<EMarca>();
-
-                using (var cn = GetConnection())
+                cn.Open();
+                using (var command = new SqlCommand("SELECT id_marca, nombre_marca FROM Marca", cn))
+                using (var reader = command.ExecuteReader())
                 {
-                    cn.Open();
-                    using (var command = new SqlCommand("SELECT * FROM Marca", cn))
+                    while (reader.Read())
                     {
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        lista.Add(new EMarca
                         {
-                            while (reader.Read())
-                            {
-                                var marca = new EMarca
-                                {
-                                    id_marca = reader.GetInt32(0),
-                                    nombre_marca = reader.GetString(1)
-                                };
-                                lista.Add(marca);
-                            }
-                        }
-
+                            id_marca = reader.GetInt32(reader.GetOrdinal("id_marca")),
+                            nombre_marca = reader.GetString(reader.GetOrdinal("nombre_marca"))
+                        });
                     }
                 }
-                return lista;
             }
-            catch (SqlException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            
+            return lista;
         }
     }
 }

@@ -244,7 +244,7 @@
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(236, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(273, 33);
             this.cmbTipoIden.TabIndex = 51;
             this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
@@ -320,7 +320,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtEmail.Location = new System.Drawing.Point(720, 143);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 33);
+            this.txtEmail.Size = new System.Drawing.Size(252, 33);
             this.txtEmail.TabIndex = 43;
             // 
             // txtTelefono

@@ -144,6 +144,12 @@
     <Compile Include="Configuracion.Designer.cs">
       <DependentUpon>Configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar_Cliente.Designer.cs">
+      <DependentUpon>Editar_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspaciosParqueo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion.resx">
       <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editar_Cliente.resx">
+      <DependentUpon>Editar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EspaciosParqueo.resx">
       <DependentUpon>EspaciosParqueo.cs</DependentUpon>

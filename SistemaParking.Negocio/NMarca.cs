@@ -13,7 +13,7 @@ namespace SistemaParking.Negocio
         DMarca dmarca = new DMarca();
         public List<EMarca> ListarMarca()
         {
-            return dmarca.GetMarca();
+            return dmarca.GetTiposDeMarca();
         }
     }
 }
