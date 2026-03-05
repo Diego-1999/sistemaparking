@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reportes));
             this.dgvReporte = new System.Windows.Forms.DataGridView();
             this.dtpFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +47,9 @@
             this.dgvReporte.AllowUserToOrderColumns = true;
             this.dgvReporte.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReporte.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvReporte.BackgroundColor = System.Drawing.Color.White;
             this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvReporte.Location = new System.Drawing.Point(12, 136);
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.Size = new System.Drawing.Size(1023, 392);
@@ -54,6 +57,7 @@
             // 
             // dtpFechaInicial
             // 
+            this.dtpFechaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpFechaInicial.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.dtpFechaInicial.Location = new System.Drawing.Point(132, 44);
             this.dtpFechaInicial.Name = "dtpFechaInicial";
@@ -62,6 +66,7 @@
             // 
             // dtpFechaFinal
             // 
+            this.dtpFechaFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpFechaFinal.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.dtpFechaFinal.Location = new System.Drawing.Point(635, 44);
             this.dtpFechaFinal.Name = "dtpFechaFinal";
@@ -70,10 +75,12 @@
             // 
             // gpbFechasreporte
             // 
+            this.gpbFechasreporte.BackColor = System.Drawing.Color.Transparent;
             this.gpbFechasreporte.Controls.Add(this.lblFechaFinal);
             this.gpbFechasreporte.Controls.Add(this.LblFechaInicial);
             this.gpbFechasreporte.Controls.Add(this.dtpFechaInicial);
             this.gpbFechasreporte.Controls.Add(this.dtpFechaFinal);
+            this.gpbFechasreporte.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.gpbFechasreporte.Location = new System.Drawing.Point(12, 40);
             this.gpbFechasreporte.Name = "gpbFechasreporte";
             this.gpbFechasreporte.Size = new System.Drawing.Size(1023, 90);
@@ -109,18 +116,19 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(457, 9);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(94, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(100, 30);
             this.lblTitulo.TabIndex = 4;
             this.lblTitulo.Text = "Reportes";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -139,7 +147,8 @@
             // btnExportar
             // 
             this.btnExportar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportar.FlatAppearance.BorderSize = 0;
             this.btnExportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -160,12 +169,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.gpbFechasreporte);
             this.Controls.Add(this.dgvReporte);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Reportes";
             this.Text = "Reportes";

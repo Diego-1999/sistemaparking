@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaciosParqueo));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.TxtNumeroEspacios = new System.Windows.Forms.TextBox();
             this.TxtTipoEspacio = new System.Windows.Forms.TextBox();
@@ -41,11 +42,12 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(391, 7);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(288, 28);
+            this.lblTitulo.Size = new System.Drawing.Size(314, 28);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Establecer Espacios del Parqueo";
             // 
@@ -96,14 +98,15 @@
             // BtnLimpiar
             // 
             this.BtnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.BtnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.BtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLimpiar.FlatAppearance.BorderSize = 0;
             this.BtnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLimpiar.ForeColor = System.Drawing.Color.White;
             this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLimpiar.Location = new System.Drawing.Point(662, 536);
+            this.BtnLimpiar.Location = new System.Drawing.Point(851, 536);
             this.BtnLimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(185, 40);
@@ -115,14 +118,15 @@
             // BtnGuardarEspacio
             // 
             this.BtnGuardarEspacio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnGuardarEspacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.BtnGuardarEspacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.BtnGuardarEspacio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuardarEspacio.FlatAppearance.BorderSize = 0;
             this.BtnGuardarEspacio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.BtnGuardarEspacio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardarEspacio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardarEspacio.ForeColor = System.Drawing.Color.White;
             this.BtnGuardarEspacio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardarEspacio.Location = new System.Drawing.Point(851, 536);
+            this.BtnGuardarEspacio.Location = new System.Drawing.Point(642, 536);
             this.BtnGuardarEspacio.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardarEspacio.Name = "BtnGuardarEspacio";
             this.BtnGuardarEspacio.Size = new System.Drawing.Size(185, 40);
@@ -136,6 +140,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnGuardarEspacio);
@@ -144,6 +150,7 @@
             this.Controls.Add(this.TxtTipoEspacio);
             this.Controls.Add(this.TxtNumeroEspacios);
             this.Controls.Add(this.lblTitulo);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EspaciosParqueo";

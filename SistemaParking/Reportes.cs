@@ -23,31 +23,43 @@ namespace SistemaParking
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            DateTime fechaInicial = dtpFechaInicial.Value;
-            DateTime fechaFinal = dtpFechaFinal.Value;
+            try
+            {
+                if (!ValidaFechas()) //valida fechas 
+                    return;
 
-            var negocio = new NReportes();
-            var reporte = negocio.GenerarReporte(fechaInicial, fechaFinal);
+                DateTime fechaInicial = dtpFechaInicial.Value;
+                DateTime fechaFinal = dtpFechaFinal.Value;
 
-            dgvReporte.DataSource = reporte; // Mostrar directamente en DataGridView
+                var negocio = new NReportes();
+                var reporte = negocio.GenerarReporte(fechaInicial, fechaFinal);
 
-            // Ajustes visuales
-            dgvReporte.Columns["Vehiculo"].HeaderText = "Vehículo"; 
-            dgvReporte.Columns["TipoVehiculo"].HeaderText = "Tipo de Vehículo";
-            dgvReporte.Columns["Entrada"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-            dgvReporte.Columns["Salida"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-            dgvReporte.Columns["TotalPagar"].DefaultCellStyle.Format = "N2";
-            dgvReporte.Columns["TotalPagar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvReporte.AutoResizeColumns();
-            dgvReporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvReporte.DataSource = reporte; // Mostrar directamente en DataGridView
 
+                // Ajustes visuales
+                dgvReporte.Columns["Vehiculo"].HeaderText = "Vehículo";
+                dgvReporte.Columns["TipoVehiculo"].HeaderText = "Tipo de Vehículo";
+                dgvReporte.Columns["Entrada"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                dgvReporte.Columns["Salida"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                dgvReporte.Columns["TotalPagar"].DefaultCellStyle.Format = "N2";
+                dgvReporte.Columns["TotalPagar"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvReporte.AutoResizeColumns();
+                dgvReporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+                dgvReporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Ajustar colmnas en DataGridView
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al exportar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+            
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
-        {
+        {  
             try
-            {
+            {              
                 // Obtener los datos del reporte según las fechas seleccionadas
                 NReportes negocioReportes = new NReportes();
                 List<EReportes> reporte = negocioReportes.GenerarReporte(dtpFechaInicial.Value, dtpFechaFinal.Value);
@@ -74,6 +86,7 @@ namespace SistemaParking
 
                     // Datos
                     int fila = 2;
+                    decimal totalGeneral = 0; // acumulador
                     foreach (var item in reporte)
                     {
                         worksheet.Cell(fila, 1).Value = item.Vehiculo;
@@ -83,8 +96,17 @@ namespace SistemaParking
                         worksheet.Cell(fila, 5).Value = item.Tarifa;
                         worksheet.Cell(fila, 6).Value = item.Cliente;
                         worksheet.Cell(fila, 7).Value = item.TotalPagar;
+
+                        totalGeneral += item.TotalPagar; // acumular el total
                         fila++;
                     }
+
+                    // Mostrar total en la última fila
+                    worksheet.Cell(fila, 6).Value = "TOTAL:";
+                    worksheet.Cell(fila, 7).Value = totalGeneral;
+
+                    // Formato de moneda
+                    worksheet.Column(7).Style.NumberFormat.Format = "#,##0.00 [$₡-CRC]";
 
                     // Ajustar columnas y formato de fechas
                     worksheet.Column(3).Style.DateFormat.Format = "dd/MM/yyyy HH:mm";
@@ -111,6 +133,35 @@ namespace SistemaParking
                 MessageBox.Show("Error al exportar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        public bool ValidaFechas()
+        {
+            DateTime fechaSeleccionadaInicial = dtpFechaInicial.Value;
+            DateTime fechaSeleccionadaFinal = dtpFechaFinal.Value;
+            DateTime fechaActual = DateTime.Now;
+
+            if (fechaSeleccionadaInicial > fechaActual)
+            {
+                MessageBox.Show("La fecha inicial no puede ser futura.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                dtpFechaInicial.Value = fechaActual;
+                return false; // Detener flujo
+            }
+
+            if (fechaSeleccionadaFinal > fechaActual)
+            {
+                MessageBox.Show("La fecha final no puede ser futura.",
+                                "Validación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                dtpFechaFinal.Value = fechaActual;
+                return false; // Detener flujo
+            }
+
+            return true; // Todo válido
         }
     }
     

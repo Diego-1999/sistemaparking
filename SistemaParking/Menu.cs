@@ -15,13 +15,18 @@ namespace SistemaParking
 {
     public partial class Menu : Form
     {
-        public Menu()
-        {
-            InitializeComponent();
-            PersonalizarDiseno();
-            ActualizarLabels();
+            public Menu()
+            {
+                InitializeComponent();
+                PersonalizarDiseno();
+                ActualizarLabels();
+                ConfigurarToolTips();
+            
+                Inicio inicio = new Inicio();              
+                AbrirFormPanel(inicio);
 
-        }
+
+            }
 
         NEspaciosParqueo nEspaciosParqueo = new NEspaciosParqueo();
         NEntradaVehiculo nEntradaVehiculo = new NEntradaVehiculo();
@@ -76,23 +81,10 @@ namespace SistemaParking
             Application.Exit();
         }
 
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            btnRestaurar.Visible = true;
-            btnMaximizar.Visible = false;
-        }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            btnRestaurar.Visible = false;
-            btnMaximizar.Visible = true;
         }
 
         private void BarraTitulo_MouseDown(object sender, MouseEventArgs e)
@@ -169,19 +161,19 @@ namespace SistemaParking
         private void btnNuevoUsuario_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new Registrar_Usuario());
-            OcultarSubMenu();
+            OcultarSubMenu(); //se oculta submenu
         }
 
         private void btnEstablecerTarifas_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new EstablecerTarifa());
-            OcultarSubMenu();
+            OcultarSubMenu(); //se oculta submenu
         }
 
         private void btnEspacios_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new EspaciosParqueo());
-            OcultarSubMenu();
+            OcultarSubMenu();//se oculta submenu
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -214,9 +206,36 @@ namespace SistemaParking
             AbrirFormPanel(new Vehiculos());
         }
 
-        private void btnCarros_Click(object sender, EventArgs e)
+        private void btnMoto_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new Vehiculos());
+        }
+
+
+
+        //validaciones
+        private void ConfigurarToolTips()
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            // Configuración 
+            toolTip1.AutoPopDelay = 5000;   // tiempo visible en ms
+            toolTip1.InitialDelay = 500;    // retraso antes de aparecer
+            toolTip1.ReshowDelay = 200;     // retraso entre apariciones
+            toolTip1.ShowAlways = true;     // mostrar incluso si el formulario no está activo
+
+            // Asigna ToolTip a controles
+            toolTip1.SetToolTip(this.btnMoto, "Vehiculos en parqueo");
+            toolTip1.SetToolTip(this.btnVehiculos, "Vehiculos en parqueo");
+            toolTip1.SetToolTip(this.btnMinimizar, "Minimizar");
+            toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {    
+            Inicio inicio = new Inicio();
+            AbrirFormPanel(inicio);
+
         }
     }
 }

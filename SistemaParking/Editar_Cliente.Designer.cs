@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar_Cliente));
             this.gpbInfoCliente = new System.Windows.Forms.GroupBox();
             this.mskCedula = new System.Windows.Forms.MaskedTextBox();
             this.cmbTipoIden = new System.Windows.Forms.ComboBox();
@@ -58,6 +59,8 @@
             // 
             // gpbInfoCliente
             // 
+            this.gpbInfoCliente.BackColor = System.Drawing.Color.Transparent;
+            this.gpbInfoCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gpbInfoCliente.Controls.Add(this.mskCedula);
             this.gpbInfoCliente.Controls.Add(this.cmbTipoIden);
             this.gpbInfoCliente.Controls.Add(this.lblTipoIdenti);
@@ -70,7 +73,7 @@
             this.gpbInfoCliente.Controls.Add(this.txtTelefono);
             this.gpbInfoCliente.Controls.Add(this.txtApellidos);
             this.gpbInfoCliente.Controls.Add(this.txtNombre);
-            this.gpbInfoCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbInfoCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfoCliente.Location = new System.Drawing.Point(16, 71);
             this.gpbInfoCliente.Name = "gpbInfoCliente";
             this.gpbInfoCliente.Size = new System.Drawing.Size(1019, 203);
@@ -80,6 +83,7 @@
             // 
             // mskCedula
             // 
+            this.mskCedula.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.mskCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mskCedula.Location = new System.Drawing.Point(412, 66);
             this.mskCedula.Name = "mskCedula";
@@ -89,6 +93,7 @@
             // cmbTipoIden
             // 
             this.cmbTipoIden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTipoIden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
@@ -165,6 +170,7 @@
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtEmail.Location = new System.Drawing.Point(720, 143);
             this.txtEmail.Name = "txtEmail";
@@ -174,6 +180,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtTelefono.Location = new System.Drawing.Point(720, 59);
             this.txtTelefono.Name = "txtTelefono";
@@ -183,6 +190,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtApellidos.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtApellidos.Location = new System.Drawing.Point(412, 138);
             this.txtApellidos.Name = "txtApellidos";
@@ -192,6 +200,7 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtNombre.Location = new System.Drawing.Point(116, 138);
             this.txtNombre.Name = "txtNombre";
@@ -200,6 +209,8 @@
             // 
             // gpbInfoVehiculo
             // 
+            this.gpbInfoVehiculo.BackColor = System.Drawing.Color.Transparent;
+            this.gpbInfoVehiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gpbInfoVehiculo.Controls.Add(this.cmbColor);
             this.gpbInfoVehiculo.Controls.Add(this.cmbMarca);
             this.gpbInfoVehiculo.Controls.Add(this.lblTipoVehiculo);
@@ -208,7 +219,7 @@
             this.gpbInfoVehiculo.Controls.Add(this.lblMarca);
             this.gpbInfoVehiculo.Controls.Add(this.cmbTipoVehiculo);
             this.gpbInfoVehiculo.Controls.Add(this.txtPlaca);
-            this.gpbInfoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbInfoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfoVehiculo.Location = new System.Drawing.Point(16, 290);
             this.gpbInfoVehiculo.Name = "gpbInfoVehiculo";
             this.gpbInfoVehiculo.Size = new System.Drawing.Size(1019, 203);
@@ -219,6 +230,7 @@
             // cmbColor
             // 
             this.cmbColor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbColor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cmbColor.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbColor.FormattingEnabled = true;
             this.cmbColor.Location = new System.Drawing.Point(412, 150);
@@ -229,6 +241,7 @@
             // cmbMarca
             // 
             this.cmbMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMarca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(116, 70);
@@ -283,6 +296,7 @@
             // cmbTipoVehiculo
             // 
             this.cmbTipoVehiculo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTipoVehiculo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoVehiculo.FormattingEnabled = true;
             this.cmbTipoVehiculo.Location = new System.Drawing.Point(412, 70);
@@ -293,6 +307,7 @@
             // txtPlaca
             // 
             this.txtPlaca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPlaca.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPlaca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtPlaca.Location = new System.Drawing.Point(116, 150);
             this.txtPlaca.Name = "txtPlaca";
@@ -303,17 +318,20 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(421, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(196, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(207, 30);
             this.lblTitulo.TabIndex = 29;
             this.lblTitulo.Text = "Registro de Clientes";
             // 
             // btnEditar
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -333,11 +351,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.gpbInfoCliente);
             this.Controls.Add(this.gpbInfoVehiculo);
             this.Controls.Add(this.lblTitulo);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Editar_Cliente";

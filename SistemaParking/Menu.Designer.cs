@@ -33,7 +33,7 @@
             this.panelUser = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNomUsuario = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnInicio = new System.Windows.Forms.PictureBox();
             this.lblPosicion = new System.Windows.Forms.Label();
             this.panelConf = new System.Windows.Forms.Panel();
             this.btnEspacios = new System.Windows.Forms.Button();
@@ -46,25 +46,21 @@
             this.btnSalida = new System.Windows.Forms.Button();
             this.btnEntrada = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.btnCarros = new System.Windows.Forms.PictureBox();
+            this.btnMoto = new System.Windows.Forms.PictureBox();
             this.btnVehiculos = new System.Windows.Forms.PictureBox();
             this.lblMotosDisponibles = new System.Windows.Forms.Label();
             this.lblVehiculosDisponibles = new System.Windows.Forms.Label();
-            this.btnRestaurar = new System.Windows.Forms.PictureBox();
-            this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btndesplegar = new System.Windows.Forms.PictureBox();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.MenuVertical.SuspendLayout();
             this.panelUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInicio)).BeginInit();
             this.panelConf.SuspendLayout();
             this.BarraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCarros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVehiculos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndesplegar)).BeginInit();
@@ -72,7 +68,7 @@
             // 
             // MenuVertical
             // 
-            this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
             this.MenuVertical.Controls.Add(this.panelUser);
             this.MenuVertical.Controls.Add(this.panelConf);
             this.MenuVertical.Controls.Add(this.btnAjustes);
@@ -89,10 +85,10 @@
             // 
             // panelUser
             // 
-            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
             this.panelUser.Controls.Add(this.label1);
             this.panelUser.Controls.Add(this.lblNomUsuario);
-            this.panelUser.Controls.Add(this.pictureBox1);
+            this.panelUser.Controls.Add(this.btnInicio);
             this.panelUser.Controls.Add(this.lblPosicion);
             this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUser.Location = new System.Drawing.Point(0, 0);
@@ -117,30 +113,32 @@
             this.lblNomUsuario.AutoSize = true;
             this.lblNomUsuario.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNomUsuario.Location = new System.Drawing.Point(125, 50);
+            this.lblNomUsuario.Location = new System.Drawing.Point(110, 50);
             this.lblNomUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNomUsuario.Name = "lblNomUsuario";
             this.lblNomUsuario.Size = new System.Drawing.Size(56, 19);
             this.lblNomUsuario.TabIndex = 6;
             this.lblNomUsuario.Text = "Usuario";
             // 
-            // pictureBox1
+            // btnInicio
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(73, 81);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.btnInicio.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnInicio.Image = ((System.Drawing.Image)(resources.GetObject("btnInicio.Image")));
+            this.btnInicio.Location = new System.Drawing.Point(0, -2);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(73, 81);
+            this.btnInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.TabStop = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // lblPosicion
             // 
             this.lblPosicion.AutoSize = true;
             this.lblPosicion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosicion.ForeColor = System.Drawing.Color.White;
-            this.lblPosicion.Location = new System.Drawing.Point(123, 18);
+            this.lblPosicion.Location = new System.Drawing.Point(110, 18);
             this.lblPosicion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPosicion.Name = "lblPosicion";
             this.lblPosicion.Size = new System.Drawing.Size(58, 19);
@@ -149,7 +147,7 @@
             // 
             // panelConf
             // 
-            this.panelConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panelConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(102)))));
             this.panelConf.Controls.Add(this.btnEspacios);
             this.panelConf.Controls.Add(this.btnEstablecerTarifas);
             this.panelConf.Controls.Add(this.btnNuevoUsuario);
@@ -160,6 +158,7 @@
             // 
             // btnEspacios
             // 
+            this.btnEspacios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEspacios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEspacios.FlatAppearance.BorderSize = 0;
             this.btnEspacios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -177,6 +176,7 @@
             // 
             // btnEstablecerTarifas
             // 
+            this.btnEstablecerTarifas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEstablecerTarifas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEstablecerTarifas.FlatAppearance.BorderSize = 0;
             this.btnEstablecerTarifas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -194,6 +194,7 @@
             // 
             // btnNuevoUsuario
             // 
+            this.btnNuevoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevoUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNuevoUsuario.FlatAppearance.BorderSize = 0;
             this.btnNuevoUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -211,6 +212,7 @@
             // 
             // btnAjustes
             // 
+            this.btnAjustes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -228,6 +230,7 @@
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -239,11 +242,12 @@
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
             this.btnCerrarSesion.TabIndex = 5;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
-            this.btnCerrarSesion.UseVisualStyleBackColor = true;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnReportes
             // 
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -260,6 +264,7 @@
             // 
             // btnClientes
             // 
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -276,6 +281,7 @@
             // 
             // btnSalida
             // 
+            this.btnSalida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalida.FlatAppearance.BorderSize = 0;
             this.btnSalida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -292,6 +298,7 @@
             // 
             // btnEntrada
             // 
+            this.btnEntrada.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrada.FlatAppearance.BorderSize = 0;
             this.btnEntrada.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -308,13 +315,11 @@
             // 
             // BarraTitulo
             // 
-            this.BarraTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BarraTitulo.Controls.Add(this.btnCarros);
+            this.BarraTitulo.BackColor = System.Drawing.Color.White;
+            this.BarraTitulo.Controls.Add(this.btnMoto);
             this.BarraTitulo.Controls.Add(this.btnVehiculos);
             this.BarraTitulo.Controls.Add(this.lblMotosDisponibles);
             this.BarraTitulo.Controls.Add(this.lblVehiculosDisponibles);
-            this.BarraTitulo.Controls.Add(this.btnRestaurar);
-            this.BarraTitulo.Controls.Add(this.btnMaximizar);
             this.BarraTitulo.Controls.Add(this.btnMinimizar);
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Controls.Add(this.btndesplegar);
@@ -325,19 +330,21 @@
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
-            // btnCarros
+            // btnMoto
             // 
-            this.btnCarros.Image = ((System.Drawing.Image)(resources.GetObject("btnCarros.Image")));
-            this.btnCarros.Location = new System.Drawing.Point(192, 12);
-            this.btnCarros.Name = "btnCarros";
-            this.btnCarros.Size = new System.Drawing.Size(32, 32);
-            this.btnCarros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.btnCarros.TabIndex = 0;
-            this.btnCarros.TabStop = false;
-            this.btnCarros.Click += new System.EventHandler(this.btnCarros_Click);
+            this.btnMoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMoto.Image = ((System.Drawing.Image)(resources.GetObject("btnMoto.Image")));
+            this.btnMoto.Location = new System.Drawing.Point(192, 9);
+            this.btnMoto.Name = "btnMoto";
+            this.btnMoto.Size = new System.Drawing.Size(32, 32);
+            this.btnMoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnMoto.TabIndex = 10;
+            this.btnMoto.TabStop = false;
+            this.btnMoto.Click += new System.EventHandler(this.btnMoto_Click);
             // 
             // btnVehiculos
             // 
+            this.btnVehiculos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVehiculos.Image = ((System.Drawing.Image)(resources.GetObject("btnVehiculos.Image")));
             this.btnVehiculos.Location = new System.Drawing.Point(70, 12);
             this.btnVehiculos.Name = "btnVehiculos";
@@ -350,12 +357,12 @@
             // lblMotosDisponibles
             // 
             this.lblMotosDisponibles.AutoSize = true;
-            this.lblMotosDisponibles.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMotosDisponibles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotosDisponibles.ForeColor = System.Drawing.Color.Black;
             this.lblMotosDisponibles.Location = new System.Drawing.Point(229, 18);
             this.lblMotosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMotosDisponibles.Name = "lblMotosDisponibles";
-            this.lblMotosDisponibles.Size = new System.Drawing.Size(43, 19);
+            this.lblMotosDisponibles.Size = new System.Drawing.Size(47, 20);
             this.lblMotosDisponibles.TabIndex = 9;
             this.lblMotosDisponibles.Text = "Moto";
             this.lblMotosDisponibles.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -363,46 +370,22 @@
             // lblVehiculosDisponibles
             // 
             this.lblVehiculosDisponibles.AutoSize = true;
-            this.lblVehiculosDisponibles.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVehiculosDisponibles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVehiculosDisponibles.ForeColor = System.Drawing.Color.Black;
             this.lblVehiculosDisponibles.Location = new System.Drawing.Point(107, 18);
             this.lblVehiculosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVehiculosDisponibles.Name = "lblVehiculosDisponibles";
-            this.lblVehiculosDisponibles.Size = new System.Drawing.Size(60, 19);
+            this.lblVehiculosDisponibles.Size = new System.Drawing.Size(68, 20);
             this.lblVehiculosDisponibles.TabIndex = 8;
             this.lblVehiculosDisponibles.Text = "Vehiculo";
             this.lblVehiculosDisponibles.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // btnRestaurar
-            // 
-            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(982, 3);
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
-            this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRestaurar.TabIndex = 3;
-            this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(982, 3);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMaximizar.TabIndex = 1;
-            this.btnMaximizar.TabStop = false;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
             // btnMinimizar
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(951, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(982, 3);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -413,6 +396,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(1013, 3);
             this.btnCerrar.Name = "btnCerrar";
@@ -437,6 +421,7 @@
             // PanelContenedor
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(250, 50);
             this.PanelContenedor.Name = "PanelContenedor";
@@ -458,14 +443,12 @@
             this.MenuVertical.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInicio)).EndInit();
             this.panelConf.ResumeLayout(false);
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCarros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVehiculos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndesplegar)).EndInit();
@@ -480,9 +463,7 @@
         private System.Windows.Forms.Panel PanelContenedor;
         private System.Windows.Forms.PictureBox btndesplegar;
         private System.Windows.Forms.PictureBox btnMinimizar;
-        private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox btnRestaurar;
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnSalida;
@@ -491,7 +472,7 @@
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lblNomUsuario;
         private System.Windows.Forms.Label lblPosicion;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox btnInicio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelConf;
         private System.Windows.Forms.Button btnEspacios;
@@ -501,7 +482,7 @@
         private System.Windows.Forms.Label lblMotosDisponibles;
         private System.Windows.Forms.Label lblVehiculosDisponibles;
         private System.Windows.Forms.PictureBox btnVehiculos;
-        private System.Windows.Forms.PictureBox btnCarros;
+        private System.Windows.Forms.PictureBox btnMoto;
     }
 }
 

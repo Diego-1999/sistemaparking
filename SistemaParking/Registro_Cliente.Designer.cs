@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro_Cliente));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -62,24 +63,26 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(435, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(196, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(207, 30);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registro de Clientes";
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(149)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(659, 535);
+            this.btnLimpiar.Location = new System.Drawing.Point(850, 535);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(185, 40);
             this.btnLimpiar.TabIndex = 13;
@@ -90,14 +93,15 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrar.FlatAppearance.BorderSize = 0;
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(850, 535);
+            this.btnRegistrar.Location = new System.Drawing.Point(645, 535);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(185, 40);
             this.btnRegistrar.TabIndex = 12;
@@ -107,6 +111,7 @@
             // 
             // gpbInfoVehiculo
             // 
+            this.gpbInfoVehiculo.BackColor = System.Drawing.Color.Transparent;
             this.gpbInfoVehiculo.Controls.Add(this.cmbColor);
             this.gpbInfoVehiculo.Controls.Add(this.cmbMarca);
             this.gpbInfoVehiculo.Controls.Add(this.lblTipoVehiculo);
@@ -115,7 +120,7 @@
             this.gpbInfoVehiculo.Controls.Add(this.lblMarca);
             this.gpbInfoVehiculo.Controls.Add(this.cmbTipoVehiculo);
             this.gpbInfoVehiculo.Controls.Add(this.txtPlaca);
-            this.gpbInfoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbInfoVehiculo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfoVehiculo.Location = new System.Drawing.Point(16, 285);
             this.gpbInfoVehiculo.Name = "gpbInfoVehiculo";
             this.gpbInfoVehiculo.Size = new System.Drawing.Size(1019, 203);
@@ -136,6 +141,7 @@
             // cmbMarca
             // 
             this.cmbMarca.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMarca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(116, 70);
@@ -190,6 +196,7 @@
             // cmbTipoVehiculo
             // 
             this.cmbTipoVehiculo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTipoVehiculo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoVehiculo.FormattingEnabled = true;
             this.cmbTipoVehiculo.Location = new System.Drawing.Point(412, 70);
@@ -208,6 +215,7 @@
             // 
             // gpbInfoCliente
             // 
+            this.gpbInfoCliente.BackColor = System.Drawing.Color.Transparent;
             this.gpbInfoCliente.Controls.Add(this.mskCedula);
             this.gpbInfoCliente.Controls.Add(this.cmbTipoIden);
             this.gpbInfoCliente.Controls.Add(this.lblTipoIdenti);
@@ -220,7 +228,7 @@
             this.gpbInfoCliente.Controls.Add(this.txtTelefono);
             this.gpbInfoCliente.Controls.Add(this.txtApellidos);
             this.gpbInfoCliente.Controls.Add(this.txtNombre);
-            this.gpbInfoCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbInfoCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbInfoCliente.Location = new System.Drawing.Point(16, 54);
             this.gpbInfoCliente.Name = "gpbInfoCliente";
             this.gpbInfoCliente.Size = new System.Drawing.Size(1019, 203);
@@ -240,6 +248,7 @@
             // cmbTipoIden
             // 
             this.cmbTipoIden.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTipoIden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
@@ -353,7 +362,8 @@
             // btnRegistrarSegundoVehiculo
             // 
             this.btnRegistrarSegundoVehiculo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegistrarSegundoVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnRegistrarSegundoVehiculo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.btnRegistrarSegundoVehiculo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrarSegundoVehiculo.FlatAppearance.BorderSize = 0;
             this.btnRegistrarSegundoVehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.btnRegistrarSegundoVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -373,6 +383,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
             this.Controls.Add(this.btnRegistrarSegundoVehiculo);
             this.Controls.Add(this.gpbInfoCliente);
@@ -380,6 +392,7 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblTitulo);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registro_Cliente";

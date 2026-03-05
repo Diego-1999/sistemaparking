@@ -27,7 +27,7 @@ namespace SistemaParking.Negocio
         public int ObtenerEspaciosVehiculosDisponibles()
         {
             // Todos los códigos que ocupan espacios de carro
-            string[] codigosVehiculo = { "PART", "C", "CL", "TA", "TC", "TG", "TH", "TL", "TP", "TSJ", "TMP", "USA", "D" };
+            string[] codigosVehiculo = { "PART", "CL" };
 
             int ocupados = 0;
             foreach (var codigo in codigosVehiculo)

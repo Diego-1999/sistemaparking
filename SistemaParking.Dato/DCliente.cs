@@ -14,8 +14,8 @@ namespace SistemaParking.Dato
 {
     public class DCliente : ConnectionSql
     {
-        public bool RegistrarCliente(string tipoid,string cedula,string nombre,string apellidos,string telefono,string correo,
-            string placa,string nombreTipoVehiculo,string marca,string color)
+        public bool RegistrarCliente(string tipoid, string cedula, string nombre, string apellidos, string telefono, string correo,
+            string placa, string nombreTipoVehiculo, string marca, string color)
         {
             try
             {
@@ -120,69 +120,77 @@ namespace SistemaParking.Dato
         // Mostrar todos los clientes con sus vehículos
         public List<ECliente> MostrarClientes()
         {
-            List<ECliente> clientes = new List<ECliente>();
-
-            using (var cn = GetConnection())
+            try
             {
-                cn.Open();
-                using (var cmd = new SqlCommand(@"
-             SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
-                    v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
-                    v.id_marca, m.nombre_marca, v.id_color, col.nombre_color
-             FROM Cliente c
-             INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
-             INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
-             INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
-             INNER JOIN Marca m ON v.id_marca = m.id_marca
-             INNER JOIN Color col ON v.id_color = col.id_color;", cn))
+                List<ECliente> clientes = new List<ECliente>();
 
+                using (var cn = GetConnection())
                 {
-                    using (var reader = cmd.ExecuteReader())
+                    cn.Open();
+                    using (var cmd = new SqlCommand(@"SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
+                                                             v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
+                                                             v.id_marca, m.nombre_marca, v.id_color, col.nombre_color
+                                                                 FROM Cliente c
+                                                                 INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
+                                                                 INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
+                                                                 INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
+                                                                 INNER JOIN Marca m ON v.id_marca = m.id_marca
+                                                                 INNER JOIN Color col ON v.id_color = col.id_color;", cn))
+
                     {
-                        while (reader.Read())
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            string cedula = reader["id_numero"].ToString();
-
-                            // Buscar si ya existe el cliente en la lista
-                            var cliente = clientes.FirstOrDefault(c => c.Cedula == cedula);
-
-                            if (cliente == null)
+                            while (reader.Read())
                             {
-                                cliente = new ECliente
+                                string cedula = reader["id_numero"].ToString();
+
+                                // Buscar si ya existe el cliente en la lista
+                                var cliente = clientes.FirstOrDefault(c => c.Cedula == cedula);
+
+                                if (cliente == null)
                                 {
-                                    Cedula = cedula,
-                                    TipoId = reader["tipo_id"].ToString(),
-                                    Nombre = reader["nombre"].ToString(),
-                                    Apellido = reader["apellido"].ToString(),
-                                    Telefono = reader["telefono"].ToString(),
-                                    Correo = reader["correo"].ToString(),
-                                    Vehiculos = new List<EVehiculo>()
-                                };
-                                clientes.Add(cliente);
+                                    cliente = new ECliente
+                                    {
+                                        Cedula = cedula,
+                                        TipoId = reader["tipo_id"].ToString(),
+                                        Nombre = reader["nombre"].ToString(),
+                                        Apellido = reader["apellido"].ToString(),
+                                        Telefono = reader["telefono"].ToString(),
+                                        Correo = reader["correo"].ToString(),
+                                        Vehiculos = new List<EVehiculo>()
+                                    };
+                                    clientes.Add(cliente);
+                                }
+
+                                // Agregar el vehículo a la lista del cliente
+                                cliente.Vehiculos.Add(new EVehiculo
+                                {
+                                    IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]),
+                                    Placa = reader["placa"].ToString(),
+                                    Codigo = reader["Codigo"].ToString(),
+                                    TipoVehiculo = reader["TipoVehiculo"].ToString(),
+                                    IdMarca = Convert.ToInt32(reader["id_marca"]),
+                                    Marca = reader["nombre_marca"].ToString(),
+                                    IdColor = Convert.ToInt32(reader["id_color"]),
+                                    Color = reader["nombre_color"].ToString()
+
+
+                                });
                             }
-
-                            // Agregar el vehículo a la lista del cliente
-                            cliente.Vehiculos.Add(new EVehiculo
-                            {
-                                IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]),
-                                Placa = reader["placa"].ToString(),
-                                Codigo = reader["Codigo"].ToString(),
-                                TipoVehiculo = reader["TipoVehiculo"].ToString(),
-                                IdMarca = Convert.ToInt32(reader["id_marca"]),
-                                Marca = reader["nombre_marca"].ToString(),
-                                IdColor = Convert.ToInt32(reader["id_color"]),
-                                Color = reader["nombre_color"].ToString()
-
-
-                            });
                         }
                     }
                 }
+                return clientes;
             }
-            return clientes;
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
-  
+
         public List<ECliente> BuscarClientes(string busqueda)
         {
             List<ECliente> clientes = new List<ECliente>();
@@ -190,17 +198,16 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-                 SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
-                        v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
-                        m.nombre_marca, col.nombre_color
-                 FROM Cliente c
-                 INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
-                 INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
-                 INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
-                 INNER JOIN Marca m ON v.id_marca = m.id_marca
-                 INNER JOIN Color col ON v.id_color = col.id_color
-                 WHERE c.nombre LIKE '%' + @Busqueda + '%' OR c.apellido LIKE '%' + @Busqueda + '%';", cn))
+                using (var cmd = new SqlCommand(@"SELECT c.id_numero, c.tipo_id, c.nombre, c.apellido, cc.telefono, cc.correo,
+                                                         v.id_vehiculo, v.placa, v.Codigo, tv.Descripcion AS TipoVehiculo,
+                                                         m.nombre_marca, col.nombre_color
+                                                             FROM Cliente c
+                                                             INNER JOIN ContactoCliente cc ON c.id_numero = cc.id_numero
+                                                             INNER JOIN Vehiculo v ON c.id_numero = v.id_numero
+                                                             INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
+                                                             INNER JOIN Marca m ON v.id_marca = m.id_marca
+                                                             INNER JOIN Color col ON v.id_color = col.id_color
+                                                             WHERE c.nombre LIKE '%' + @Busqueda + '%' OR c.apellido LIKE '%' + @Busqueda + '%';", cn))
                 {
                     cmd.Parameters.AddWithValue("@Busqueda", busqueda);
 
@@ -251,10 +258,8 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(
-                    @"SELECT CEDULA, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO
-                    FROM PADRON_ELECTORAL
-                    WHERE CEDULA = @cedula", cn))
+                using (var cmd = new SqlCommand(@"SELECT CEDULA, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO
+                                                FROM PADRON_ELECTORAL WHERE CEDULA = @cedula", cn))
                 {
                     cmd.Parameters.AddWithValue("@cedula", cedula);
 
@@ -281,11 +286,10 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-            SELECT TOP 1 cc.correo
-            FROM ContactoCliente cc
-            INNER JOIN Cliente c ON c.id_numero = cc.id_numero
-            WHERE c.id_numero = @Id AND cc.correo IS NOT NULL
+                using (var cmd = new SqlCommand(@"SELECT TOP 1 cc.correo
+                                                    FROM ContactoCliente cc
+                                                    INNER JOIN Cliente c ON c.id_numero = cc.id_numero
+                                                    WHERE c.id_numero = @Id AND cc.correo IS NOT NULL
         ", cn))
                 {
                     cmd.Parameters.AddWithValue("@Id", idCliente);
@@ -306,9 +310,8 @@ namespace SistemaParking.Dato
                 try
                 {
                     // Actualizar Cliente
-                    string sqlCliente = @"UPDATE Cliente 
-                          SET tipo_id=@TipoId, nombre=@Nombre, apellido=@Apellido
-                          WHERE id_numero=@Cedula";
+                    string sqlCliente = @"UPDATE Cliente SET tipo_id=@TipoId, nombre=@Nombre, apellido=@Apellido
+                                          WHERE id_numero=@Cedula";
                     using (var cmd = new SqlCommand(sqlCliente, cn, tran))
                     {
                         cmd.Parameters.AddWithValue("@TipoId", cliente.TipoId);
@@ -319,9 +322,8 @@ namespace SistemaParking.Dato
                     }
 
                     // Actualizar ContactoCliente
-                    string sqlContacto = @"UPDATE ContactoCliente 
-                    SET telefono=@Telefono, correo=@Correo
-                    WHERE id_numero=@Cedula";
+                    string sqlContacto = @"UPDATE ContactoCliente SET telefono=@Telefono, correo=@Correo
+                                           WHERE id_numero=@Cedula";
                     using (var cmd = new SqlCommand(sqlContacto, cn, tran))
                     {
                         cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
@@ -334,9 +336,8 @@ namespace SistemaParking.Dato
                     if (cliente.Vehiculos != null && cliente.Vehiculos.Count > 0)
                     {
                         EVehiculo v = cliente.Vehiculos[0];
-                        string sqlVehiculo = @"UPDATE Vehiculo 
-                        SET placa=@Placa, Codigo=@Codigo, id_marca=@IdMarca, id_color=@IdColor
-                        WHERE id_vehiculo=@IdVehiculo";
+                        string sqlVehiculo = @"UPDATE Vehiculo SET placa=@Placa, Codigo=@Codigo, id_marca=@IdMarca, id_color=@IdColor
+                                               WHERE id_vehiculo=@IdVehiculo";
                         using (var cmd = new SqlCommand(sqlVehiculo, cn, tran))
                         {
                             cmd.Parameters.AddWithValue("@Placa", v.Placa);
@@ -359,8 +360,55 @@ namespace SistemaParking.Dato
         }
 
 
-    }
+        public bool EliminarCliente(string idNumero)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                SqlTransaction transaction = cn.BeginTransaction();
 
+                try
+                {
+                    // 1. Eliminar contactos del cliente
+                    using (SqlCommand cmd = new SqlCommand(
+                        "DELETE FROM ContactoCliente WHERE id_numero = @id_numero", cn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@id_numero", idNumero);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // 2. Eliminar vehículos asociados
+                    using (SqlCommand cmd = new SqlCommand(
+                        "DELETE FROM Vehiculo WHERE id_numero = @id_numero", cn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@id_numero", idNumero);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // 3. Eliminar cliente
+                    using (SqlCommand cmd = new SqlCommand(
+                        "DELETE FROM Cliente WHERE id_numero = @id_numero", cn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@id_numero", idNumero);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Confirmar transacción
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Revertir si hay error
+                    transaction.Rollback();
+                    Console.WriteLine("Error al eliminar cliente: " + ex.Message);
+                    return false;
+                }
+            }
+
+        }
+
+    }
 }
 
 

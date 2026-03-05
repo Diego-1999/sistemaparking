@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -93,39 +94,92 @@ namespace SistemaParking
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            // Actualizar datos del cliente
-            cliente.Nombre = txtNombre.Text;
-            cliente.Apellido = txtApellidos.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Correo = txtEmail.Text;
-            cliente.TipoId = cmbTipoIden.SelectedValue.ToString();
-
-            // Actualizar datos del vehículo
-            if (cliente.Vehiculos != null && cliente.Vehiculos.Count > 0)
+            try
             {
-                EVehiculo v = cliente.Vehiculos[0];
-                v.Placa = txtPlaca.Text;
-                v.Codigo = cmbTipoVehiculo.SelectedValue.ToString();
-                v.IdMarca = Convert.ToInt32(cmbMarca.SelectedValue);
-                v.IdColor = Convert.ToInt32(cmbColor.SelectedValue);
+                //validaciones de campos
+                if (string.IsNullOrEmpty(txtNombre.Text) && string.IsNullOrEmpty(txtApellidos.Text))
+                {
+                    MessageBox.Show("Campos nombre o apellidos incompletos", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtEmail.Text))
+                {
+                    ValidarCorreo(txtEmail.Text);
+                }
+                else if (!mskCedula.MaskCompleted && cmbTipoIden.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Necesita ingresar la cédula", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtPlaca.Text) && cmbTipoVehiculo.SelectedIndex == -1 && cmbMarca.SelectedIndex == -1 && cmbColor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Necesita ingresar el correo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Actualizar datos del cliente
+                    cliente.Nombre = txtNombre.Text;
+                    cliente.Apellido = txtApellidos.Text;
+                    cliente.Telefono = txtTelefono.Text;
+                    cliente.Correo = txtEmail.Text;
+                    cliente.TipoId = cmbTipoIden.SelectedValue.ToString();
+
+                    // Actualizar datos del vehículo
+                    if (cliente.Vehiculos != null && cliente.Vehiculos.Count > 0)
+                    {
+                        EVehiculo v = cliente.Vehiculos[0];
+                        v.Placa = txtPlaca.Text;
+                        v.Codigo = cmbTipoVehiculo.SelectedValue.ToString();
+                        v.IdMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+                        v.IdColor = Convert.ToInt32(cmbColor.SelectedValue);
+                    }
+
+
+                    // Guardar cambios
+                    NCliente negocio = new NCliente();
+                    bool resultado = negocio.EditarClienteYVehiculo(cliente);
+
+                    if (resultado)
+                    {
+                        MessageBox.Show("Cliente y vehículo actualizados correctamente ✅");
+                        this.DialogResult = DialogResult.OK;
+
+                        Menu menu = (Menu)this.ParentForm;
+                        menu.AbrirFormPanel(new Clientes());
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar ❌");
+                    }
+                }
             }
-
-
-            // Guardar cambios
-            NCliente negocio = new NCliente();
-            bool resultado = negocio.EditarClienteYVehiculo(cliente);
-
-            if (resultado)
+            catch (Exception ex)
             {
-                MessageBox.Show("Cliente y vehículo actualizados correctamente ✅");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo actualizar ❌");
-            }
 
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            }                       
         }
+
+
+        //Metodos de validaciones
+        private bool ValidarCorreo(string correo)
+        {
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                MessageBox.Show("Debe ingresar un correo electrónico.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Expresión regular simple para validar formato de correo
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(correo, patron))
+            {
+                MessageBox.Show("El correo electrónico no tiene un formato válido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }

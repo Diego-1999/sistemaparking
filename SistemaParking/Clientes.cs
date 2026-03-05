@@ -17,6 +17,7 @@ namespace SistemaParking
         public Clientes()
         {
             InitializeComponent();
+            ConfigurarToolTips();
         }
 
         NCliente nCliente = new NCliente();
@@ -30,6 +31,7 @@ namespace SistemaParking
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+
             string busqueda = txtNombreCedula.Text.Trim();
             var clientes = nCliente.BuscarClientes(busqueda);
             MostrarEnGrid(clientes);
@@ -59,30 +61,104 @@ namespace SistemaParking
             dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Color", DataPropertyName = "Color" });
             dgwClientes.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Tipo Vehículo", DataPropertyName = "TipoVehiculo" });
 
+            dgwClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgwClientes.DataSource = clientes;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
-            if (dgwClientes.CurrentRow != null)
+            try
             {
-                ECliente clienteSeleccionado = (ECliente)dgwClientes.CurrentRow.DataBoundItem;
+                if (dgwClientes.CurrentRow != null)
+                {
+                    ECliente clienteSeleccionado = (ECliente)dgwClientes.CurrentRow.DataBoundItem;
 
 
-                Editar_Cliente frmEditar = new Editar_Cliente(clienteSeleccionado);
+                    Editar_Cliente frmEditar = new Editar_Cliente(clienteSeleccionado);
 
-                Menu menu = (Menu)this.ParentForm;
-                menu.AbrirFormPanel(frmEditar);
+                    Menu menu = (Menu)this.ParentForm;
+                    menu.AbrirFormPanel(frmEditar);
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un cliente para editar.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar un cliente para editar.");
+
+                MessageBox.Show("Error al exportar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }                   
+        }
+
+
+        private void ConfigurarToolTips()
+        {
+            ToolTip toolTip1 = new ToolTip();
+
+            // Configuración 
+            toolTip1.AutoPopDelay = 5000;   // tiempo visible en ms
+            toolTip1.InitialDelay = 500;    // retraso antes de aparecer
+            toolTip1.ReshowDelay = 200;     // retraso entre apariciones
+            toolTip1.ShowAlways = true;     // mostrar incluso si el formulario no está activo
+
+            // Asigna ToolTip a controles
+            toolTip1.SetToolTip(this.btnBuscar, "Buscar Cliente");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgwClientes.CurrentRow != null)
+                {
+                    // 1. Obtener entidad cliente desde el DataGrid
+                    ECliente clienteSeleccionado = (ECliente)dgwClientes.CurrentRow.DataBoundItem;
+
+                    // 2. Confirmación
+                    var confirmResult = MessageBox.Show(
+                        $"¿Está seguro de eliminar al cliente con ID {clienteSeleccionado.Cedula}?",
+                        "Confirmar eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                         NCliente clienteService = new NCliente();
+
+                      
+
+                        // 3. Ejecutar eliminación pasando la entidad
+                        bool eliminado = clienteService.EliminarCliente(clienteSeleccionado);
+
+                        if (eliminado)
+                        {
+                            MessageBox.Show("Cliente eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CargarClientes(); // refrescar DataGrid
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un cliente para eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
-           
-            }       
-        
+
+        }
+
+
+
+        //validaciones
+
     }
 }

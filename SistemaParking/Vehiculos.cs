@@ -32,6 +32,7 @@ namespace SistemaParking
             dgvVehiculo.Columns["Placa"].HeaderText = "Placa";
             dgvVehiculo.Columns["TipoVehiculo"].HeaderText = "Tipo";
             dgvVehiculo.Columns["FechaHoraEntrada"].HeaderText = "Entrada";
+            dgvVehiculo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //ajustar las tablas en el data
         }
 
         // Método para refrescar cuando entra o sale un vehículo
@@ -47,46 +48,55 @@ namespace SistemaParking
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvVehiculo.CurrentRow != null)
+            try
             {
-                int idEntrada = Convert.ToInt32(dgvVehiculo.CurrentRow.Cells["IdEntrada"].Value);
-                string placa = dgvVehiculo.CurrentRow.Cells["Placa"].Value.ToString();
-
-                var confirmacion = MessageBox.Show(
-                    $"¿Seguro que desea eliminar la entrada del vehículo con placa {placa}?",
-                    "Confirmar eliminación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
-
-                if (confirmacion == DialogResult.Yes)
+                if (dgvVehiculo.CurrentRow != null)
                 {
-                    bool resultado = negocioVehiculo.EliminarEntrada(idEntrada);
+                    int idEntrada = Convert.ToInt32(dgvVehiculo.CurrentRow.Cells["IdEntrada"].Value);
+                    string placa = dgvVehiculo.CurrentRow.Cells["Placa"].Value.ToString();
 
-                    if (resultado)
+                    var confirmacion = MessageBox.Show(
+                        $"¿Seguro que desea eliminar la entrada del vehículo con placa {placa}?",
+                        "Confirmar eliminación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (confirmacion == DialogResult.Yes)
                     {
-                        MessageBox.Show($"Entrada del vehículo {placa} eliminada correctamente ✅");
-                        CargarVehiculos();
+                        bool resultado = negocioVehiculo.EliminarEntrada(idEntrada);
 
-
-                        foreach (Form frm in Application.OpenForms)
+                        if (resultado)
                         {
-                            if (frm is Menu menuForm)
+                            MessageBox.Show($"Entrada del vehículo {placa} eliminada correctamente ✅");
+                            CargarVehiculos();
+
+
+                            foreach (Form frm in Application.OpenForms)
                             {
-                                menuForm.ActualizarLabels();
-                                break;
+                                if (frm is Menu menuForm)
+                                {
+                                    menuForm.ActualizarLabels();
+                                    break;
+                                }
                             }
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo eliminar la entrada ❌");
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar la entrada ❌");
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una entrada en la lista.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar una entrada en la lista.");
+
+                MessageBox.Show("Error al exportar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
     
     }
