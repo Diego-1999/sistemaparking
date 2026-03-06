@@ -21,6 +21,7 @@ namespace SistemaParking
         public Login()
         {
             InitializeComponent();
+            
         }
 
         [DllImport("user32.Dll", EntryPoint = "ReleaseCapture")]

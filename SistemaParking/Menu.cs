@@ -15,7 +15,11 @@ namespace SistemaParking
 {
     public partial class Menu : Form
     {
-            public Menu()
+
+        //valiable de clase 
+        private Color colorOriginalBtnEntrada;
+
+        public Menu()
             {
                 InitializeComponent();
                 PersonalizarDiseno();
@@ -130,6 +134,7 @@ namespace SistemaParking
        
         private void Menu_Load(object sender, EventArgs e)
         {
+            colorOriginalBtnEntrada = btnEntrada.BackColor;
             var rol = SesionActual.Usuario.NombreRol; //se guarda el nombre del rol en la variable
 
             if (rol == "Operador") //Se valida que tipo de rol tiene el usuario que inicio sesion para otorgar o no permisos
@@ -150,6 +155,8 @@ namespace SistemaParking
                 lblNomUsuario.Text = $"{SesionActual.Usuario.NombreColaborador} {SesionActual.Usuario.ApellidoColaborador}";
                 lblPosicion.Text = SesionActual.Usuario.NombreRol;
             }
+
+
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
@@ -234,8 +241,7 @@ namespace SistemaParking
         private void btnInicio_Click(object sender, EventArgs e)
         {    
             Inicio inicio = new Inicio();
-            AbrirFormPanel(inicio);
-
+            AbrirFormPanel(inicio); 
         }
     }
 }

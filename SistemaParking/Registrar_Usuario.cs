@@ -42,16 +42,19 @@ namespace SistemaParking
         {
             NUsuario negocioUsuario = new NUsuario();
 
+            // Normalizar la cédula (quitar guiones y espacios)
+            string cedulaFinal = mskcedula.Text.Replace("-", "").Trim();
+
             bool resultado = negocioUsuario.RegistrarUsuario(
-            cmbTipoIden.Text,
-            txtNombre.Text,
-            txtApellidos.Text,
-            txtTelefono.Text,
-            txtCedula.Text,
-            txtEmail.Text,
-            txtUsuario.Text,
-            txtContrasena.Text,
-            cmbRol.Text
+            cmbTipoIden.Text,       
+            cedulaFinal,            
+            txtNombre.Text,         
+            txtApellidos.Text,      
+            txtTelefono.Text,       
+            txtEmail.Text,          
+            txtUsuario.Text,        
+            txtContrasena.Text,     
+            cmbRol.Text             
             );
 
             // Mostrar resultado al usuario
@@ -73,7 +76,7 @@ namespace SistemaParking
             txtNombre.Clear();
             txtApellidos.Clear();
             txtTelefono.Clear();
-            txtCedula.Clear();
+            mskcedula.Clear();
             txtEmail.Clear();
             txtUsuario.Clear();
             txtContrasena.Clear();
@@ -94,6 +97,50 @@ namespace SistemaParking
             // se llama al método del formulario principal
             Menu menu = (Menu)this.ParentForm;
             menu.AbrirFormPanel(frmUsuario);
+        }
+
+        private void cmbTipoIden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mskcedula.Text = ""; // limpiar campo
+
+            if (cmbTipoIden.SelectedValue != null)
+            {
+                string tipo = cmbTipoIden.Text;
+
+                if (tipo == "CEDULA_FISICA_NACIONAL")
+                    mskcedula.Mask = "0-0000-0000";
+                else if (tipo == "DIMEX")
+                    mskcedula.Mask = "0000000000000";
+                else if (tipo == "PASAPORTE")
+                    mskcedula.Mask = "AAAAAAAAAAAAAAA";
+            }
+        }
+
+        private void mskcedula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!mskcedula.MaskCompleted)
+                {
+                    MessageBox.Show("Debe ingresar la cédula completa con guiones.");
+                    return;
+                }
+
+                string cedulaIngresada = mskcedula.Text.Replace("-", "").Trim();
+
+                NCliente nCliente = new NCliente();
+                var datosPadron = nCliente.BuscarPadronElectoral(cedulaIngresada);
+
+                if (datosPadron != null)
+                {
+                    txtNombre.Text = datosPadron.Nombre;
+                    txtApellidos.Text = datosPadron.Apellido;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la cédula en el padrón.");
+                }
+            }
         }
     }
 }

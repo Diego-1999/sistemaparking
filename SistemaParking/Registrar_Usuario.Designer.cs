@@ -34,7 +34,6 @@
             this.cmbTipoIden = new System.Windows.Forms.ComboBox();
             this.lblTipoIdenti = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
@@ -53,6 +52,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.btnVerUsuarios = new System.Windows.Forms.Button();
+            this.mskcedula = new System.Windows.Forms.MaskedTextBox();
             this.gpbInfoCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,10 +73,10 @@
             // gpbInfoCliente
             // 
             this.gpbInfoCliente.BackColor = System.Drawing.Color.Transparent;
+            this.gpbInfoCliente.Controls.Add(this.mskcedula);
             this.gpbInfoCliente.Controls.Add(this.cmbTipoIden);
             this.gpbInfoCliente.Controls.Add(this.lblTipoIdenti);
             this.gpbInfoCliente.Controls.Add(this.lblCedula);
-            this.gpbInfoCliente.Controls.Add(this.txtCedula);
             this.gpbInfoCliente.Controls.Add(this.lblCorreo);
             this.gpbInfoCliente.Controls.Add(this.lblTelefono);
             this.gpbInfoCliente.Controls.Add(this.lblApellidos);
@@ -101,18 +101,19 @@
             this.cmbTipoIden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
-            this.cmbTipoIden.Location = new System.Drawing.Point(121, 147);
+            this.cmbTipoIden.Location = new System.Drawing.Point(131, 71);
             this.cmbTipoIden.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoIden.Name = "cmbTipoIden";
             this.cmbTipoIden.Size = new System.Drawing.Size(181, 33);
             this.cmbTipoIden.TabIndex = 4;
+            this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
             // lblTipoIdenti
             // 
             this.lblTipoIdenti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTipoIdenti.AutoSize = true;
             this.lblTipoIdenti.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblTipoIdenti.Location = new System.Drawing.Point(117, 120);
+            this.lblTipoIdenti.Location = new System.Drawing.Point(127, 44);
             this.lblTipoIdenti.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTipoIdenti.Name = "lblTipoIdenti";
             this.lblTipoIdenti.Size = new System.Drawing.Size(194, 25);
@@ -124,22 +125,12 @@
             this.lblCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCedula.AutoSize = true;
             this.lblCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblCedula.Location = new System.Drawing.Point(382, 120);
+            this.lblCedula.Location = new System.Drawing.Point(368, 44);
             this.lblCedula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(71, 25);
             this.lblCedula.TabIndex = 49;
             this.lblCedula.Text = "Cédula";
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtCedula.Location = new System.Drawing.Point(386, 147);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(181, 33);
-            this.txtCedula.TabIndex = 5;
             // 
             // lblCorreo
             // 
@@ -170,7 +161,7 @@
             this.lblApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblApellidos.Location = new System.Drawing.Point(382, 42);
+            this.lblApellidos.Location = new System.Drawing.Point(368, 125);
             this.lblApellidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(90, 25);
@@ -182,7 +173,7 @@
             this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblNombre.Location = new System.Drawing.Point(117, 37);
+            this.lblNombre.Location = new System.Drawing.Point(127, 120);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(81, 25);
@@ -213,7 +204,7 @@
             // 
             this.txtApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtApellidos.Location = new System.Drawing.Point(386, 64);
+            this.txtApellidos.Location = new System.Drawing.Point(372, 147);
             this.txtApellidos.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(181, 33);
@@ -223,7 +214,7 @@
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtNombre.Location = new System.Drawing.Point(121, 64);
+            this.txtNombre.Location = new System.Drawing.Point(132, 147);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(181, 33);
@@ -377,6 +368,15 @@
             this.btnVerUsuarios.UseVisualStyleBackColor = false;
             this.btnVerUsuarios.Click += new System.EventHandler(this.btnVerUsuarios_Click);
             // 
+            // mskcedula
+            // 
+            this.mskcedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.mskcedula.Location = new System.Drawing.Point(373, 77);
+            this.mskcedula.Name = "mskcedula";
+            this.mskcedula.Size = new System.Drawing.Size(180, 33);
+            this.mskcedula.TabIndex = 51;
+            this.mskcedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskcedula_KeyDown);
+            // 
             // Registrar_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,7 +412,6 @@
         private System.Windows.Forms.ComboBox cmbTipoIden;
         private System.Windows.Forms.Label lblTipoIdenti;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblApellidos;
@@ -431,5 +430,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegistrarUsuario;
         private System.Windows.Forms.Button btnVerUsuarios;
+        private System.Windows.Forms.MaskedTextBox mskcedula;
     }
 }

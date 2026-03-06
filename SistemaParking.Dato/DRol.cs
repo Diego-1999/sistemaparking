@@ -12,45 +12,79 @@ namespace SistemaParking.Dato
 {
     public class DRol : ConnectionSql
     {
-            //Listar los tipos de vehiculos para el combobox
-            public List<ERol> GetRol()
-            {
-            try
-            {
-                var lista = new List<ERol>();
+        //Listar los tipos de vehiculos para el combobox
 
-                using (var cn = GetConnection())
+        public List<ERol> GetRol()
+        {
+            var lista = new List<ERol>();
+
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                using (var command = new SqlCommand())
                 {
-                    cn.Open();
-                    using (var command = new SqlCommand("SELECT * FROM Rol", cn))
+                    command.Connection = cn;
+                    command.CommandText = "SELECT * FROM Rol";
+                    command.CommandType = CommandType.Text;
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            var Rol = new ERol()
                             {
-                                var rol = new ERol
-                                {
-                                    id_rol = reader.GetInt32(0),
-                                    nombre_rol = reader.GetString(1)
-                                };
-                                lista.Add(rol);
-                            }
+                                id_rol = reader.GetInt32(0),
+                                nombre_rol = reader.GetString(1)
+                            };
+                            lista.Add(Rol);
                         }
-
                     }
+
                 }
                 return lista;
             }
-            catch (SqlException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-                
-            }
         }
+
+
+
+
+        //public List<ERol> GetRol()
+        //{
+        //try
+        //{
+        //    var lista = new List<ERol>();
+
+        //    using (var cn = GetConnection())
+        //    {
+        //        cn.Open();
+        //        using (var command = new SqlCommand("SELECT * FROM Rol", cn))
+        //        {
+        //            using (SqlDataReader reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    var rol = new ERol
+        //                    {
+        //                        id_rol = reader.GetInt32(0),
+        //                        nombre_rol = reader.GetString(1)
+        //                    };
+        //                    lista.Add(rol);
+        //                }
+        //            }
+
+        //        }
+        //    }
+        //    return lista;
+        //}
+        //catch (SqlException)
+        //{
+        //    throw;
+        //}
+        //catch (Exception)
+        //{
+
+        //    throw;
+        //}
+
+        //}
+    }
     }

@@ -16,19 +16,19 @@ namespace SistemaParking.Negocio
     {
         //Instancia con la Clase DUsuario
         private DUsuario dUsuario = new DUsuario();
+        //Instacia con la Clase DCliente
+        private DCliente dCliente = new DCliente();
 
-        public bool RegistrarUsuario(string tipoid, string nombre, string apellido, string telefono,
-            string cedula, string correo, string usuario, string contrasena, string rol)
+        public bool RegistrarUsuario(string tipoid, string cedula, string nombre, string apellido,
+                         string telefono, string correo, string usuario,
+                         string contrasena, string rol)
         {
             if (string.IsNullOrEmpty(cedula) || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(correo))
                 return false;
 
             // Generar salt
             byte[] salt = GenerateSalt();
-
-            // Definir número de iteraciones
             int iteraciones = 150000;
-
 
             // Derivar contraseña con PBKDF2
             string hashContrasena = HashPassword(contrasena, salt, iteraciones);
@@ -49,6 +49,40 @@ namespace SistemaParking.Negocio
             );
         }
 
+        public List<EUsuario> MostrarUsuarios()
+        {
+            return dUsuario.MostrarUsuarios();
+        }
+
+        public List<EUsuario> BuscarUsuarios(string criterio)
+        {
+            return dUsuario.BuscarUsuarios(criterio);
+        }
+
+        public bool EliminarUsuario(string cedula)
+        {
+            return dUsuario.EliminarUsuario(cedula);
+        }
+
+        public ECliente BuscarPadronElectoral(string cedula)
+        {
+            return dCliente.BuscarPadronElectoral(cedula);
+        }
+
+        public bool EditarUsuario(EUsuario usuario)
+        {
+            // Generar nuevo salt y hash
+            byte[] salt = GenerateSalt();
+            int iteraciones = 150000;
+            string hashContrasena = HashPassword(usuario.Contrasena, salt, iteraciones);
+
+            usuario.Contrasena = hashContrasena;
+            usuario.Salt = Convert.ToBase64String(salt);
+            usuario.Iteraciones = iteraciones;
+
+            return dUsuario.ActualizarUsuario(usuario);
+        }
+
         private static byte[] GenerateSalt(int size = 16)
         {
             var salt = new byte[size];
@@ -65,20 +99,6 @@ namespace SistemaParking.Negocio
             {
                 return Convert.ToBase64String(pbkdf2.GetBytes(32)); // 256 bits
             }
-        }
-
-        //Metodo Mostrar Usuarios 
-        public List<EUsuario> MostrarUsuarios()
-        {
-            return dUsuario.MostrarUsuarios();
-        }
-        public List<EUsuario> BuscarUsuarios(string criterio)
-        {
-            return dUsuario.BuscarUsuarios(criterio);
-        }
-        public bool EliminarUsuario(string cedula)
-        {
-            return dUsuario.EliminarUsuario(cedula);
         }
     }
 }

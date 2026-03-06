@@ -1,4 +1,5 @@
-﻿using SistemaParking.Negocio;
+﻿using SistemaParking.Entidad;
+using SistemaParking.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,30 +17,24 @@ namespace SistemaParking
         public Usuarios()
         {
             InitializeComponent();
+            CargarUsuarios();
         }
 
 
         private void CargarUsuarios()
         {
-            try
-            {
-                NUsuario negocioUsuario = new NUsuario();
-                dgwUsuario.DataSource = negocioUsuario.MostrarUsuarios();
+            NUsuario negocioUsuario = new NUsuario();
+            dgwUsuario.DataSource = negocioUsuario.MostrarUsuarios();
+            dgwUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                dgwUsuario.Columns["numero_id"].HeaderText = "Cédula";
-                dgwUsuario.Columns["tipo_id"].HeaderText = "Tipo ID";
-                dgwUsuario.Columns["nombre"].HeaderText = "Nombre";
-                dgwUsuario.Columns["apellido"].HeaderText = "Apellido";
-                dgwUsuario.Columns["c"].HeaderText = "Usuario";
-                dgwUsuario.Columns["telefono"].HeaderText = "Teléfono";
-                dgwUsuario.Columns["correo"].HeaderText = "Correo";
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            
+            // Encabezados amigables
+            dgwUsuario.Columns["numero_id"].HeaderText = "Cédula";
+            dgwUsuario.Columns["tipo_id"].HeaderText = "Tipo ID";
+            dgwUsuario.Columns["nombre"].HeaderText = "Nombre";
+            dgwUsuario.Columns["apellido"].HeaderText = "Apellido";
+            dgwUsuario.Columns["usuario"].HeaderText = "Usuario";
+            dgwUsuario.Columns["telefono"].HeaderText = "Teléfono";
+            dgwUsuario.Columns["correo"].HeaderText = "Correo";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -103,6 +98,26 @@ namespace SistemaParking
                 throw;
             }
             
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgwUsuario.CurrentRow != null)
+            {
+                // Obtener el usuario seleccionado
+                EUsuario usuarioSeleccionado = (EUsuario)dgwUsuario.CurrentRow.DataBoundItem;
+
+                // Crear el formulario de edición
+                EditarUsuario frmEditar = new EditarUsuario(usuarioSeleccionado);
+
+                // Abrirlo dentro del panel del menú principal
+                Menu menu = (Menu)this.ParentForm;
+                menu.AbrirFormPanel(frmEditar);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un usuario para editar.");
+            }
         }
     }
 }

@@ -18,16 +18,12 @@ namespace SistemaParking
         {
             InitializeComponent();
             ConfigurarToolTips();
+             CargarClientes();
+           
         }
 
         NCliente nCliente = new NCliente();
 
-   
-        private void Clientes_Load(object sender, EventArgs e)
-        {
-            CargarClientes();
-           
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
