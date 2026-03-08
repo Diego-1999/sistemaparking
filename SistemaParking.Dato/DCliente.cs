@@ -207,7 +207,7 @@ namespace SistemaParking.Dato
                                                              INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
                                                              INNER JOIN Marca m ON v.id_marca = m.id_marca
                                                              INNER JOIN Color col ON v.id_color = col.id_color
-                                                             WHERE c.nombre LIKE '%' + @Busqueda + '%' OR c.apellido LIKE '%' + @Busqueda + '%';", cn))
+                                                             WHERE c.nombre LIKE '%' + @Busqueda + '%' OR c.id_numero LIKE '%' + @Busqueda + '%';", cn))
                 {
                     cmd.Parameters.AddWithValue("@Busqueda", busqueda);
 
@@ -359,7 +359,7 @@ namespace SistemaParking.Dato
             }
         }
 
-
+        //Metodo Eliminar cliente
         public bool EliminarCliente(string idNumero)
         {
             using (var cn = GetConnection())
@@ -405,9 +405,7 @@ namespace SistemaParking.Dato
                     return false;
                 }
             }
-
         }
-
     }
 }
 

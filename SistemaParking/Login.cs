@@ -168,6 +168,9 @@ namespace SistemaParking
             if(e.KeyCode == Keys.Enter)
             {
                 btnLogin.PerformClick();
+                txtPass.Text = "";
+                txtPass.ForeColor = Color.LightGray;
+                txtPass.UseSystemPasswordChar = true;
             }
         }
 
@@ -185,6 +188,12 @@ namespace SistemaParking
             ParkingService service = new ParkingService(apiClient);
 
             await service.ProcesarDatosAsync();
+        }
+
+        private void ptbLogo_Click(object sender, EventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

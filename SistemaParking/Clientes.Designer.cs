@@ -75,9 +75,9 @@
             this.lblNombre.Location = new System.Drawing.Point(86, 23);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(85, 25);
+            this.lblNombre.Size = new System.Drawing.Size(165, 25);
             this.lblNombre.TabIndex = 46;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre o Cedúla:";
             // 
             // txtNombreCedula
             // 

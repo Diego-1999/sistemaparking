@@ -89,6 +89,7 @@
             this.mskCedula.Name = "mskCedula";
             this.mskCedula.Size = new System.Drawing.Size(181, 33);
             this.mskCedula.TabIndex = 52;
+            this.mskCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskCedula_KeyPress);
             // 
             // cmbTipoIden
             // 
@@ -98,7 +99,7 @@
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(272, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(264, 33);
             this.cmbTipoIden.TabIndex = 51;
             // 
             // lblTipoIdenti
@@ -186,6 +187,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(181, 33);
             this.txtTelefono.TabIndex = 42;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtApellidos
             // 
@@ -321,11 +323,11 @@
             this.lblTitulo.BackColor = System.Drawing.Color.White;
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(421, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(449, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(207, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(144, 30);
             this.lblTitulo.TabIndex = 29;
-            this.lblTitulo.Text = "Registro de Clientes";
+            this.lblTitulo.Text = "Editar Cliente";
             // 
             // btnEditar
             // 

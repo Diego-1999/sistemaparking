@@ -41,8 +41,23 @@ namespace SistemaParking.Dato
             
         }
 
+        public int ObtenerTotalEspacios(string tipoEspacio)
+        {
+            using (var cn = GetConnection())
+            {
+                cn.Open();
+                using (var cmd = new SqlCommand(@"
+        SELECT ISNULL(SUM(numero_espacio),0)
+        FROM Parqueo
+        WHERE tipo_espacio = @Tipo", cn))
+                {
+                    cmd.Parameters.AddWithValue("@Tipo", tipoEspacio);
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
 
-        // Método original (si lo usas en otros lugares)
+
         public int ObtenerEspaciosDisponibles(string codigoTipoVehiculo, int totalEspacios)
         {
             using (var cn = GetConnection())

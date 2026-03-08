@@ -19,6 +19,10 @@ namespace SistemaParking
 {
     public partial class Registro_Vehiculo : Form
     {
+        //instancias
+        NEspaciosParqueo nEspacios = new NEspaciosParqueo();
+        NEntradaVehiculo negocio = new NEntradaVehiculo();
+
         public Registro_Vehiculo()
         {
             InitializeComponent();
@@ -63,6 +67,10 @@ namespace SistemaParking
         {
             try
             {
+                //variables 
+                int espaciosDisponibles = 0;
+
+
                 if (SesionActual.Usuario == null)
                 {
                     MessageBox.Show("Debe iniciar sesión");
@@ -72,19 +80,40 @@ namespace SistemaParking
                 string numeroIdColaborador = SesionActual.Usuario.NumeroIdColaborador;
                 if (string.IsNullOrWhiteSpace(txtPlaca.Text))
                 {
-                    MessageBox.Show("Debe ingresar la placa del vehículo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Debe ingresar la placa del vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtPlaca.Focus();
 
                 }
+                else if (!ValidarPlaca(txtPlaca.Text))
+                {
+                    MessageBox.Show("Placa inválida", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPlaca.Focus();
+                }
                 else if (cmbTipoVehiculo.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Debe seleccionar un tipo de vehículo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cmbTipoVehiculo.Focus();
 
                 }
                 else
                 {
-                    NEntradaVehiculo negocio = new NEntradaVehiculo();
+                    // Validar espacios disponibles
+                    string tipoVehiculo = cmbTipoVehiculo.SelectedValue.ToString();
+
+                    if (tipoVehiculo == "PART")
+                    {
+                        espaciosDisponibles = nEspacios.ObtenerEspaciosVehiculosDisponibles();
+                    }
+                    else if (tipoVehiculo == "MOT")
+                    {
+                        espaciosDisponibles = nEspacios.ObtenerEspaciosMotosDisponibles();
+                    }
+
+                    if (espaciosDisponibles <= 0)
+                    {
+                        MessageBox.Show("El parqueo está lleno. No hay espacios disponibles 🚫");
+                        return;
+                    }
 
                     // Generar tiquete (ya incluye idCliente si aplica)
                     var tiquete = negocio.GenerarTiqueteEntrada(
@@ -95,7 +124,7 @@ namespace SistemaParking
 
                     if (tiquete == null)
                     {
-                        MessageBox.Show("No se pudo registrar el vehículo");
+                        MessageBox.Show("No se pudo registrar el vehículo ❌");
                         return;
                     }
 
@@ -134,7 +163,7 @@ namespace SistemaParking
                     bool ok = true;
                     if (ok)
                     {
-                        MessageBox.Show("Vehículo registrado correctamente");
+                        MessageBox.Show("Vehículo registrado correctamente ✅");
 
                         //Refrescar los labels de espacios
                         var menu = Application.OpenForms.OfType<Menu>().FirstOrDefault();
@@ -147,6 +176,18 @@ namespace SistemaParking
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }                       
+        }
+
+        // Validacione 
+        public static bool ValidarPlaca(string strNumber)
+        {
+            Regex regex = new Regex(@"(^[A-Z]{3}[0-9]{3}$)|(^[0-9]{6}$)");
+            Match match = regex.Match(strNumber);
+
+            if (match.Success)
+                return true;
+            else
+                return false;
         }
     }
 }

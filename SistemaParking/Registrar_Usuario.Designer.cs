@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrar_Usuario));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gpbInfoCliente = new System.Windows.Forms.GroupBox();
+            this.mskcedula = new System.Windows.Forms.MaskedTextBox();
             this.cmbTipoIden = new System.Windows.Forms.ComboBox();
             this.lblTipoIdenti = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.btnVerUsuarios = new System.Windows.Forms.Button();
-            this.mskcedula = new System.Windows.Forms.MaskedTextBox();
             this.gpbInfoCliente.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -95,16 +95,26 @@
             this.gpbInfoCliente.TabStop = false;
             this.gpbInfoCliente.Text = "Información del Colaborador";
             // 
+            // mskcedula
+            // 
+            this.mskcedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.mskcedula.Location = new System.Drawing.Point(373, 77);
+            this.mskcedula.Name = "mskcedula";
+            this.mskcedula.Size = new System.Drawing.Size(180, 33);
+            this.mskcedula.TabIndex = 51;
+            this.mskcedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskcedula_KeyDown);
+            this.mskcedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskcedula_KeyPress);
+            // 
             // cmbTipoIden
             // 
             this.cmbTipoIden.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTipoIden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
-            this.cmbTipoIden.Location = new System.Drawing.Point(131, 71);
+            this.cmbTipoIden.Location = new System.Drawing.Point(90, 77);
             this.cmbTipoIden.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(181, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(264, 33);
             this.cmbTipoIden.TabIndex = 4;
             this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
@@ -199,6 +209,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(181, 33);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtApellidos
             // 
@@ -367,15 +378,6 @@
             this.btnVerUsuarios.Text = "Ver Usuarios";
             this.btnVerUsuarios.UseVisualStyleBackColor = false;
             this.btnVerUsuarios.Click += new System.EventHandler(this.btnVerUsuarios_Click);
-            // 
-            // mskcedula
-            // 
-            this.mskcedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.mskcedula.Location = new System.Drawing.Point(373, 77);
-            this.mskcedula.Name = "mskcedula";
-            this.mskcedula.Size = new System.Drawing.Size(180, 33);
-            this.mskcedula.TabIndex = 51;
-            this.mskcedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskcedula_KeyDown);
             // 
             // Registrar_Usuario
             // 

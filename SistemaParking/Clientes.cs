@@ -14,16 +14,15 @@ namespace SistemaParking
 {
     public partial class Clientes : Form
     {
+        NCliente nCliente = new NCliente();
+
         public Clientes()
         {
             InitializeComponent();
+
             ConfigurarToolTips();
-             CargarClientes();
-           
-        }
-
-        NCliente nCliente = new NCliente();
-
+             CargarClientes();        
+        }   
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -147,14 +146,6 @@ namespace SistemaParking
             {
                 MessageBox.Show("Error al eliminar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
-
-
-
-        //validaciones
-
     }
 }

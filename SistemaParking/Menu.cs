@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using SistemaParking.Entidad;
 using SistemaParking.Negocio;
+using DocumentFormat.OpenXml.Presentation;
 
 namespace SistemaParking
 {
@@ -28,8 +29,6 @@ namespace SistemaParking
             
                 Inicio inicio = new Inicio();              
                 AbrirFormPanel(inicio);
-
-
             }
 
         NEspaciosParqueo nEspaciosParqueo = new NEspaciosParqueo();
@@ -142,11 +141,14 @@ namespace SistemaParking
                 btnEstablecerTarifas.Visible = false;
                 btnNuevoUsuario.Visible = false;
                 btnEspacios.Visible = false;
+                btnAjustes.Enabled = false;
             }
 
             if (rol == "Administrador")
             {
-                // acceso total
+                btnEstablecerTarifas.Visible = true;
+                btnNuevoUsuario.Visible = true;
+                btnEspacios.Visible = true;
             }
 
             //Mostrar nombre y posicion en el menu
@@ -155,8 +157,6 @@ namespace SistemaParking
                 lblNomUsuario.Text = $"{SesionActual.Usuario.NombreColaborador} {SesionActual.Usuario.ApellidoColaborador}";
                 lblPosicion.Text = SesionActual.Usuario.NombreRol;
             }
-
-
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
@@ -203,19 +203,21 @@ namespace SistemaParking
 
         // Método para actualizar los labels
         public void ActualizarLabels()
-        {
+        { 
             lblVehiculosDisponibles.Text = $" {nEspaciosParqueo.ObtenerEspaciosVehiculosDisponibles()}";
-            lblMotosDisponibles.Text = $" {nEspaciosParqueo.ObtenerEspaciosMotosDisponibles()}";
+            lblMotosDisponibles.Text = $" {nEspaciosParqueo.ObtenerEspaciosMotosDisponibles()}";       
         }
 
         private void btnVehiculos_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new Vehiculos());
+            ActualizarLabels();
         }
 
         private void btnMoto_Click(object sender, EventArgs e)
         {
             AbrirFormPanel(new Vehiculos());
+            ActualizarLabels();
         }
 
 

@@ -35,6 +35,12 @@ namespace SistemaParking
             dgwUsuario.Columns["usuario"].HeaderText = "Usuario";
             dgwUsuario.Columns["telefono"].HeaderText = "Teléfono";
             dgwUsuario.Columns["correo"].HeaderText = "Correo";
+
+            // Ocultar columnas sensibles
+            dgwUsuario.Columns["IdRol"].Visible = false;
+            dgwUsuario.Columns["Contrasena"].Visible = false;
+            dgwUsuario.Columns["Salt"].Visible = false;
+            dgwUsuario.Columns["Iteraciones"].Visible = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

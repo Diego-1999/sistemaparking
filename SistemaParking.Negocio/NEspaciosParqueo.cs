@@ -9,7 +9,10 @@ namespace SistemaParking.Negocio
 {
     public class NEspaciosParqueo
     {
+        //instancias
         DEspaciosParqueo despacio = new DEspaciosParqueo();
+
+
         public bool RegistroEspacio(int numeroEspacio, string tipoEspacio)
         {
             // Reglas de negocio
@@ -23,24 +26,27 @@ namespace SistemaParking.Negocio
             );
         }
 
-        private DEspaciosParqueo datos = new DEspaciosParqueo();
         public int ObtenerEspaciosVehiculosDisponibles()
         {
-            // Todos los códigos que ocupan espacios de carro
-            string[] codigosVehiculo = { "PART", "CL" };
+            int totalEspacios =
+                despacio.ObtenerTotalEspacios("PART");
 
-            int ocupados = 0;
-            foreach (var codigo in codigosVehiculo)
-            {
-                ocupados += datos.ObtenerOcupadosPorCodigo(codigo);
-            }
+            int ocupados = despacio.ObtenerOcupadosPorCodigo("PART");
 
-            return 52 - ocupados;
+            return totalEspacios- ocupados;
         }
+
 
         public int ObtenerEspaciosMotosDisponibles()
         {
-            return 5 - datos.ObtenerOcupadosPorCodigo("MOT");
+            // Total de espacios para motos
+            int totalEspacios = despacio.ObtenerTotalEspacios("MOT");
+
+            // Ocupados actualmente  entradas/salidas
+            int ocupados = despacio.ObtenerOcupadosPorCodigo("MOT");
+
+            // Disponibles = total - ocupados
+            return totalEspacios - ocupados;
         }
 
     }

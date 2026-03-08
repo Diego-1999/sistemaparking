@@ -59,18 +59,20 @@
             // 
             this.dtpFechaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpFechaInicial.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.dtpFechaInicial.Location = new System.Drawing.Point(132, 44);
+            this.dtpFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicial.Location = new System.Drawing.Point(223, 44);
             this.dtpFechaInicial.Name = "dtpFechaInicial";
-            this.dtpFechaInicial.Size = new System.Drawing.Size(274, 33);
+            this.dtpFechaInicial.Size = new System.Drawing.Size(139, 33);
             this.dtpFechaInicial.TabIndex = 1;
             // 
             // dtpFechaFinal
             // 
             this.dtpFechaFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpFechaFinal.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.dtpFechaFinal.Location = new System.Drawing.Point(635, 44);
+            this.dtpFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFinal.Location = new System.Drawing.Point(658, 44);
             this.dtpFechaFinal.Name = "dtpFechaFinal";
-            this.dtpFechaFinal.Size = new System.Drawing.Size(274, 33);
+            this.dtpFechaFinal.Size = new System.Drawing.Size(144, 33);
             this.dtpFechaFinal.TabIndex = 2;
             // 
             // gpbFechasreporte
@@ -105,7 +107,7 @@
             this.LblFechaInicial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblFechaInicial.AutoSize = true;
             this.LblFechaInicial.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.LblFechaInicial.Location = new System.Drawing.Point(74, 16);
+            this.LblFechaInicial.Location = new System.Drawing.Point(140, 16);
             this.LblFechaInicial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblFechaInicial.Name = "LblFechaInicial";
             this.LblFechaInicial.Size = new System.Drawing.Size(121, 25);

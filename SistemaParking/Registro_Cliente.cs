@@ -28,7 +28,7 @@ namespace SistemaParking
 
         //intancias a capa negocio
         NEntradaVehiculo nEntradaVehiculo = new NEntradaVehiculo();
-        NCliente negocioCliente = new NCliente();
+        NCliente nCliente = new NCliente();
 
         private void Registro_Cliente_Load(object sender, EventArgs e)
         {
@@ -97,26 +97,58 @@ namespace SistemaParking
         {
             try
             {
-                if (!ValidarTelefono(txtTelefono))
-                    return;
-
                 //validaciones de campos
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellidos.Text))
+                if (cmbTipoIden.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Campos nombre o apellidos incompletos", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Seleccione un tipo de identificación", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtEmail.Text))
-                {
-                    ValidarCorreo(txtEmail.Text);               
-                }
-                else if (!mskCedula.MaskCompleted || cmbTipoIden.SelectedIndex == -1) 
+                else if (!mskCedula.MaskCompleted)
                 {
                     MessageBox.Show("Necesita ingresar la cédula", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtPlaca.Text) || cmbTipoVehiculo.SelectedIndex == -1 || cmbMarca.SelectedIndex == -1 || cmbColor.SelectedIndex == -1)
+                else if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    ValidarPlaca(txtPlaca.Text);
-                    MessageBox.Show("Necesita ingresar el correo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Campo nombre incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtApellidos.Text))
+                {
+                    MessageBox.Show("Campo apellidos incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtTelefono.Text)) //valida espacio vacio del telefono
+                {
+                    MessageBox.Show("Campo teléfono incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarTelefono(txtTelefono.Text)) // valida solo 8 numero y no permite letras
+                {
+                    MessageBox.Show("Teléfono inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (string.IsNullOrEmpty(txtEmail.Text)) //valida espacio vacio del correo
+                {
+                    MessageBox.Show("Campo correo incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!IsValidEmail(txtEmail.Text)) // valida formato correcto del correo
+                {
+                    MessageBox.Show("Correo inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cmbMarca.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtPlaca.Text)) // valida placa vacia
+                {
+                    MessageBox.Show("Campo placa incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarPlaca(txtPlaca.Text)) // valida formato placa correcto
+                {
+                    MessageBox.Show("Placa inválida", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                }
+                else if (cmbTipoVehiculo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (cmbColor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un color", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -124,7 +156,7 @@ namespace SistemaParking
                     string cedulaFinal = mskCedula.Text.Replace("-", "").Trim();
 
                     // Llamar al método de negocio con los datos del formulario
-                    bool resultado = negocioCliente.RegistrarCliente(
+                    bool resultado = nCliente.RegistrarCliente(
                         cmbTipoIden.Text,
                         cedulaFinal,
                         txtNombre.Text,
@@ -160,51 +192,63 @@ namespace SistemaParking
         }
 
 
-        private void cmbTipoIden_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            mskCedula.Text = ""; // limpiar campo
-
-            if (cmbTipoIden.SelectedValue != null)
-            {
-                string tipo = cmbTipoIden.Text;
-
-                //Validaciones de mascara del campo cedula
-                if (tipo == "CEDULA_FISICA_NACIONAL")
-                    mskCedula.Mask = "0-0000-0000";
-                else if (tipo == "DIMEX")
-                    mskCedula.Mask = "0000000000000";
-                else if (tipo == "PASAPORTE")
-                    mskCedula.Mask = "AAAAAAAAAAAAAAA";
-            }
-        }
 
         private void btnRegistrarSegundoVehiculo_Click(object sender, EventArgs e)
         {
             try
             {
-
-                if (!ValidarTelefono(txtTelefono))
-                    return;
-
-
                 //validaciones de campos
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellidos.Text))
+                if (cmbTipoIden.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Campos nombre o apellidos incompletos", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);                   
+                    MessageBox.Show("Seleccione un tipo de identificación", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtEmail.Text))
-                {
-                    ValidarCorreo(txtEmail.Text);                
-                }
-                else if (!mskCedula.MaskCompleted || cmbTipoIden.SelectedIndex == -1)
+                else if (!mskCedula.MaskCompleted)
                 {
                     MessageBox.Show("Necesita ingresar la cédula", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtPlaca.Text) || cmbTipoVehiculo.SelectedIndex == -1 || cmbMarca.SelectedIndex == -1 || cmbColor.SelectedIndex == -1)
+                else if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    ValidarPlaca(txtPlaca.Text);
-                    MessageBox.Show("Necesita ingresar el correo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Campo nombre incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtApellidos.Text))
+                {
+                    MessageBox.Show("Campo apellidos incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtTelefono.Text)) //valida espacio vacio del telefono
+                {
+                    MessageBox.Show("Campo teléfono incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarTelefono(txtTelefono.Text)) // valida solo 8 numero y no permite letras
+                {
+                    MessageBox.Show("Teléfono inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (string.IsNullOrEmpty(txtEmail.Text)) //valida espacio vacio del correo
+                {
+                    MessageBox.Show("Campo correo incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!IsValidEmail(txtEmail.Text)) // valida formato correcto del correo
+                {
+                    MessageBox.Show("Correo inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cmbMarca.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtPlaca.Text)) // valida placa vacia
+                {
+                    MessageBox.Show("Campo placa incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarPlaca(txtPlaca.Text)) // valida formato placa correcto
+                {
+                    MessageBox.Show("Placa inválida", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                }
+                else if (cmbTipoVehiculo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (cmbColor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -270,100 +314,54 @@ namespace SistemaParking
 
 
         //Validaciones
-        private bool ValidarCorreo(string correo)
+
+        //valida correo
+        public static bool IsValidEmail(string email)
         {
-            if (string.IsNullOrWhiteSpace(correo))
-            {
-                MessageBox.Show("Debe ingresar un correo electrónico.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Expresión regular simple para validar formato de correo
-            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            if (!Regex.IsMatch(correo, patron))
-            {
-                MessageBox.Show("El correo electrónico no tiene un formato válido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
 
-        public bool ValidarTelefono(TextBox txtTelefono)
+        //valida numero de telefono
+        public static bool ValidarTelefono(string strNumber)
         {
-            string telefono = txtTelefono.Text.Trim();
+            Regex regex = new Regex(@"^[0-9]{8}$");
+            Match match = regex.Match(strNumber);
 
-            // Validar que no esté vacío
-            if (string.IsNullOrEmpty(telefono))
-            {
-                MessageBox.Show("Debe ingresar un número de teléfono.",
-                                "Validación",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+            if (match.Success)
+                return true;
+            else
                 return false;
-            }
-
-            // Validar que sean solo números
-            if (!telefono.All(char.IsDigit))
-            {
-                MessageBox.Show("El número de teléfono solo debe contener dígitos.",
-                                "Validación",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Validar longitud  8 dígitos
-            if (telefono.Length != 8)
-            {
-                MessageBox.Show("El número de teléfono debe tener exactamente 8 dígitos.",
-                                "Validación",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true; // válido
         }
 
-        public bool ValidarPlaca(string placa)
+        //valida placa
+        public static bool ValidarPlaca(string strNumber)
         {
-            if (string.IsNullOrWhiteSpace(placa))
-            {
-                MessageBox.Show("Debe ingresar una placa.",
-                                "Validación",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+            Regex regex = new Regex(@"(^[A-Z]{3}[0-9]{3}$)|(^[0-9]{6}$)");
+            Match match = regex.Match(strNumber);
+
+            if (match.Success)
+                return true;
+            else
                 return false;
-            }
-
-            // Normalizar entrada
-            placa = placa.Trim().ToUpper();
-
-            // Patrón para carros (solo números, 6 dígitos)
-            string patronCarroNumerico = @"^\d{6}$";
-
-            // Patrón para motos (una letra + 6 dígitos)
-            string patronMoto = @"^[A-Z]{1}\d{6}$";
-
-            // Patrón para carros con 3 letras + 3 números
-            string patronCarroAlfanumerico = @"^[A-Z]{3}\d{3}$";
-
-            if (Regex.IsMatch(placa, patronCarroNumerico) ||
-                Regex.IsMatch(placa, patronMoto) ||
-                Regex.IsMatch(placa, patronCarroAlfanumerico))
-            {
-                return true; // válido
-            }
-
-            MessageBox.Show("La placa no tiene un formato válido.\nEjemplos válidos:\nCarro: 123456\nMoto: M123456\nCarro: ABC123",
-                            "Validación",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning);
-            return false;
         }
+ 
+        private void cmbTipoIden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mskCedula.Text = ""; // limpiar campo
 
+            if (cmbTipoIden.SelectedValue != null)
+            {
+                string tipo = cmbTipoIden.Text;
 
+                //Validaciones de mascara del campo cedula
+                if (tipo == "CEDULA_FISICA_NACIONAL")
+                    mskCedula.Mask = "0-0000-0000";
+                else if (tipo == "DIMEX")
+                    mskCedula.Mask = "0000000000000";
+                else if (tipo == "PASAPORTE")
+                    mskCedula.Mask = "AAAAAAAAAAAAAAA";
+            }
+        }
 
         private void ConfigurarToolTips()
         {
@@ -376,10 +374,36 @@ namespace SistemaParking
             toolTip1.ShowAlways = true;     // mostrar incluso si el formulario no está activo
 
             // Asigna ToolTip a controles
+            toolTip1.SetToolTip(this.mskCedula, "Enter: para traer los datos");
             toolTip1.SetToolTip(this.btnRegistrarSegundoVehiculo, "Registrar otro vehiculo del mismo cliente");
         }
 
+        private void mskCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

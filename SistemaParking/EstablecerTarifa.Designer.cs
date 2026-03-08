@@ -155,6 +155,7 @@
             this.txtMontoHora.Name = "txtMontoHora";
             this.txtMontoHora.Size = new System.Drawing.Size(206, 33);
             this.txtMontoHora.TabIndex = 47;
+            this.txtMontoHora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoHora_KeyPress);
             // 
             // cmbTipoVehiculo
             // 
@@ -191,6 +192,7 @@
             this.txtFranccionMinuto.Name = "txtFranccionMinuto";
             this.txtFranccionMinuto.Size = new System.Drawing.Size(206, 33);
             this.txtFranccionMinuto.TabIndex = 58;
+            this.txtFranccionMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFranccionMinuto_KeyPress);
             // 
             // txtMontoFranccionMinuto
             // 
@@ -202,6 +204,7 @@
             this.txtMontoFranccionMinuto.Name = "txtMontoFranccionMinuto";
             this.txtMontoFranccionMinuto.Size = new System.Drawing.Size(206, 33);
             this.txtMontoFranccionMinuto.TabIndex = 59;
+            this.txtMontoFranccionMinuto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoFranccionMinuto_KeyPress);
             // 
             // label1
             // 

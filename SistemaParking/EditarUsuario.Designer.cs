@@ -201,10 +201,10 @@
             this.cmbTipoIden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbTipoIden.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.cmbTipoIden.FormattingEnabled = true;
-            this.cmbTipoIden.Location = new System.Drawing.Point(131, 71);
+            this.cmbTipoIden.Location = new System.Drawing.Point(82, 71);
             this.cmbTipoIden.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(181, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(264, 33);
             this.cmbTipoIden.TabIndex = 4;
             // 
             // lblTipoIdenti
@@ -298,6 +298,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(181, 33);
             this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtApellidos
             // 

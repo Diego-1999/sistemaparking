@@ -244,6 +244,7 @@
             this.mskCedula.Size = new System.Drawing.Size(181, 33);
             this.mskCedula.TabIndex = 52;
             this.mskCedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCedula_KeyDown);
+            this.mskCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskCedula_KeyPress);
             // 
             // cmbTipoIden
             // 
@@ -253,7 +254,7 @@
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(273, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(264, 33);
             this.cmbTipoIden.TabIndex = 51;
             this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
@@ -340,6 +341,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(181, 33);
             this.txtTelefono.TabIndex = 42;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtApellidos
             // 

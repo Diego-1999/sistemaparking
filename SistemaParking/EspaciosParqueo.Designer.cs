@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EspaciosParqueo));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.TxtNumeroEspacios = new System.Windows.Forms.TextBox();
-            this.TxtTipoEspacio = new System.Windows.Forms.TextBox();
             this.LblNumeroEspacios = new System.Windows.Forms.Label();
             this.LblTipoEspacio = new System.Windows.Forms.Label();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.BtnGuardarEspacio = new System.Windows.Forms.Button();
+            this.cmbTipoVehiculo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -60,16 +60,7 @@
             this.TxtNumeroEspacios.Name = "TxtNumeroEspacios";
             this.TxtNumeroEspacios.Size = new System.Drawing.Size(181, 33);
             this.TxtNumeroEspacios.TabIndex = 3;
-            // 
-            // TxtTipoEspacio
-            // 
-            this.TxtTipoEspacio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxtTipoEspacio.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.TxtTipoEspacio.Location = new System.Drawing.Point(585, 245);
-            this.TxtTipoEspacio.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtTipoEspacio.Name = "TxtTipoEspacio";
-            this.TxtTipoEspacio.Size = new System.Drawing.Size(181, 33);
-            this.TxtTipoEspacio.TabIndex = 4;
+            this.TxtNumeroEspacios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumeroEspacios_KeyPress);
             // 
             // LblNumeroEspacios
             // 
@@ -135,6 +126,15 @@
             this.BtnGuardarEspacio.UseVisualStyleBackColor = false;
             this.BtnGuardarEspacio.Click += new System.EventHandler(this.BtnGuardarEspacio_Click);
             // 
+            // cmbTipoVehiculo
+            // 
+            this.cmbTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.cmbTipoVehiculo.FormattingEnabled = true;
+            this.cmbTipoVehiculo.Location = new System.Drawing.Point(585, 245);
+            this.cmbTipoVehiculo.Name = "cmbTipoVehiculo";
+            this.cmbTipoVehiculo.Size = new System.Drawing.Size(181, 33);
+            this.cmbTipoVehiculo.TabIndex = 13;
+            // 
             // EspaciosParqueo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,11 +143,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.Controls.Add(this.cmbTipoVehiculo);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnGuardarEspacio);
             this.Controls.Add(this.LblTipoEspacio);
             this.Controls.Add(this.LblNumeroEspacios);
-            this.Controls.Add(this.TxtTipoEspacio);
             this.Controls.Add(this.TxtNumeroEspacios);
             this.Controls.Add(this.lblTitulo);
             this.DoubleBuffered = true;
@@ -165,10 +165,10 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox TxtNumeroEspacios;
-        private System.Windows.Forms.TextBox TxtTipoEspacio;
         private System.Windows.Forms.Label LblNumeroEspacios;
         private System.Windows.Forms.Label LblTipoEspacio;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Button BtnGuardarEspacio;
+        private System.Windows.Forms.ComboBox cmbTipoVehiculo;
     }
 }

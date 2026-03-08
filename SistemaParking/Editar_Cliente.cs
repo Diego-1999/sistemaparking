@@ -39,7 +39,7 @@ namespace SistemaParking
 
         }
 
-        //Cargar ComboBox
+        //Cargar ComboBox TipoVehiculo
         private void CargarComboTipoVehiculo()
         {
             cmbTipoVehiculo.DataSource = new NTiposVehiculo().ListarTipoVehiculo();
@@ -97,21 +97,57 @@ namespace SistemaParking
             try
             {
                 //validaciones de campos
-                if (string.IsNullOrEmpty(txtNombre.Text) && string.IsNullOrEmpty(txtApellidos.Text))
+                if (cmbTipoIden.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Campos nombre o apellidos incompletos", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Seleccione un tipo de identificación", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtEmail.Text))
-                {
-                    ValidarCorreo(txtEmail.Text);
-                }
-                else if (!mskCedula.MaskCompleted && cmbTipoIden.SelectedIndex == -1)
+                else if (!mskCedula.MaskCompleted)
                 {
                     MessageBox.Show("Necesita ingresar la cédula", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (string.IsNullOrEmpty(txtPlaca.Text) && cmbTipoVehiculo.SelectedIndex == -1 && cmbMarca.SelectedIndex == -1 && cmbColor.SelectedIndex == -1)
+                else if (string.IsNullOrEmpty(txtNombre.Text))
                 {
-                    MessageBox.Show("Necesita ingresar el correo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Campo nombre incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtApellidos.Text))
+                {
+                    MessageBox.Show("Campo apellidos incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtTelefono.Text)) //valida espacio vacio del telefono
+                {
+                    MessageBox.Show("Campo teléfono incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarTelefono(txtTelefono.Text)) // valida solo 8 numero y no permite letras
+                {
+                    MessageBox.Show("Teléfono inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (string.IsNullOrEmpty(txtEmail.Text)) //valida espacio vacio del correo
+                {
+                    MessageBox.Show("Campo correo incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!IsValidEmail(txtEmail.Text)) // valida formato correcto del correo
+                {
+                    MessageBox.Show("Correo inválido", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (cmbMarca.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (string.IsNullOrEmpty(txtPlaca.Text)) // valida placa vacia
+                {
+                    MessageBox.Show("Campo placa incompleto", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (!ValidarPlaca(txtPlaca.Text)) // valida formato placa correcto
+                {
+                    MessageBox.Show("Placa inválida", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
+                }
+                else if (cmbTipoVehiculo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (cmbColor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un tipo de vehículo", "Aceptar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -178,6 +214,67 @@ namespace SistemaParking
             }
 
             return true;
-        }   
+        }
+
+
+        //Validaciones
+
+        //valida correo
+        public static bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        //valida numero de telefono
+        public static bool ValidarTelefono(string strNumber)
+        {
+            Regex regex = new Regex(@"^[0-9]{8}$");
+            Match match = regex.Match(strNumber);
+
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+
+        //valida placa
+        public static bool ValidarPlaca(string strNumber)
+        {
+            Regex regex = new Regex(@"(^[A-Z]{3}[0-9]{3}$)|(^[0-9]{6}$)");
+            Match match = regex.Match(strNumber);
+
+            if (match.Success)
+                return true;
+            else
+                return false;
+        }
+
+        private void mskCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
