@@ -20,7 +20,6 @@ namespace SistemaParking.Entidad
         public int Iteraciones { get; set; }
 
         //Campos para mostrar en el menu
-
         public string NombreColaborador { get; set; }
         public string ApellidoColaborador { get; set; }
     }

@@ -54,9 +54,9 @@
             this.lblTitulo.Location = new System.Drawing.Point(435, 18);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(175, 28);
+            this.lblTitulo.Size = new System.Drawing.Size(143, 28);
             this.lblTitulo.TabIndex = 2;
-            this.lblTitulo.Text = "Establecer Tarifa ";
+            this.lblTitulo.Text = "Indicar Tarifa ";
             // 
             // lblFraccionMinuto
             // 
@@ -178,9 +178,9 @@
             this.lblDescripcion.Location = new System.Drawing.Point(271, 126);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(213, 25);
+            this.lblDescripcion.Size = new System.Drawing.Size(208, 25);
             this.lblDescripcion.TabIndex = 45;
-            this.lblDescripcion.Text = "Descripción del la Tarifa";
+            this.lblDescripcion.Text = "Descripción de la Tarifa";
             // 
             // txtFranccionMinuto
             // 
@@ -217,7 +217,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 25);
             this.label1.TabIndex = 60;
-            this.label1.Text = "Fraccion de Minuto";
+            this.label1.Text = "Fracción de Minuto";
             // 
             // label2
             // 
@@ -228,9 +228,9 @@
             this.label2.Location = new System.Drawing.Point(586, 207);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 25);
+            this.label2.Size = new System.Drawing.Size(210, 25);
             this.label2.TabIndex = 61;
-            this.label2.Text = "Monto Franccion Minuto";
+            this.label2.Text = "Monto Fracción Minuto";
             // 
             // EstablecerTarifa
             // 

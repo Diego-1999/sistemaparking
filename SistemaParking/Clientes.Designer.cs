@@ -61,8 +61,7 @@
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Location = new System.Drawing.Point(395, 50);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(24, 24);
-            this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btnBuscar.Size = new System.Drawing.Size(32, 33);
             this.btnBuscar.TabIndex = 47;
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -77,7 +76,7 @@
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(165, 25);
             this.lblNombre.TabIndex = 46;
-            this.lblNombre.Text = "Nombre o Cedúla:";
+            this.lblNombre.Text = "Nombre o Cédula:";
             // 
             // txtNombreCedula
             // 

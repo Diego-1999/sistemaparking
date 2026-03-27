@@ -15,6 +15,5 @@ namespace SistemaParking.Entidad
         public string Tarifa { get; set; }
         public string Cliente { get; set; }
         public decimal TotalPagar { get; set; }
-
     }
 }

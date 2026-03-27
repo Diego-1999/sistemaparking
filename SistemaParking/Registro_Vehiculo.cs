@@ -115,7 +115,7 @@ namespace SistemaParking
                         return;
                     }
 
-                    // Generar tiquete (ya incluye idCliente si aplica)
+                    // Generar tiquete
                     var tiquete = negocio.GenerarTiqueteEntrada(
                         txtPlaca.Text,
                         cmbTipoVehiculo.Text,

@@ -10,6 +10,7 @@ namespace SistemaParking.Negocio
 {
     public class NMarca
     {
+        //instancia con la clase DMarca de la capa Datos
         DMarca dmarca = new DMarca();
         public List<EMarca> ListarMarca()
         {

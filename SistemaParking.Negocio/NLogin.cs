@@ -17,8 +17,8 @@ namespace SistemaParking.Negocio
 
         public UsuarioSesion LoginUser(string usuario, string contrasena)
         {
-            var datosUsuario = dlogin.Login(usuario);
-            if (datosUsuario == null) return null;
+            var datosUsuario = dlogin.Login(usuario); // se traer la informacion del usuario    
+            if (datosUsuario == null) return null; // Se verificar si el usuario existe
 
             using (var pbkdf2 = new Rfc2898DeriveBytes(contrasena, datosUsuario.Salt, datosUsuario.Iteraciones, HashAlgorithmName.SHA256))
             {

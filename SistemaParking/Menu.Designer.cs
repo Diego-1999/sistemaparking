@@ -30,12 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.pbxConfiguracion = new System.Windows.Forms.PictureBox();
+            this.pbxReporte = new System.Windows.Forms.PictureBox();
+            this.pbxCliente = new System.Windows.Forms.PictureBox();
+            this.pbxSalidaVehiculo = new System.Windows.Forms.PictureBox();
+            this.pbxRegistrarVehiculo = new System.Windows.Forms.PictureBox();
             this.panelUser = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNomUsuario = new System.Windows.Forms.Label();
             this.btnInicio = new System.Windows.Forms.PictureBox();
             this.lblPosicion = new System.Windows.Forms.Label();
             this.panelConf = new System.Windows.Forms.Panel();
+            this.pbxEspacios = new System.Windows.Forms.PictureBox();
+            this.pbxTarifa = new System.Windows.Forms.PictureBox();
+            this.pbxRegistrarUsuario = new System.Windows.Forms.PictureBox();
             this.btnEspacios = new System.Windows.Forms.Button();
             this.btnEstablecerTarifas = new System.Windows.Forms.Button();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
@@ -55,9 +63,17 @@
             this.btndesplegar = new System.Windows.Forms.PictureBox();
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.MenuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxConfiguracion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxReporte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSalidaVehiculo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRegistrarVehiculo)).BeginInit();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnInicio)).BeginInit();
             this.panelConf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEspacios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTarifa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRegistrarUsuario)).BeginInit();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVehiculos)).BeginInit();
@@ -69,6 +85,11 @@
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.MenuVertical.Controls.Add(this.pbxConfiguracion);
+            this.MenuVertical.Controls.Add(this.pbxReporte);
+            this.MenuVertical.Controls.Add(this.pbxCliente);
+            this.MenuVertical.Controls.Add(this.pbxSalidaVehiculo);
+            this.MenuVertical.Controls.Add(this.pbxRegistrarVehiculo);
             this.MenuVertical.Controls.Add(this.panelUser);
             this.MenuVertical.Controls.Add(this.panelConf);
             this.MenuVertical.Controls.Add(this.btnAjustes);
@@ -82,6 +103,61 @@
             this.MenuVertical.Name = "MenuVertical";
             this.MenuVertical.Size = new System.Drawing.Size(250, 650);
             this.MenuVertical.TabIndex = 0;
+            // 
+            // pbxConfiguracion
+            // 
+            this.pbxConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("pbxConfiguracion.Image")));
+            this.pbxConfiguracion.Location = new System.Drawing.Point(22, 280);
+            this.pbxConfiguracion.Name = "pbxConfiguracion";
+            this.pbxConfiguracion.Size = new System.Drawing.Size(24, 24);
+            this.pbxConfiguracion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxConfiguracion.TabIndex = 9;
+            this.pbxConfiguracion.TabStop = false;
+            this.pbxConfiguracion.Click += new System.EventHandler(this.pbxConfiguracion_Click);
+            // 
+            // pbxReporte
+            // 
+            this.pbxReporte.Image = ((System.Drawing.Image)(resources.GetObject("pbxReporte.Image")));
+            this.pbxReporte.Location = new System.Drawing.Point(22, 234);
+            this.pbxReporte.Name = "pbxReporte";
+            this.pbxReporte.Size = new System.Drawing.Size(24, 24);
+            this.pbxReporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxReporte.TabIndex = 8;
+            this.pbxReporte.TabStop = false;
+            this.pbxReporte.Click += new System.EventHandler(this.pbxReporte_Click);
+            // 
+            // pbxCliente
+            // 
+            this.pbxCliente.Image = ((System.Drawing.Image)(resources.GetObject("pbxCliente.Image")));
+            this.pbxCliente.Location = new System.Drawing.Point(22, 188);
+            this.pbxCliente.Name = "pbxCliente";
+            this.pbxCliente.Size = new System.Drawing.Size(24, 24);
+            this.pbxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxCliente.TabIndex = 7;
+            this.pbxCliente.TabStop = false;
+            this.pbxCliente.Click += new System.EventHandler(this.pbxCliente_Click);
+            // 
+            // pbxSalidaVehiculo
+            // 
+            this.pbxSalidaVehiculo.Image = ((System.Drawing.Image)(resources.GetObject("pbxSalidaVehiculo.Image")));
+            this.pbxSalidaVehiculo.Location = new System.Drawing.Point(22, 142);
+            this.pbxSalidaVehiculo.Name = "pbxSalidaVehiculo";
+            this.pbxSalidaVehiculo.Size = new System.Drawing.Size(24, 24);
+            this.pbxSalidaVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbxSalidaVehiculo.TabIndex = 6;
+            this.pbxSalidaVehiculo.TabStop = false;
+            this.pbxSalidaVehiculo.Click += new System.EventHandler(this.pbxSalidaVehiculo_Click);
+            // 
+            // pbxRegistrarVehiculo
+            // 
+            this.pbxRegistrarVehiculo.Image = ((System.Drawing.Image)(resources.GetObject("pbxRegistrarVehiculo.Image")));
+            this.pbxRegistrarVehiculo.Location = new System.Drawing.Point(22, 103);
+            this.pbxRegistrarVehiculo.Name = "pbxRegistrarVehiculo";
+            this.pbxRegistrarVehiculo.Size = new System.Drawing.Size(24, 24);
+            this.pbxRegistrarVehiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxRegistrarVehiculo.TabIndex = 0;
+            this.pbxRegistrarVehiculo.TabStop = false;
+            this.pbxRegistrarVehiculo.Click += new System.EventHandler(this.pbxRegistrarVehiculo_Click);
             // 
             // panelUser
             // 
@@ -148,6 +224,9 @@
             // panelConf
             // 
             this.panelConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(58)))), ((int)(((byte)(102)))));
+            this.panelConf.Controls.Add(this.pbxEspacios);
+            this.panelConf.Controls.Add(this.pbxTarifa);
+            this.panelConf.Controls.Add(this.pbxRegistrarUsuario);
             this.panelConf.Controls.Add(this.btnEspacios);
             this.panelConf.Controls.Add(this.btnEstablecerTarifas);
             this.panelConf.Controls.Add(this.btnNuevoUsuario);
@@ -155,6 +234,39 @@
             this.panelConf.Name = "panelConf";
             this.panelConf.Size = new System.Drawing.Size(250, 125);
             this.panelConf.TabIndex = 0;
+            // 
+            // pbxEspacios
+            // 
+            this.pbxEspacios.Image = ((System.Drawing.Image)(resources.GetObject("pbxEspacios.Image")));
+            this.pbxEspacios.Location = new System.Drawing.Point(19, 86);
+            this.pbxEspacios.Name = "pbxEspacios";
+            this.pbxEspacios.Size = new System.Drawing.Size(24, 24);
+            this.pbxEspacios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxEspacios.TabIndex = 9;
+            this.pbxEspacios.TabStop = false;
+            this.pbxEspacios.Click += new System.EventHandler(this.pbxEspacios_Click);
+            // 
+            // pbxTarifa
+            // 
+            this.pbxTarifa.Image = ((System.Drawing.Image)(resources.GetObject("pbxTarifa.Image")));
+            this.pbxTarifa.Location = new System.Drawing.Point(19, 46);
+            this.pbxTarifa.Name = "pbxTarifa";
+            this.pbxTarifa.Size = new System.Drawing.Size(24, 24);
+            this.pbxTarifa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxTarifa.TabIndex = 8;
+            this.pbxTarifa.TabStop = false;
+            this.pbxTarifa.Click += new System.EventHandler(this.pbxTarifa_Click);
+            // 
+            // pbxRegistrarUsuario
+            // 
+            this.pbxRegistrarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbxRegistrarUsuario.Image")));
+            this.pbxRegistrarUsuario.Location = new System.Drawing.Point(19, 10);
+            this.pbxRegistrarUsuario.Name = "pbxRegistrarUsuario";
+            this.pbxRegistrarUsuario.Size = new System.Drawing.Size(24, 24);
+            this.pbxRegistrarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxRegistrarUsuario.TabIndex = 7;
+            this.pbxRegistrarUsuario.TabStop = false;
+            this.pbxRegistrarUsuario.Click += new System.EventHandler(this.pbxRegistrarUsuario_Click);
             // 
             // btnEspacios
             // 
@@ -170,7 +282,7 @@
             this.btnEspacios.Name = "btnEspacios";
             this.btnEspacios.Size = new System.Drawing.Size(250, 40);
             this.btnEspacios.TabIndex = 6;
-            this.btnEspacios.Text = "Establecer Espacios";
+            this.btnEspacios.Text = "Indicar Espacios";
             this.btnEspacios.UseVisualStyleBackColor = true;
             this.btnEspacios.Click += new System.EventHandler(this.btnEspacios_Click);
             // 
@@ -188,7 +300,7 @@
             this.btnEstablecerTarifas.Name = "btnEstablecerTarifas";
             this.btnEstablecerTarifas.Size = new System.Drawing.Size(250, 40);
             this.btnEstablecerTarifas.TabIndex = 5;
-            this.btnEstablecerTarifas.Text = "Establecer Tarifa";
+            this.btnEstablecerTarifas.Text = "Indicar Tarifa";
             this.btnEstablecerTarifas.UseVisualStyleBackColor = true;
             this.btnEstablecerTarifas.Click += new System.EventHandler(this.btnEstablecerTarifas_Click);
             // 
@@ -334,7 +446,7 @@
             // 
             this.btnMoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMoto.Image = ((System.Drawing.Image)(resources.GetObject("btnMoto.Image")));
-            this.btnMoto.Location = new System.Drawing.Point(192, 9);
+            this.btnMoto.Location = new System.Drawing.Point(192, 12);
             this.btnMoto.Name = "btnMoto";
             this.btnMoto.Size = new System.Drawing.Size(32, 32);
             this.btnMoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -359,7 +471,7 @@
             this.lblMotosDisponibles.AutoSize = true;
             this.lblMotosDisponibles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotosDisponibles.ForeColor = System.Drawing.Color.Black;
-            this.lblMotosDisponibles.Location = new System.Drawing.Point(229, 18);
+            this.lblMotosDisponibles.Location = new System.Drawing.Point(229, 17);
             this.lblMotosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMotosDisponibles.Name = "lblMotosDisponibles";
             this.lblMotosDisponibles.Size = new System.Drawing.Size(47, 20);
@@ -372,7 +484,7 @@
             this.lblVehiculosDisponibles.AutoSize = true;
             this.lblVehiculosDisponibles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVehiculosDisponibles.ForeColor = System.Drawing.Color.Black;
-            this.lblVehiculosDisponibles.Location = new System.Drawing.Point(107, 18);
+            this.lblVehiculosDisponibles.Location = new System.Drawing.Point(107, 17);
             this.lblVehiculosDisponibles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVehiculosDisponibles.Name = "lblVehiculosDisponibles";
             this.lblVehiculosDisponibles.Size = new System.Drawing.Size(68, 20);
@@ -441,10 +553,19 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.MenuVertical.ResumeLayout(false);
+            this.MenuVertical.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxConfiguracion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxReporte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSalidaVehiculo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRegistrarVehiculo)).EndInit();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnInicio)).EndInit();
             this.panelConf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxEspacios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTarifa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRegistrarUsuario)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMoto)).EndInit();
@@ -483,6 +604,14 @@
         private System.Windows.Forms.Label lblVehiculosDisponibles;
         private System.Windows.Forms.PictureBox btnVehiculos;
         private System.Windows.Forms.PictureBox btnMoto;
+        private System.Windows.Forms.PictureBox pbxConfiguracion;
+        private System.Windows.Forms.PictureBox pbxReporte;
+        private System.Windows.Forms.PictureBox pbxCliente;
+        private System.Windows.Forms.PictureBox pbxSalidaVehiculo;
+        private System.Windows.Forms.PictureBox pbxRegistrarVehiculo;
+        private System.Windows.Forms.PictureBox pbxEspacios;
+        private System.Windows.Forms.PictureBox pbxTarifa;
+        private System.Windows.Forms.PictureBox pbxRegistrarUsuario;
     }
 }
 

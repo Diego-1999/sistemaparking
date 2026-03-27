@@ -95,9 +95,7 @@ namespace SistemaParking
             {
 
                 MessageBox.Show("Error al exportar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-        }
-    
+            }            
+        }   
     }
 }

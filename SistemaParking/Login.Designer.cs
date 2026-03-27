@@ -65,7 +65,7 @@
             this.ptbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbLogo.TabIndex = 14;
             this.ptbLogo.TabStop = false;
-            this.ptbLogo.Click += new System.EventHandler(this.ptbLogo_Click);
+            this.ptbLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ptbLogo_MouseDown);
             // 
             // lblLinea1
             // 

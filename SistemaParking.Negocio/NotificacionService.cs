@@ -11,7 +11,7 @@ namespace SistemaParking.Negocio
 {
     public class NotificacionService
     {
-
+        //instancias 
         private readonly EmailClient _emailClient;
         private readonly NCliente _nCliente;
 
@@ -19,7 +19,7 @@ namespace SistemaParking.Negocio
         public NotificacionService(EmailClient emailClient)
         {
             _emailClient = emailClient;
-            _nCliente = new NCliente(); // se respeta la arquitectura
+            _nCliente = new NCliente(); 
 
         }
 

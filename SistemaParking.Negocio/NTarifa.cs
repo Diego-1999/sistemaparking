@@ -17,18 +17,19 @@ namespace SistemaParking.Negocio
             if (fechaSalida < fechaEntrada)
                 throw new ArgumentException("La fecha de salida no puede ser anterior a la fecha de entrada.");
 
-            TimeSpan tiempo = fechaSalida - fechaEntrada; //Se obtener la duración exacta entre entrada y salida.
+            TimeSpan tiempo = fechaSalida - fechaEntrada; //Se obtener la duración total que el vehículo estuvo en el parqueo.
 
 
             int horasCompletas = (int)Math.Floor(tiempo.TotalHours);//tiempo.TotalHours devuelve el total de horas transcurridas incluyendo decimales.
                                                                     //Math.Floor redondea hacia abajo al entero más cercano.
-
+            
             int minutosTotales = (int)(tiempo.TotalMinutes - (horasCompletas * 60));// tiempo.TotalMinutes devuelve el total de minutos transcurridos.
                                                                                     //horasCompletas * 60 convierte las horas completas a minutos.
 
             decimal total = horasCompletas * tarifa.monto_por_hora; //Multiplica las horas completas por la tarifa por hora 
 
-            // Cobro por fracciones
+            // Cobro por fracciones 
+            /*es la unidad mínima de tiempo que el parqueo usa para cobrar los minutos adicionales después de una hora.*/
             if (tarifa.fraccion_minutos.HasValue && tarifa.monto_fraccion.HasValue && minutosTotales > 0)
             {
                 int fracciones = (int)Math.Ceiling( //Math.Ceiling para redondear hacia arriba las fracciones
@@ -49,7 +50,7 @@ namespace SistemaParking.Negocio
 
         public bool RegistroTarifa(string descripcion, decimal montoHora, int fraccionMinuto, decimal montoFraccion, string nombreTipoVehiculo)
         {
-            // Reglas de negocio
+           
             if (string.IsNullOrWhiteSpace(descripcion))
                 throw new ArgumentException("La descripcion es obligatoria");
 

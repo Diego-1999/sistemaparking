@@ -70,7 +70,7 @@ namespace SistemaParking
                 if (menu != null)
                     menu.ActualizarLabels();
 
-                // 🔑 Enviar correo con el tiquete de salida
+                // Enviar correo con el tiquete de salida
                 var config = new ConfigurationBuilder()
                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -89,52 +89,8 @@ namespace SistemaParking
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-
-
-
-            //try
-            //{
-            //    NSalidaVehiculo negocio = new NSalidaVehiculo();
-            //    // Procesa la salida y calcula el total
-            //    ETiqueteSalida tiquetesalida = negocio.GenerarTiqueteSalida(
-            //        txtPlaca.Text,
-            //        SesionActual.Usuario.NumeroIdColaborador
-            //    );
-
-            //    // Generar PDF
-            //    string ruta = Path.Combine(
-            //        Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-            //        "TiqueteSalida.pdf"
-            //    );
-
-            //    PdfHelper.GenerarTiqueteSalidaPDF(tiquetesalida, ruta);
-
-            //    // Abrir PDF automáticamente
-            //    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
-            //    {
-            //        FileName = ruta,
-            //        UseShellExecute = true
-            //    });
-
-            //    // Refrescar labels del Menu
-            //    var menu = Application.OpenForms.OfType<Menu>().FirstOrDefault();
-            //    if (menu != null)
-            //        menu.ActualizarLabels();
-
-            //    txtPlaca.Clear();
-            //    txtPlaca.Focus();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
-
+            }           
         }
-
     }
-
 }
 

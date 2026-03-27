@@ -14,8 +14,6 @@ namespace SistemaParking.Entidad
         public string TipoVehiculo { get; set; }
         public string Marca { get; set; }
         public string Color { get; set; }
-
-        //
         public int IdMarca { get; set; }
         public int IdColor { get; set; }
 

@@ -77,7 +77,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(107, 30);
             this.lblTitulo.TabIndex = 15;
-            this.lblTitulo.Text = "Vehiculos";
+            this.lblTitulo.Text = "Vehículos";
             // 
             // Vehiculos
             // 

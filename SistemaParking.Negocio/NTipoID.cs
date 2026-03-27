@@ -10,6 +10,7 @@ namespace SistemaParking.Negocio
 {
     public class NTipoID
     {
+        //instancia con la clase DTipoID de la capa Datos
         DTipoID dtipoid = new DTipoID();
         public List<ETipoId> ListarTipoId()
         {

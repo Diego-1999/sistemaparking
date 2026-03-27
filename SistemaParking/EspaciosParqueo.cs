@@ -13,7 +13,7 @@ namespace SistemaParking
 {
     public partial class EspaciosParqueo : Form
     {
-        // Instanciamos la capa negocio
+        // Instanciam la capa negocio
         NEspaciosParqueo nespacio = new NEspaciosParqueo();
         NTiposVehiculo nTiposVehiculo = new NTiposVehiculo();
 
@@ -67,7 +67,6 @@ namespace SistemaParking
             TxtNumeroEspacios.Focus();
         }
 
-
         //Cargar ComboBox TipoVehiculo
         private void CargarComboTipoVehiculo()
         {
@@ -88,8 +87,7 @@ namespace SistemaParking
             {
                 e.Handled = true;
             }
-
-            // only allow one decimal point
+         
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;

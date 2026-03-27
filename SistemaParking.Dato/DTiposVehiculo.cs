@@ -38,7 +38,6 @@ namespace SistemaParking.Dato
                                 lista.Add(tipovehiculo);
                             }
                         }
-
                     }
                 }
                 return lista;
@@ -51,8 +50,7 @@ namespace SistemaParking.Dato
             {
 
                 throw;
-            }
-            
+            }         
         }
     }
 }

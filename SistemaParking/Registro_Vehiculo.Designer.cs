@@ -66,7 +66,7 @@
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(185, 40);
             this.btnRegistrar.TabIndex = 1;
-            this.btnRegistrar.Text = "Registrar Vehiculo";
+            this.btnRegistrar.Text = "Registrar Vehículo";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -139,7 +139,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 25);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Tipo de Vehiculo";
+            this.label2.Text = "Tipo de Vehículo";
             // 
             // cmbTipoVehiculo
             // 

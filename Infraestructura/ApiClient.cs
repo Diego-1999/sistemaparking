@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 
 namespace Infraestructura
 {
+    //clase para llevar y traer paquetes por internet
      public class ApiClient
     {
+        
         private readonly HttpClient _httpClient;
 
-        // Constructor: puedes inyectar HttpClient desde fuera 
+        // Constructor
         public ApiClient(HttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _httpClient.Timeout = TimeSpan.FromSeconds(30); // Configuración de timeout
+            _httpClient.Timeout = TimeSpan.FromSeconds(30); // Se Configura el tiempo que tiene que durar
         }
 
-        // Método genérico para GET
+        //metodo que se encarga de traer los paquetes
         public async Task<string> GetAsync(string url)
         {
             try
@@ -29,7 +31,6 @@ namespace Infraestructura
             }
             catch (HttpRequestException ex)
             {
-                // Aquí puedes loguear el error o lanzar una excepción personalizada
                 throw new Exception($"Error de conexión: {ex.Message}", ex);
             }
             catch (TaskCanceledException)
@@ -38,7 +39,7 @@ namespace Infraestructura
             }
         }
 
-        // Método genérico para POST con contenido JSON
+        // Método POST con contenido JSON para llevar los paquetes
         public async Task<string> PostAsync(string url, HttpContent content)
         {
             try

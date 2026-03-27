@@ -13,7 +13,6 @@ namespace SistemaParking.Datos
 {
     public class DLogin : ConnectionSql
     {
-
         public UsuarioSesion Login(string user)
         {
             using (var cn = GetConnection())
@@ -22,20 +21,21 @@ namespace SistemaParking.Datos
 
                 // Se agrega c.nombre, c.apellido para que se puedan mostrar en el menu
                 using (var command = new SqlCommand(@"SELECT u.id_usuario, u.usuario, 
-                                u.id_rol, r.nombre_rol, 
-                                u.numero_id, 
-                                u.contrasena_hash, 
-                                u.salt, 
-                                u.iteraciones,
-                                c.nombre, c.apellido
-                         FROM Usuario u
-                         INNER JOIN Rol r ON u.id_rol = r.id_rol
-                         INNER JOIN Colaborador c ON u.numero_id = c.numero_id
-                         WHERE u.usuario = @user", cn))
+                                                             u.id_rol, r.nombre_rol, 
+                                                             u.numero_id, 
+                                                             u.contrasena_hash, 
+                                                             u.salt, 
+                                                             u.iteraciones,
+                                                             c.nombre, c.apellido
+                                                     FROM Usuario u
+                                                     INNER JOIN Rol r ON u.id_rol = r.id_rol
+                                                     INNER JOIN Colaborador c ON u.numero_id = c.numero_id
+                                                     WHERE u.usuario = @user", cn))
                 {
-                    command.Parameters.AddWithValue("@user", user);
+                    //command.Parameters.AddWithValue("@user", user);
+                    command.Parameters.Add("@user", SqlDbType.VarChar, 20).Value=user;
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow))
                     {
                         if (reader.Read())
                         {
@@ -46,9 +46,9 @@ namespace SistemaParking.Datos
                                 IdRol = reader.GetInt32(2),
                                 NombreRol = reader.GetString(3),
                                 NumeroIdColaborador = reader.GetString(4),
-                                ContrasenaHash = (byte[])reader["contrasena_hash"],
-                                Salt = (byte[])reader["salt"],
-                                Iteraciones = (int)reader["iteraciones"],
+                                ContrasenaHash = reader.GetFieldValue<byte[]>(5),
+                                Salt = reader.GetFieldValue<byte[]>(6),
+                                Iteraciones = reader.GetInt32(7),
                                 NombreColaborador = reader.GetString(8),
                                 ApellidoColaborador = reader.GetString(9),
                             };
@@ -59,5 +59,4 @@ namespace SistemaParking.Datos
             return null;
         }
     }
-
 }

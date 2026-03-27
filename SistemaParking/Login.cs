@@ -50,7 +50,7 @@ namespace SistemaParking
             if (txtUsuario.Text == "USUARIO")
             {
                 txtUsuario.Text = "";
-                txtUsuario.ForeColor = Color.LightGray;
+                txtUsuario.ForeColor = Color.DimGray;
             }
         }
 
@@ -70,7 +70,7 @@ namespace SistemaParking
             if (txtPass.Text == "CONTRASEÑA")
             {
                 txtPass.Text = "";
-                txtPass.ForeColor = Color.LightGray;
+                txtPass.ForeColor = Color.DimGray;
                 txtPass.UseSystemPasswordChar = true;
             }
         }
@@ -169,7 +169,7 @@ namespace SistemaParking
             {
                 btnLogin.PerformClick();
                 txtPass.Text = "";
-                txtPass.ForeColor = Color.LightGray;
+                txtPass.ForeColor = Color.DimGray;
                 txtPass.UseSystemPasswordChar = true;
             }
         }
@@ -180,7 +180,6 @@ namespace SistemaParking
 
         }
 
-
         public async Task ProbarConexionAsync()
         {
             HttpClient httpClient = new HttpClient();
@@ -189,8 +188,7 @@ namespace SistemaParking
 
             await service.ProcesarDatosAsync();
         }
-
-        private void ptbLogo_Click(object sender, EventArgs e)
+        private void ptbLogo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);

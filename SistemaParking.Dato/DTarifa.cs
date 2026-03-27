@@ -15,30 +15,34 @@ namespace SistemaParking.Dato
         {
             try
             {
-                using (var cn = GetConnection())
-                using (var command = new SqlCommand(@"SELECT id_tarifa, descripcion, monto_por_hora, fraccion_minutos, monto_fraccion, estado, Codigo FROM Tarifa 
-                    WHERE id_tarifa = @IdTarifa AND estado = 1", cn)) //esta consulta trae los datos del catálogo de tarifas, filtrando por ID y estado activo
+                using (var cn = GetConnection()) 
                 {
-                    command.Parameters.AddWithValue("@IdTarifa", idTarifa); //se asignas parametros
                     cn.Open();//abrimos conexion
 
-                    using (var reader = command.ExecuteReader()) //ejecuta la consulta
+                    using (var command = new SqlCommand(@"SELECT id_tarifa, descripcion, monto_por_hora, fraccion_minutos, monto_fraccion, estado, Codigo FROM Tarifa 
+                    WHERE id_tarifa = @IdTarifa AND estado = 1", cn)) //esta consulta trae los datos del catálogo de tarifas, filtrando por ID y estado activo
                     {
-                        if (!reader.Read()) return null; //Verificas si hay resultados si no hay se devuelve null
+                        command.Parameters.AddWithValue("@IdTarifa", idTarifa); //se asignas parametros
 
 
-                        return new ETarifa //sí hay fila, se construye un objeto ETarifa con los valores de las columnas
+                        using (var reader = command.ExecuteReader()) //ejecuta la consulta
                         {
-                            id_tarifa = reader.GetInt32(0),
-                            descripcion = reader.GetString(1),
-                            monto_por_hora = reader.GetDecimal(2),
-                            fraccion_minutos = reader.IsDBNull(3) ? (int?)null : reader.GetInt32(3),
-                            monto_fraccion = reader.IsDBNull(4) ? (decimal?)null : reader.GetDecimal(4),
-                            Estado = reader.GetBoolean(5),
-                            Codigo = reader.GetString(6)
-                        };
+                            if (!reader.Read()) return null; //Verificas si hay resultados si no hay se devuelve null
+
+
+                            return new ETarifa //sí hay fila, se construye un objeto ETarifa con los valores de las columnas
+                            {
+                                id_tarifa = reader.GetInt32(0),
+                                descripcion = reader.GetString(1),
+                                monto_por_hora = reader.GetDecimal(2),
+                                fraccion_minutos = reader.IsDBNull(3) ? (int?)null : reader.GetInt32(3),
+                                monto_fraccion = reader.IsDBNull(4) ? (decimal?)null : reader.GetDecimal(4),
+                                Estado = reader.GetBoolean(5),
+                                Codigo = reader.GetString(6)
+                            };
+                        }
                     }
-                }
+                }              
             }
             catch (SqlException sqlex)
             {
@@ -93,7 +97,6 @@ namespace SistemaParking.Dato
             {
                 throw ex;
             }
-
         }
     }
 }

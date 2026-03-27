@@ -28,7 +28,6 @@ namespace SistemaParking
             CargarDatos();
         }
    
-
         private void CargarComboTipoID()
         {
 
@@ -195,28 +194,6 @@ namespace SistemaParking
             }                       
         }
 
-
-        //Metodos de validaciones
-        private bool ValidarCorreo(string correo)
-        {
-            if (string.IsNullOrWhiteSpace(correo))
-            {
-                MessageBox.Show("Debe ingresar un correo electrónico.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Expresión regular simple para validar formato de correo
-            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            if (!Regex.IsMatch(correo, patron))
-            {
-                MessageBox.Show("El correo electrónico no tiene un formato válido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
-
         //Validaciones
 
         //valida correo
@@ -276,5 +253,6 @@ namespace SistemaParking
                 e.Handled = true;
             }
         }
+       
     }
 }

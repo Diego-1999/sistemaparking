@@ -10,7 +10,7 @@ namespace SistemaParking.Negocio
 {
     public class NTiposVehiculo
     {
-        //Instancia con DTipoVehiculo
+        //instancia con la clase DTiposVehiculo de la capa Datos
         DTiposVehiculo dtiposvehiculo = new DTiposVehiculo();
         public List<ETiposVehiculo> ListarTipoVehiculo()
         {

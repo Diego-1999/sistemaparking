@@ -14,7 +14,7 @@ namespace SistemaParking.Entidad
         public int id_entrada { get; set; }
         public int id_tarifa { get; set; }
         public string numero_id { get; set; } // colaborador
-        public string id_numero { get; set; } // cliente (opcional)
+        public string id_numero { get; set; } // cliente 
 
     }
 }

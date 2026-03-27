@@ -26,8 +26,7 @@ namespace SistemaParking
             NUsuario negocioUsuario = new NUsuario();
             dgwUsuario.DataSource = negocioUsuario.MostrarUsuarios();
             dgwUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // Encabezados amigables
+           
             dgwUsuario.Columns["numero_id"].HeaderText = "Cédula";
             dgwUsuario.Columns["tipo_id"].HeaderText = "Tipo ID";
             dgwUsuario.Columns["nombre"].HeaderText = "Nombre";
@@ -57,8 +56,7 @@ namespace SistemaParking
             {
 
                 throw;
-            }
-           
+            }       
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -102,8 +100,7 @@ namespace SistemaParking
             {
 
                 throw;
-            }
-            
+            }          
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

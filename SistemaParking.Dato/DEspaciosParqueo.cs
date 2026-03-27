@@ -37,8 +37,7 @@ namespace SistemaParking.Dato
 			{
 
 				throw;
-			}
-            
+			}         
         }
 
         public int ObtenerTotalEspacios(string tipoEspacio)
@@ -46,10 +45,9 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-        SELECT ISNULL(SUM(numero_espacio),0)
-        FROM Parqueo
-        WHERE tipo_espacio = @Tipo", cn))
+                using (var cmd = new SqlCommand(@"SELECT ISNULL(SUM(numero_espacio),0)
+                                                    FROM Parqueo
+                                                    WHERE tipo_espacio = @Tipo", cn))
                 {
                     cmd.Parameters.AddWithValue("@Tipo", tipoEspacio);
                     return (int)cmd.ExecuteScalar();
@@ -63,12 +61,11 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-         SELECT COUNT(*)  
-         FROM Entrada e  
-         INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo  
-         LEFT JOIN Salida s ON s.id_entrada = e.id_entrada  
-         WHERE v.Codigo = @Codigo AND s.id_salida IS NULL", cn))
+                using (var cmd = new SqlCommand(@"SELECT COUNT(*)  
+                                                 FROM Entrada e  
+                                                 INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo  
+                                                 LEFT JOIN Salida s ON s.id_entrada = e.id_entrada  
+                                                 WHERE v.Codigo = @Codigo AND s.id_salida IS NULL", cn))
                 {
                     cmd.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
                     int ocupados = (int)cmd.ExecuteScalar();
@@ -83,18 +80,16 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-         SELECT COUNT(*)  
-         FROM Entrada e  
-         INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo  
-         LEFT JOIN Salida s ON s.id_entrada = e.id_entrada  
-         WHERE v.Codigo = @Codigo AND s.id_salida IS NULL", cn))
+                using (var cmd = new SqlCommand(@"SELECT COUNT(*)  
+                                                 FROM Entrada e  
+                                                 INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo  
+                                                 LEFT JOIN Salida s ON s.id_entrada = e.id_entrada  
+                                                 WHERE v.Codigo = @Codigo AND s.id_salida IS NULL", cn))
                 {
                     cmd.Parameters.AddWithValue("@Codigo", codigoTipoVehiculo);
                     return (int)cmd.ExecuteScalar();
                 }
             }
         }
-
     }
 }

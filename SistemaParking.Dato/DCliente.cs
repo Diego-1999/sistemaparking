@@ -1,4 +1,4 @@
-﻿using SistemaParking.Datos;
+﻿ using SistemaParking.Datos;
 using SistemaParking.Entidad;
 using System;
 using System.Collections.Generic;
@@ -255,31 +255,40 @@ namespace SistemaParking.Dato
         //Llamar al Padron electotoral al registrar un cliente
         public ECliente BuscarPadronElectoral(string cedula)
         {
-            using (var cn = GetConnection())
+            using (SqlConnection cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"SELECT CEDULA, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO
-                                                FROM PADRON_ELECTORAL WHERE CEDULA = @cedula", cn))
-                {
-                    cmd.Parameters.AddWithValue("@cedula", cedula);
 
-                    using (var reader = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand(
+                    @"SELECT CEDULA, NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO
+              FROM PADRON_ELECTORAL
+              WHERE CEDULA = @cedula", cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+
+                    // Definir tipo y tamaño explícitamente
+                    cmd.Parameters.Add("@cedula", SqlDbType.VarChar, 20).Value = cedula;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
                     {
                         if (reader.Read())
                         {
                             return new ECliente
                             {
-                                Cedula = reader.GetString(0),
-                                Nombre = reader.GetString(1),
-                                Apellido = reader.GetString(2) + " " + reader.GetString(3)
+                                Cedula = reader["CEDULA"] as string,
+                                Nombre = reader["NOMBRE"] as string,
+                                Apellido =
+                                    (reader["PRIMER_APELLIDO"] as string ?? "") + " " +
+                                    (reader["SEGUNDO_APELLIDO"] as string ?? "")
                             };
                         }
                     }
+
+                    
                 }
             }
             return null;
-        }
-
+        }            
 
         public string ObtenerCorreoPorId(string idCliente)
         {

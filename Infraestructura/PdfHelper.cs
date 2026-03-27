@@ -14,6 +14,7 @@ namespace Infraestructura
 {
     public class PdfHelper
     {
+        //TIQUETE DE ENTRADA
         public static void GenerarTiqueteEntradaPDF(ETiqueteEntrada tiquete, string rutaArchivo)
         {
             // Definir tamaño de página: 80mm de ancho x 200mm de alto
@@ -88,66 +89,67 @@ namespace Infraestructura
             }
         }
 
-        public static void GenerarTiqueteSalidaPDF(ETiqueteSalida tiquetesalida, string rutaArchivo)
-        {
-            // Definir tamaño de página: 80mm de ancho x 200mm de alto
-            float ancho = Utilities.MillimetersToPoints(80);
-            float alto = Utilities.MillimetersToPoints(200);
-            Rectangle pageSize = new Rectangle(ancho, alto);
-
-            using (Document doc = new Document(pageSize, 5, 5, 5, 5))
+        // TIQUETE DE SALIDA
+            public static void GenerarTiqueteSalidaPDF(ETiqueteSalida tiquetesalida, string rutaArchivo)
             {
-                PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
-                doc.Open();
+                // Definir tamaño de página: 80mm de ancho x 200mm de alto
+                float ancho = Utilities.MillimetersToPoints(80);
+                float alto = Utilities.MillimetersToPoints(200);
+                Rectangle pageSize = new Rectangle(ancho, alto);
 
-                // Fuentes
-                var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
-                var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 9);
-                var fuentePequena = FontFactory.GetFont(FontFactory.HELVETICA, 8);
+                using (Document doc = new Document(pageSize, 5, 5, 5, 5))
+                {
+                    PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
+                    doc.Open();
 
-                // Encabezado
-                Paragraph titulo = new Paragraph("PARQUEO PLAZA DON PEDRO", fuenteTitulo);
-                titulo.Alignment = Element.ALIGN_CENTER;
-                doc.Add(titulo);
+                    // Fuentes
+                    var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                    var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 9);
+                    var fuentePequena = FontFactory.GetFont(FontFactory.HELVETICA, 8);
 
-                doc.Add(new Paragraph("HORARIO", fuentePequena) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph("Lunes a Viernes de 7:00 a 4:30", fuentePequena) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph("Tel: 2234-5628", fuentePequena) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph("San Jose, Zapote, Frente al Registro Público, específicamente frente al edificio donde se entregan las placas.", fuentePequena) { Alignment = Element.ALIGN_CENTER });
+                    // Encabezado
+                    Paragraph titulo = new Paragraph("PARQUEO PLAZA DON PEDRO", fuenteTitulo);
+                    titulo.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(titulo);
 
-                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
-                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
-                doc.Add(new Paragraph("**TIQUETE DE SALIDA**", fuentePequena) { Alignment = Element.ALIGN_CENTER });
-                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
-                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                    doc.Add(new Paragraph("HORARIO", fuentePequena) { Alignment = Element.ALIGN_CENTER });
+                    doc.Add(new Paragraph("Lunes a Viernes de 7:00 a 4:30", fuentePequena) { Alignment = Element.ALIGN_CENTER });
+                    doc.Add(new Paragraph("Tel: 2234-5628", fuentePequena) { Alignment = Element.ALIGN_CENTER });
+                    doc.Add(new Paragraph("San Jose, Zapote, Frente al Registro Público, específicamente frente al edificio donde se entregan las placas.", fuentePequena) { Alignment = Element.ALIGN_CENTER });
 
-                // Datos del tiquete (usando la entidad TiqueteEntrada)
-                doc.Add(new Paragraph($"Tiquete: {tiquetesalida.Tiquete}", fuenteNormal));
-                doc.Add(new Paragraph($"Código: {tiquetesalida.Codigo}", fuenteNormal));
-                doc.Add(new Paragraph($"Placa: {tiquetesalida.PlacaVehiculo}", fuenteNormal));
+                    doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                    doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                    doc.Add(new Paragraph("**TIQUETE DE SALIDA**", fuentePequena) { Alignment = Element.ALIGN_CENTER });
+                    doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                    doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+
+                    // Datos del tiquete (usando la entidad TiqueteEntrada)
+                    doc.Add(new Paragraph($"Tiquete: {tiquetesalida.Tiquete}", fuenteNormal));
+                    doc.Add(new Paragraph($"Código: {tiquetesalida.Codigo}", fuenteNormal));
+                    doc.Add(new Paragraph($"Placa: {tiquetesalida.PlacaVehiculo}", fuenteNormal));
 
                 if (tiquetesalida.MontoCobrado < 1000m)
                 {
-                    doc.Add(new Paragraph($"Fecha Salida: {tiquetesalida:dd/MM/yyyy}", fuenteNormal));
-                    doc.Add(new Paragraph($"Hora Salida: {tiquetesalida.FechaSalida:HH:mm:ss}", fuenteNormal));
-                    doc.Add(new Paragraph($"Tarifa Motocicleta --: ¢{tiquetesalida.MontoCobrado}", fuenteNormal));
+                    doc.Add(new Paragraph($"Fecha Salida: {tiquetesalida.FechaSalida:dd/MM/yyyy}", fuenteNormal));
+                        doc.Add(new Paragraph($"Hora Salida: {tiquetesalida.FechaSalida:HH:mm:ss}", fuenteNormal));
+                        doc.Add(new Paragraph($"Tarifa Motocicleta --: ¢{tiquetesalida.MontoCobrado}", fuenteNormal));
                 }
                 else
                 {
-                    doc.Add(new Paragraph($"Fecha Salida: {tiquetesalida:dd/MM/yyyy}", fuenteNormal));
-                    doc.Add(new Paragraph($"Hora Salida: {tiquetesalida.FechaSalida:HH:mm:ss}", fuenteNormal));
-                    doc.Add(new Paragraph($"Tarifa Liviano --: ¢{tiquetesalida.MontoCobrado}", fuenteNormal));
+                    doc.Add(new Paragraph($"Fecha Salida: {tiquetesalida.FechaSalida:dd/MM/yyyy}", fuenteNormal));
+                        doc.Add(new Paragraph($"Hora Salida: {tiquetesalida.FechaSalida:HH:mm:ss}", fuenteNormal));
+                        doc.Add(new Paragraph($"Tarifa Liviano --: ¢{tiquetesalida.MontoCobrado}", fuenteNormal));
                 }
 
 
                 // Pie de página
                 doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
-                doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
-                doc.Add(new Paragraph("¡Gracias por su visita!", fuenteNormal) { Alignment = Element.ALIGN_CENTER });
+                    doc.Add(new Paragraph("---------------------------------------------------------------------------------", fuentePequena));
+                    doc.Add(new Paragraph("¡Gracias por su visita!", fuenteNormal) { Alignment = Element.ALIGN_CENTER });
 
-                doc.Close();
+                    doc.Close();
 
+                }
             }
-        }
     }
 }

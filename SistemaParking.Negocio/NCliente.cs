@@ -76,12 +76,11 @@ namespace SistemaParking.Negocio
 
             try
             {
-                // Delegar a la capa de datos usando la cédula como clave
+                // Delegar a la capa de datos cédula como clave
                 return dCliente.EliminarCliente(cliente.Cedula);
             }
             catch (Exception ex)
-            {
-                // Aquí puedes registrar el error en bitácora o lanzar una excepción custom
+            {              
                 Console.WriteLine("Error en capa negocio al eliminar cliente: " + ex.Message);
                 return false;
             }

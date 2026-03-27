@@ -133,7 +133,7 @@
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(169, 25);
             this.lblCorreo.TabIndex = 47;
-            this.lblCorreo.Text = "Correo Electronico";
+            this.lblCorreo.Text = "Correo Electrónico";
             // 
             // lblTelefono
             // 
@@ -144,7 +144,7 @@
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(84, 25);
             this.lblTelefono.TabIndex = 46;
-            this.lblTelefono.Text = "Telefono";
+            this.lblTelefono.Text = "Teléfono";
             // 
             // lblApellidos
             // 
@@ -293,7 +293,7 @@
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(174, 25);
             this.lblMarca.TabIndex = 30;
-            this.lblMarca.Text = "Marca del Vehiculo";
+            this.lblMarca.Text = "Marca del Vehículo";
             // 
             // cmbTipoVehiculo
             // 

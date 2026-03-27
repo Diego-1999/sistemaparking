@@ -68,10 +68,10 @@ namespace SistemaParking.Negocio
             string url = "https://jsonplaceholder.typicode.com/posts/1"; // Endpoint de prueba
             string jsonData = await _apiClient.GetAsync(url);
 
-            // Aquí aplicas reglas de negocio sobre los datos
+            
             var objeto = JsonSerializer.Deserialize<Post>(jsonData);
 
-            // validación de negocio
+            // validación
             if (string.IsNullOrWhiteSpace(objeto.Title))
             {
                 throw new Exception("El título del post no puede estar vacío según las reglas de negocio.");

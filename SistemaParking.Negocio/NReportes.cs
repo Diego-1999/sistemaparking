@@ -11,6 +11,7 @@ namespace SistemaParking.Negocio
 {
     public class NReportes
     {
+        //instancia con la clase DReportes de la capa Datos
         private readonly DReportes _dal = new DReportes();
 
         public List<EReportes> GenerarReporte(DateTime fechaInicial, DateTime fechaFinal)

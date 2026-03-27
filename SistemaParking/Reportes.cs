@@ -148,7 +148,7 @@ namespace SistemaParking
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 dtpFechaInicial.Value = fechaActual;
-                return false; // Detener flujo
+                return false; 
             }
 
             if (fechaSeleccionadaFinal > fechaActual)
@@ -158,10 +158,10 @@ namespace SistemaParking
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 dtpFechaFinal.Value = fechaActual;
-                return false; // Detener flujo
+                return false; 
             }
 
-            return true; // Todo válido
+            return true; 
         }
     }
     

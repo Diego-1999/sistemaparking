@@ -51,7 +51,7 @@ namespace SistemaParking.Negocio
                 PlacaVehiculo = placa.Trim(),
                 FechaEmision = DateTime.Now,
                 tipovehiculo = nombreTipoVehiculo,
-                IdCliente = resultado.idCliente // este campo lo puedes agregar a ETiqueteEntrada
+                IdCliente = resultado.idCliente 
             };
         }
 

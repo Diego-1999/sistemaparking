@@ -37,7 +37,6 @@ namespace SistemaParking.Dato
                                 lista.Add(tipoID);
                             }
                         }
-
                     }
                 }
                 return lista;

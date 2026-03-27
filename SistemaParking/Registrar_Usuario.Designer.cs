@@ -152,7 +152,7 @@
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(169, 25);
             this.lblCorreo.TabIndex = 47;
-            this.lblCorreo.Text = "Correo Electronico";
+            this.lblCorreo.Text = "Correo Electrónico";
             // 
             // lblTelefono
             // 
@@ -164,7 +164,7 @@
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(84, 25);
             this.lblTelefono.TabIndex = 46;
-            this.lblTelefono.Text = "Telefono";
+            this.lblTelefono.Text = "Teléfono";
             // 
             // lblApellidos
             // 
@@ -270,9 +270,9 @@
             this.lblRol.Location = new System.Drawing.Point(654, 76);
             this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(137, 25);
+            this.lblRol.Size = new System.Drawing.Size(139, 25);
             this.lblRol.TabIndex = 56;
-            this.lblRol.Text = "Rol del usuario";
+            this.lblRol.Text = "Rol del Usuario";
             // 
             // lblContrasena
             // 

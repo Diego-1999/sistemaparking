@@ -32,7 +32,7 @@ namespace SistemaParking.Dato
 
                     // Insertar Colaborador
                     using (var cmdColaborador = new SqlCommand(@"INSERT INTO Colaborador (numero_id, tipo_id, nombre, apellido)  
-                 VALUES (@NumeroId, @TipoId, @Nombre, @Apellido)", cn))
+                        VALUES (@NumeroId, @TipoId, @Nombre, @Apellido)", cn))
                     {
                         cmdColaborador.Parameters.AddWithValue("@NumeroID", cedula);
                         cmdColaborador.Parameters.AddWithValue("@TipoID", codigoTipoId);
@@ -43,7 +43,7 @@ namespace SistemaParking.Dato
 
                     //Insertar Contacto colaborador 
                     using (var cmdContactoColaborador = new SqlCommand(@"INSERT INTO ContactoColaborador ( numero_id ,telefono, correo)
-                 VALUES ( @NumeroID, @Telefono, @Correo)", cn))
+                        VALUES ( @NumeroID, @Telefono, @Correo)", cn))
                     {
                         cmdContactoColaborador.Parameters.AddWithValue("@NumeroID", cedula);
                         cmdContactoColaborador.Parameters.AddWithValue("@Telefono", telefono);
@@ -65,7 +65,7 @@ namespace SistemaParking.Dato
 
                     // Insertar Usuario
                     using (var cmdUsuario = new SqlCommand(@"INSERT INTO Usuario (usuario, contrasena_hash, salt, iteraciones, id_rol, numero_id)
-                   VALUES (@Usuario, @ContrasenaHash, @Salt, @Iteraciones, @id_rol, @NumeroID)", cn))
+                        VALUES (@Usuario, @ContrasenaHash, @Salt, @Iteraciones, @id_rol, @NumeroID)", cn))
                     {
                         cmdUsuario.Parameters.AddWithValue("@Usuario", usuario);
                         cmdUsuario.Parameters.AddWithValue("@ContrasenaHash", Convert.FromBase64String(contrasenaHash));
@@ -98,16 +98,15 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-            SELECT c.numero_id, c.tipo_id, t.descripcion AS TipoIdentificacion,
-                   c.nombre, c.apellido,
-                   u.usuario, u.contrasena_hash, u.id_rol, r.nombre_rol,
-                   cc.telefono, cc.correo
-            FROM Usuario u
-            INNER JOIN Colaborador c ON u.numero_id = c.numero_id
-            INNER JOIN ContactoColaborador cc ON c.numero_id = cc.numero_id
-            INNER JOIN Rol r ON u.id_rol = r.id_rol
-            INNER JOIN TipoID t ON c.tipo_id = t.tipo_id;", cn))
+                using (var cmd = new SqlCommand(@"SELECT c.numero_id, c.tipo_id, t.descripcion AS TipoIdentificacion,
+                                                        c.nombre, c.apellido,
+                                                        u.usuario, u.contrasena_hash, u.id_rol, r.nombre_rol,
+                                                        cc.telefono, cc.correo
+                                                FROM Usuario u
+                                                INNER JOIN Colaborador c ON u.numero_id = c.numero_id
+                                                INNER JOIN ContactoColaborador cc ON c.numero_id = cc.numero_id
+                                                INNER JOIN Rol r ON u.id_rol = r.id_rol
+                                                INNER JOIN TipoID t ON c.tipo_id = t.tipo_id;", cn))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -141,16 +140,15 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                using (var cmd = new SqlCommand(@"
-             SELECT c.numero_id, c.tipo_id, c.nombre, c.apellido,
-                    u.usuario,
-                    cc.telefono, cc.correo
-             FROM Usuario u
-             INNER JOIN Colaborador c ON u.numero_id = c.numero_id                    
-             INNER JOIN ContactoColaborador cc ON c.numero_id = cc.numero_id
-             WHERE c.nombre LIKE '%' + @criterio + '%'
-                OR c.apellido LIKE '%' + @criterio + '%'
-                OR c.numero_id LIKE '%' + @criterio + '%';", cn))
+                using (var cmd = new SqlCommand(@"SELECT c.numero_id, c.tipo_id, c.nombre, c.apellido,
+                                                         u.usuario,
+                                                         cc.telefono, cc.correo
+                                                 FROM Usuario u
+                                                 INNER JOIN Colaborador c ON u.numero_id = c.numero_id                    
+                                                 INNER JOIN ContactoColaborador cc ON c.numero_id = cc.numero_id
+                                                 WHERE c.nombre LIKE '%' + @criterio + '%'
+                                                    OR c.apellido LIKE '%' + @criterio + '%'
+                                                    OR c.numero_id LIKE '%' + @criterio + '%';", cn))
                 {
                     cmd.Parameters.AddWithValue("@criterio", criterio);
 
@@ -205,8 +203,6 @@ namespace SistemaParking.Dato
 
             }
         }
-
-
         public bool ActualizarUsuario(EUsuario usuario)
         {
             using (var cn = GetConnection())
@@ -217,12 +213,10 @@ namespace SistemaParking.Dato
                     try
                     {
                         // Actualizar Colaborador
-                        using (var cmdColaborador = new SqlCommand(@"
-                     UPDATE Colaborador
-                     SET tipo_id = @TipoId,
-                         nombre = @Nombre,
-                         apellido = @Apellido
-                     WHERE numero_id = @NumeroID", cn, tran))
+                        using (var cmdColaborador = new SqlCommand(@"UPDATE Colaborador SET tipo_id = @TipoId,
+                                                                            nombre = @Nombre,
+                                                                            apellido = @Apellido
+                                                                    WHERE numero_id = @NumeroID", cn, tran))
                         {
                             cmdColaborador.Parameters.AddWithValue("@NumeroID", usuario.numero_id);
                             cmdColaborador.Parameters.AddWithValue("@TipoId", usuario.tipo_id);
@@ -232,11 +226,9 @@ namespace SistemaParking.Dato
                         }
 
                         // Actualizar ContactoColaborador
-                        using (var cmdContacto = new SqlCommand(@"
-                     UPDATE ContactoColaborador
-                     SET telefono = @Telefono,
-                         correo = @Correo
-                     WHERE numero_id = @NumeroID", cn, tran))
+                        using (var cmdContacto = new SqlCommand(@"UPDATE ContactoColaborador SET telefono = @Telefono,
+                                                                         correo = @Correo
+                                                                  WHERE numero_id = @NumeroID", cn, tran))
                         {
                             cmdContacto.Parameters.AddWithValue("@NumeroID", usuario.numero_id);
                             cmdContacto.Parameters.AddWithValue("@Telefono", usuario.telefono);
@@ -245,14 +237,12 @@ namespace SistemaParking.Dato
                         }
 
                         // Actualizar Usuario
-                        using (var cmdUsuario = new SqlCommand(@"
-                     UPDATE Usuario
-                     SET usuario = @Usuario,
-                         contrasena_hash = @Contrasena,
-                         salt = @Salt,
-                         iteraciones = @Iteraciones,
-                         id_rol = @IdRol
-                     WHERE numero_id = @NumeroID", cn, tran))
+                        using (var cmdUsuario = new SqlCommand(@"UPDATE Usuario SET usuario = @Usuario,
+                                                                         contrasena_hash = @Contrasena,
+                                                                         salt = @Salt,
+                                                                         iteraciones = @Iteraciones,
+                                                                         id_rol = @IdRol
+                                                                WHERE numero_id = @NumeroID", cn, tran))
                         {
                             cmdUsuario.Parameters.AddWithValue("@Usuario", usuario.usuario);
 

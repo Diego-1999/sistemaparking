@@ -160,8 +160,7 @@ namespace SistemaParking
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
-        {
-            
+        {           
             MostrarSubMenu(panelConf); //se clickea el boton y se muentra el submenu
         }
 
@@ -193,13 +192,11 @@ namespace SistemaParking
             AbrirFormPanel(new Clientes());
         }
 
-
         public void ActualizarContador()
         {
             int ocupados = nEntradaVehiculo.ContarVehiculosEnParqueo();
             lblVehiculosDisponibles.Text = $"Espacios ocupados: {ocupados}";
         }
-
 
         // Método para actualizar los labels
         public void ActualizarLabels()
@@ -219,8 +216,6 @@ namespace SistemaParking
             AbrirFormPanel(new Vehiculos());
             ActualizarLabels();
         }
-
-
 
         //validaciones
         private void ConfigurarToolTips()
@@ -244,6 +239,49 @@ namespace SistemaParking
         {    
             Inicio inicio = new Inicio();
             AbrirFormPanel(inicio); 
+        }
+
+        private void pbxRegistrarVehiculo_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Registro_Vehiculo()); // muestra el forms registro vehiculo
+        }
+
+        private void pbxSalidaVehiculo_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Salida_Vehiculo()); // muestra el forms para registrar la salida del vehiculo
+        }
+
+        private void pbxCliente_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Clientes());
+        }
+
+        private void pbxReporte_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Reportes());
+        }
+
+        private void pbxConfiguracion_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelConf); //se clickea el boton y se muentra el submenu
+        }
+
+        private void pbxRegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Registrar_Usuario());
+            OcultarSubMenu(); //se oculta submenu
+        }
+
+        private void pbxTarifa_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new EstablecerTarifa());
+            OcultarSubMenu(); //se oculta submenu
+        }
+
+        private void pbxEspacios_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new EspaciosParqueo());
+            OcultarSubMenu();//se oculta submenu
         }
     }
 }

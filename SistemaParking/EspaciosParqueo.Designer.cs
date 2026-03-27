@@ -47,9 +47,9 @@
             this.lblTitulo.Location = new System.Drawing.Point(391, 7);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(314, 28);
+            this.lblTitulo.Size = new System.Drawing.Size(282, 28);
             this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "Establecer Espacios del Parqueo";
+            this.lblTitulo.Text = "Indicar Espacios del Parqueo";
             // 
             // TxtNumeroEspacios
             // 

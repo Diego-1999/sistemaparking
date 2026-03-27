@@ -10,6 +10,7 @@ namespace SistemaParking.Negocio
 {
     public class NRol
     {
+        //instancia con la clase DRol de la capa Datos
         DRol drol = new DRol();
         public List<ERol> ListarRol()
         {

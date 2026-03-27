@@ -20,14 +20,14 @@ namespace SistemaParking.Dato
             {
                 cn.Open();
                 using (var cmd = new SqlCommand(@"SELECT v.placa, tv.Descripcion, e.fecha_hora_entrada, s.fecha_hora_salida,
-                    t.descripcion, c.nombre + ' ' + c.apellido, s.total_pagar FROM Vehiculo v
-                    INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
-                    INNER JOIN Entrada e ON v.id_vehiculo = e.id_vehiculo
-                    INNER JOIN Salida s ON e.id_entrada = s.id_entrada
-                    INNER JOIN Tarifa t ON s.id_tarifa = t.id_tarifa
-                    LEFT JOIN Cliente c ON v.id_numero = c.id_numero
-                    WHERE e.fecha_hora_entrada BETWEEN @FechaInicial AND @FechaFinal
-                    ORDER BY v.placa, e.fecha_hora_entrada;", cn))
+                                                         t.descripcion, c.nombre + ' ' + c.apellido, s.total_pagar FROM Vehiculo v
+                                                INNER JOIN TiposVehiculo tv ON v.Codigo = tv.Codigo
+                                                INNER JOIN Entrada e ON v.id_vehiculo = e.id_vehiculo
+                                                INNER JOIN Salida s ON e.id_entrada = s.id_entrada
+                                                INNER JOIN Tarifa t ON s.id_tarifa = t.id_tarifa
+                                                LEFT JOIN Cliente c ON v.id_numero = c.id_numero
+                                                WHERE e.fecha_hora_entrada BETWEEN @FechaInicial AND @FechaFinal
+                                                ORDER BY v.placa, e.fecha_hora_entrada;", cn))
                 {
                     cmd.Parameters.AddWithValue("@FechaInicial", fechaInicial);
                     cmd.Parameters.AddWithValue("@FechaFinal", fechaFinal);
@@ -53,7 +53,5 @@ namespace SistemaParking.Dato
             }
             return lista;
         }
-
-
     }
 }

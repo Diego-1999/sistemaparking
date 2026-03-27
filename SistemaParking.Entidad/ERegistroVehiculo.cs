@@ -8,9 +8,8 @@ namespace SistemaParking.Entidad
 {
     public class ERegistroVehiculo
     {
-
-        public int IdEntrada { get; set; }      // clave para eliminar
-        public string Placa { get; set; }       // se muestra al usuario
+        public int IdEntrada { get; set; }      
+        public string Placa { get; set; }       
         public string TipoVehiculo { get; set; }
         public DateTime FechaHoraEntrada { get; set; }
     }

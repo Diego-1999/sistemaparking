@@ -114,9 +114,9 @@
             this.label1.Location = new System.Drawing.Point(654, 76);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 25);
+            this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 56;
-            this.label1.Text = "Rol del usuario";
+            this.label1.Text = "Rol del Usuario";
             // 
             // label2
             // 
@@ -241,7 +241,7 @@
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(169, 25);
             this.lblCorreo.TabIndex = 47;
-            this.lblCorreo.Text = "Correo Electronico";
+            this.lblCorreo.Text = "Correo Electrónico";
             // 
             // lblTelefono
             // 
@@ -253,7 +253,7 @@
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(84, 25);
             this.lblTelefono.TabIndex = 46;
-            this.lblTelefono.Text = "Telefono";
+            this.lblTelefono.Text = "Teléfono";
             // 
             // lblApellidos
             // 
@@ -329,9 +329,9 @@
             this.lblTitulo.Location = new System.Drawing.Point(473, 9);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(169, 28);
+            this.lblTitulo.Size = new System.Drawing.Size(146, 28);
             this.lblTitulo.TabIndex = 57;
-            this.lblTitulo.Text = "Registro Usuario";
+            this.lblTitulo.Text = "Editar Usuario";
             // 
             // EditarUsuario
             // 

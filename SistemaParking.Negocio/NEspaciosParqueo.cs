@@ -14,8 +14,7 @@ namespace SistemaParking.Negocio
 
 
         public bool RegistroEspacio(int numeroEspacio, string tipoEspacio)
-        {
-            // Reglas de negocio
+        {          
             if (string.IsNullOrWhiteSpace(tipoEspacio))
                 throw new ArgumentException("El Tipo de espacio es obligatoria");
 

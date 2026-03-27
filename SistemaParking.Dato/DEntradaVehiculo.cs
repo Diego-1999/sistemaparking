@@ -182,14 +182,13 @@ namespace SistemaParking.Dato
             using (var cn = GetConnection())
             {
                 cn.Open();
-                string query = @"
-    SELECT e.id_entrada, v.placa, tv.Descripcion AS TipoVehiculo,
-           e.fecha_hora_entrada
-    FROM Entrada e
-    INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
-    INNER JOIN TiposVehiculo tv ON tv.Codigo = v.Codigo
-    LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
-    WHERE s.id_salida IS NULL";
+                string query = @"SELECT e.id_entrada, v.placa, tv.Descripcion AS TipoVehiculo,
+                                        e.fecha_hora_entrada
+                                FROM Entrada e
+                                INNER JOIN Vehiculo v ON v.id_vehiculo = e.id_vehiculo
+                                INNER JOIN TiposVehiculo tv ON tv.Codigo = v.Codigo
+                                LEFT JOIN Salida s ON s.id_entrada = e.id_entrada
+                                WHERE s.id_salida IS NULL";
 
                 using (var cmd = new SqlCommand(query, cn))
                 using (var reader = cmd.ExecuteReader())
@@ -216,7 +215,7 @@ namespace SistemaParking.Dato
             {
                 cn.Open();
 
-                // Primero eliminar salidas asociadas (relación es por id_entrada)
+                // Primero eliminar salidas asociadas 
                 using (var cmdSalida = new SqlCommand("DELETE FROM Salida WHERE id_entrada = @idEntrada", cn))
                 {
                     cmdSalida.Parameters.AddWithValue("@idEntrada", idEntrada);
@@ -250,9 +249,6 @@ namespace SistemaParking.Dato
                 }
             }
         }
-
-
-
     }
 }
 

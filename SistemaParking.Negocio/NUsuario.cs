@@ -97,7 +97,7 @@ namespace SistemaParking.Negocio
         {
             using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256))
             {
-                return Convert.ToBase64String(pbkdf2.GetBytes(32)); // 256 bits
+                return Convert.ToBase64String(pbkdf2.GetBytes(32)); 
             }
         }
     }

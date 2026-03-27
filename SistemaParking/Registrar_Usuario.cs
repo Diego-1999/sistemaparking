@@ -95,8 +95,6 @@ namespace SistemaParking
                 }
                 else
                 {
-
-
                     // Normalizar la cédula (quitar guiones y espacios)
                     string cedulaFinal = mskcedula.Text.Replace("-", "").Trim();
 
@@ -132,9 +130,7 @@ namespace SistemaParking
             {
 
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
-            }
-
-            
+            }        
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

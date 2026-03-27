@@ -120,7 +120,7 @@ namespace SistemaParking
                         telefono = txtTelefono.Text,
                         correo = txtEmail.Text,
                         usuario = txtUsuario.Text,
-                        Contrasena = txtContrasena.Text, // texto plano, se re-hashea en NUsuario
+                        Contrasena = txtContrasena.Text, 
                         tipo_id = cmbTipoIden.SelectedValue.ToString(),
                         IdRol = (int)cmbRol.SelectedValue
                     };
@@ -141,7 +141,7 @@ namespace SistemaParking
                     }
                     catch (Exception ex)
                     {
-                        // Aquí capturas el error real que DAL lanzó
+                        
                         MessageBox.Show("Error al actualizar usuario: " + ex.Message,
                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
