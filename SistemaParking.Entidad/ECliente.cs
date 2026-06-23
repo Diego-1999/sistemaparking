@@ -14,7 +14,7 @@ namespace SistemaParking.Entidad
         public string Apellido { get; set; }    // apellido
         public string Telefono { get; set; }    // viene de ContactoCliente
         public string Correo { get; set; }      // viene de ContactoCliente
-      
+
         // Relación un cliente puede tener varios vehículos
         public List<EVehiculo> Vehiculos { get; set; }
 

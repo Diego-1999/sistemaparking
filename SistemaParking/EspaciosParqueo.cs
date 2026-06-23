@@ -41,6 +41,9 @@ namespace SistemaParking
 
                     );
 
+                    TxtNumeroEspacios.Clear();
+                    cmbTipoVehiculo.SelectedIndex = -1;
+
                     if (ok)
                         MessageBox.Show("Datos registrados correctamente");
                     else

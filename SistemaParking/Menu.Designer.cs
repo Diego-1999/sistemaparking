@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnReservas = new System.Windows.Forms.Button();
             this.pbxConfiguracion = new System.Windows.Forms.PictureBox();
             this.pbxReporte = new System.Windows.Forms.PictureBox();
             this.pbxCliente = new System.Windows.Forms.PictureBox();
@@ -62,6 +63,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btndesplegar = new System.Windows.Forms.PictureBox();
             this.PanelContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxConfiguracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxReporte)).BeginInit();
@@ -80,11 +82,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndesplegar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
             // 
             this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.MenuVertical.Controls.Add(this.pictureBox1);
+            this.MenuVertical.Controls.Add(this.btnReservas);
             this.MenuVertical.Controls.Add(this.pbxConfiguracion);
             this.MenuVertical.Controls.Add(this.pbxReporte);
             this.MenuVertical.Controls.Add(this.pbxCliente);
@@ -104,10 +109,27 @@
             this.MenuVertical.Size = new System.Drawing.Size(250, 650);
             this.MenuVertical.TabIndex = 0;
             // 
+            // btnReservas
+            // 
+            this.btnReservas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReservas.FlatAppearance.BorderSize = 0;
+            this.btnReservas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservas.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservas.ForeColor = System.Drawing.Color.White;
+            this.btnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservas.Location = new System.Drawing.Point(3, 188);
+            this.btnReservas.Name = "btnReservas";
+            this.btnReservas.Size = new System.Drawing.Size(250, 40);
+            this.btnReservas.TabIndex = 10;
+            this.btnReservas.Text = "Reservas";
+            this.btnReservas.UseVisualStyleBackColor = true;
+            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
+            // 
             // pbxConfiguracion
             // 
             this.pbxConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("pbxConfiguracion.Image")));
-            this.pbxConfiguracion.Location = new System.Drawing.Point(22, 280);
+            this.pbxConfiguracion.Location = new System.Drawing.Point(22, 329);
             this.pbxConfiguracion.Name = "pbxConfiguracion";
             this.pbxConfiguracion.Size = new System.Drawing.Size(24, 24);
             this.pbxConfiguracion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,7 +140,7 @@
             // pbxReporte
             // 
             this.pbxReporte.Image = ((System.Drawing.Image)(resources.GetObject("pbxReporte.Image")));
-            this.pbxReporte.Location = new System.Drawing.Point(22, 234);
+            this.pbxReporte.Location = new System.Drawing.Point(22, 283);
             this.pbxReporte.Name = "pbxReporte";
             this.pbxReporte.Size = new System.Drawing.Size(24, 24);
             this.pbxReporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -129,7 +151,7 @@
             // pbxCliente
             // 
             this.pbxCliente.Image = ((System.Drawing.Image)(resources.GetObject("pbxCliente.Image")));
-            this.pbxCliente.Location = new System.Drawing.Point(22, 188);
+            this.pbxCliente.Location = new System.Drawing.Point(22, 237);
             this.pbxCliente.Name = "pbxCliente";
             this.pbxCliente.Size = new System.Drawing.Size(24, 24);
             this.pbxCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +252,7 @@
             this.panelConf.Controls.Add(this.btnEspacios);
             this.panelConf.Controls.Add(this.btnEstablecerTarifas);
             this.panelConf.Controls.Add(this.btnNuevoUsuario);
-            this.panelConf.Location = new System.Drawing.Point(3, 326);
+            this.panelConf.Location = new System.Drawing.Point(3, 375);
             this.panelConf.Name = "panelConf";
             this.panelConf.Size = new System.Drawing.Size(250, 125);
             this.panelConf.TabIndex = 0;
@@ -318,7 +340,7 @@
             this.btnNuevoUsuario.Name = "btnNuevoUsuario";
             this.btnNuevoUsuario.Size = new System.Drawing.Size(250, 40);
             this.btnNuevoUsuario.TabIndex = 5;
-            this.btnNuevoUsuario.Text = "Regitrar Usuario";
+            this.btnNuevoUsuario.Text = "Registrar Usuario";
             this.btnNuevoUsuario.UseVisualStyleBackColor = true;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
             // 
@@ -331,7 +353,7 @@
             this.btnAjustes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(0, 280);
+            this.btnAjustes.Location = new System.Drawing.Point(0, 329);
             this.btnAjustes.Name = "btnAjustes";
             this.btnAjustes.Size = new System.Drawing.Size(250, 40);
             this.btnAjustes.TabIndex = 4;
@@ -366,7 +388,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(3, 234);
+            this.btnReportes.Location = new System.Drawing.Point(3, 283);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(250, 40);
             this.btnReportes.TabIndex = 3;
@@ -383,7 +405,7 @@
             this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(-3, 188);
+            this.btnClientes.Location = new System.Drawing.Point(-3, 237);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(250, 40);
             this.btnClientes.TabIndex = 2;
@@ -540,6 +562,16 @@
             this.PanelContenedor.Size = new System.Drawing.Size(1050, 600);
             this.PanelContenedor.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(22, 188);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,6 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndesplegar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,6 +645,8 @@
         private System.Windows.Forms.PictureBox pbxEspacios;
         private System.Windows.Forms.PictureBox pbxTarifa;
         private System.Windows.Forms.PictureBox pbxRegistrarUsuario;
+        private System.Windows.Forms.Button btnReservas;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

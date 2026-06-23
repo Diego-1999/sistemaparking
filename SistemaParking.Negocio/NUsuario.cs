@@ -83,21 +83,22 @@ namespace SistemaParking.Negocio
             return dUsuario.ActualizarUsuario(usuario);
         }
 
-        private static byte[] GenerateSalt(int size = 16)
+        //metodo que genera un salta para hacer mas segura la contraseña
+        private static byte[] GenerateSalt(int size = 16) 
         {
             var salt = new byte[size];
-            using (var rng = RandomNumberGenerator.Create())
+            using (var rng = RandomNumberGenerator.Create()) // se genera numero aleatorio
             {
-                rng.GetBytes(salt);
+                rng.GetBytes(salt); // se asigna numero aleatorio generado al salt
             }
             return salt;
         }
 
         private static string HashPassword(string password, byte[] salt, int iterations = 150000)
         {
-            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256))
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations, HashAlgorithmName.SHA256)) // se calcula la contraseña junto con el salt
             {
-                return Convert.ToBase64String(pbkdf2.GetBytes(32)); 
+                return Convert.ToBase64String(pbkdf2.GetBytes(32)); // se obtiene el hash final  
             }
         }
     }

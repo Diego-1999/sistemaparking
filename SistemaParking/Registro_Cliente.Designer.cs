@@ -63,11 +63,11 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(435, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(207, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(273, 37);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registro de Clientes";
             // 
@@ -135,7 +135,7 @@
             this.cmbColor.FormattingEnabled = true;
             this.cmbColor.Location = new System.Drawing.Point(412, 150);
             this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(181, 33);
+            this.cmbColor.Size = new System.Drawing.Size(181, 40);
             this.cmbColor.TabIndex = 35;
             // 
             // cmbMarca
@@ -146,7 +146,7 @@
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(116, 70);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(181, 33);
+            this.cmbMarca.Size = new System.Drawing.Size(181, 40);
             this.cmbMarca.TabIndex = 34;
             // 
             // lblTipoVehiculo
@@ -156,7 +156,7 @@
             this.lblTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblTipoVehiculo.Location = new System.Drawing.Point(407, 42);
             this.lblTipoVehiculo.Name = "lblTipoVehiculo";
-            this.lblTipoVehiculo.Size = new System.Drawing.Size(153, 25);
+            this.lblTipoVehiculo.Size = new System.Drawing.Size(193, 32);
             this.lblTipoVehiculo.TabIndex = 33;
             this.lblTipoVehiculo.Text = "Tipo de Vehículo";
             // 
@@ -167,7 +167,7 @@
             this.lblPlaca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblPlaca.Location = new System.Drawing.Point(115, 122);
             this.lblPlaca.Name = "lblPlaca";
-            this.lblPlaca.Size = new System.Drawing.Size(57, 25);
+            this.lblPlaca.Size = new System.Drawing.Size(68, 32);
             this.lblPlaca.TabIndex = 32;
             this.lblPlaca.Text = "Placa";
             // 
@@ -178,7 +178,7 @@
             this.lblColor.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblColor.Location = new System.Drawing.Point(407, 122);
             this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(58, 25);
+            this.lblColor.Size = new System.Drawing.Size(71, 32);
             this.lblColor.TabIndex = 31;
             this.lblColor.Text = "Color";
             // 
@@ -189,7 +189,7 @@
             this.lblMarca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblMarca.Location = new System.Drawing.Point(115, 42);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(174, 25);
+            this.lblMarca.Size = new System.Drawing.Size(217, 32);
             this.lblMarca.TabIndex = 30;
             this.lblMarca.Text = "Marca del Vehículo";
             // 
@@ -201,7 +201,7 @@
             this.cmbTipoVehiculo.FormattingEnabled = true;
             this.cmbTipoVehiculo.Location = new System.Drawing.Point(412, 70);
             this.cmbTipoVehiculo.Name = "cmbTipoVehiculo";
-            this.cmbTipoVehiculo.Size = new System.Drawing.Size(181, 33);
+            this.cmbTipoVehiculo.Size = new System.Drawing.Size(181, 40);
             this.cmbTipoVehiculo.TabIndex = 29;
             // 
             // txtPlaca
@@ -210,7 +210,7 @@
             this.txtPlaca.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtPlaca.Location = new System.Drawing.Point(116, 150);
             this.txtPlaca.Name = "txtPlaca";
-            this.txtPlaca.Size = new System.Drawing.Size(181, 33);
+            this.txtPlaca.Size = new System.Drawing.Size(181, 39);
             this.txtPlaca.TabIndex = 28;
             // 
             // gpbInfoCliente
@@ -241,7 +241,7 @@
             this.mskCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mskCedula.Location = new System.Drawing.Point(412, 66);
             this.mskCedula.Name = "mskCedula";
-            this.mskCedula.Size = new System.Drawing.Size(181, 33);
+            this.mskCedula.Size = new System.Drawing.Size(181, 39);
             this.mskCedula.TabIndex = 52;
             this.mskCedula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCedula_KeyDown);
             this.mskCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskCedula_KeyPress);
@@ -254,7 +254,7 @@
             this.cmbTipoIden.FormattingEnabled = true;
             this.cmbTipoIden.Location = new System.Drawing.Point(61, 60);
             this.cmbTipoIden.Name = "cmbTipoIden";
-            this.cmbTipoIden.Size = new System.Drawing.Size(264, 33);
+            this.cmbTipoIden.Size = new System.Drawing.Size(264, 40);
             this.cmbTipoIden.TabIndex = 51;
             this.cmbTipoIden.SelectedIndexChanged += new System.EventHandler(this.cmbTipoIden_SelectedIndexChanged);
             // 
@@ -265,7 +265,7 @@
             this.lblTipoIdenti.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblTipoIdenti.Location = new System.Drawing.Point(95, 32);
             this.lblTipoIdenti.Name = "lblTipoIdenti";
-            this.lblTipoIdenti.Size = new System.Drawing.Size(194, 25);
+            this.lblTipoIdenti.Size = new System.Drawing.Size(245, 32);
             this.lblTipoIdenti.TabIndex = 50;
             this.lblTipoIdenti.Text = "Tipo de Identificación";
             // 
@@ -276,7 +276,7 @@
             this.lblCedula.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblCedula.Location = new System.Drawing.Point(416, 32);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(71, 25);
+            this.lblCedula.Size = new System.Drawing.Size(88, 32);
             this.lblCedula.TabIndex = 49;
             this.lblCedula.Text = "Cédula";
             // 
@@ -287,7 +287,7 @@
             this.lblCorreo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblCorreo.Location = new System.Drawing.Point(715, 115);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(169, 25);
+            this.lblCorreo.Size = new System.Drawing.Size(210, 32);
             this.lblCorreo.TabIndex = 47;
             this.lblCorreo.Text = "Correo Electrónico";
             // 
@@ -298,7 +298,7 @@
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblTelefono.Location = new System.Drawing.Point(715, 32);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(84, 25);
+            this.lblTelefono.Size = new System.Drawing.Size(107, 32);
             this.lblTelefono.TabIndex = 46;
             this.lblTelefono.Text = "Teléfono";
             // 
@@ -309,7 +309,7 @@
             this.lblApellidos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblApellidos.Location = new System.Drawing.Point(416, 115);
             this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(90, 25);
+            this.lblApellidos.Size = new System.Drawing.Size(112, 32);
             this.lblApellidos.TabIndex = 45;
             this.lblApellidos.Text = "Apellidos";
             // 
@@ -320,7 +320,7 @@
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblNombre.Location = new System.Drawing.Point(115, 115);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(81, 25);
+            this.lblNombre.Size = new System.Drawing.Size(102, 32);
             this.lblNombre.TabIndex = 44;
             this.lblNombre.Text = "Nombre";
             // 
@@ -330,7 +330,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtEmail.Location = new System.Drawing.Point(720, 143);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(252, 33);
+            this.txtEmail.Size = new System.Drawing.Size(252, 39);
             this.txtEmail.TabIndex = 43;
             // 
             // txtTelefono
@@ -339,7 +339,7 @@
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtTelefono.Location = new System.Drawing.Point(720, 59);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(181, 33);
+            this.txtTelefono.Size = new System.Drawing.Size(181, 39);
             this.txtTelefono.TabIndex = 42;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
@@ -349,7 +349,7 @@
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtApellidos.Location = new System.Drawing.Point(412, 138);
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(181, 33);
+            this.txtApellidos.Size = new System.Drawing.Size(181, 39);
             this.txtApellidos.TabIndex = 41;
             // 
             // txtNombre
@@ -358,7 +358,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.txtNombre.Location = new System.Drawing.Point(116, 138);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(181, 33);
+            this.txtNombre.Size = new System.Drawing.Size(181, 39);
             this.txtNombre.TabIndex = 40;
             // 
             // btnRegistrarSegundoVehiculo
@@ -382,7 +382,7 @@
             // 
             // Registro_Cliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));

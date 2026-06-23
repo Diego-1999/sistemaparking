@@ -132,6 +132,8 @@ namespace SistemaParking
                         {
                             MessageBox.Show("Usuario editado correctamente ✅", "Éxito",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Menu menu = (Menu)this.ParentForm;
+                            menu.AbrirFormPanel(new Inicio());
                         }
                         else
                         {

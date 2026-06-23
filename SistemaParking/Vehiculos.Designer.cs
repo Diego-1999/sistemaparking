@@ -42,9 +42,11 @@
             this.dgvVehiculo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvVehiculo.BackgroundColor = System.Drawing.Color.White;
             this.dgvVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculo.Location = new System.Drawing.Point(12, 97);
+            this.dgvVehiculo.Location = new System.Drawing.Point(16, 119);
+            this.dgvVehiculo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVehiculo.Name = "dgvVehiculo";
-            this.dgvVehiculo.Size = new System.Drawing.Size(1023, 410);
+            this.dgvVehiculo.RowHeadersWidth = 51;
+            this.dgvVehiculo.Size = new System.Drawing.Size(1364, 505);
             this.dgvVehiculo.TabIndex = 1;
             // 
             // btnEliminar
@@ -58,10 +60,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(850, 536);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Location = new System.Drawing.Point(1133, 660);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(185, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(247, 49);
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar Entrada";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -71,27 +73,28 @@
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(446, 9);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(595, 11);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(107, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(138, 37);
             this.lblTitulo.TabIndex = 15;
             this.lblTitulo.Text = "Vehículos";
             // 
             // Vehiculos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.ClientSize = new System.Drawing.Size(1396, 722);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvVehiculo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Vehiculos";
             this.Text = "Vehiculos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculo)).EndInit();

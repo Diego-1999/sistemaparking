@@ -48,6 +48,7 @@
     <Compile Include="DLogin.cs" />
     <Compile Include="DMarca.cs" />
     <Compile Include="DReportes.cs" />
+    <Compile Include="DReserva.cs" />
     <Compile Include="DRol.cs" />
     <Compile Include="DSalidaVehiculo.cs" />
     <Compile Include="DTarifa.cs" />
@@ -63,5 +64,6 @@
       <Name>SistemaParking.Entidad</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

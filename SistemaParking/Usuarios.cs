@@ -27,8 +27,7 @@ namespace SistemaParking
             dgwUsuario.DataSource = negocioUsuario.MostrarUsuarios();
             dgwUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
            
-            dgwUsuario.Columns["numero_id"].HeaderText = "Cédula";
-            dgwUsuario.Columns["tipo_id"].HeaderText = "Tipo ID";
+            dgwUsuario.Columns["numero_id"].HeaderText = "Cédula";       
             dgwUsuario.Columns["nombre"].HeaderText = "Nombre";
             dgwUsuario.Columns["apellido"].HeaderText = "Apellido";
             dgwUsuario.Columns["usuario"].HeaderText = "Usuario";
@@ -36,6 +35,7 @@ namespace SistemaParking
             dgwUsuario.Columns["correo"].HeaderText = "Correo";
 
             // Ocultar columnas sensibles
+            dgwUsuario.Columns["tipo_id"].Visible = false;
             dgwUsuario.Columns["IdRol"].Visible = false;
             dgwUsuario.Columns["Contrasena"].Visible = false;
             dgwUsuario.Columns["Salt"].Visible = false;

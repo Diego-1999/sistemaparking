@@ -253,6 +253,5 @@ namespace SistemaParking
                 e.Handled = true;
             }
         }
-       
     }
 }

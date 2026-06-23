@@ -9,7 +9,7 @@ namespace SistemaParking.Negocio
 {
     public class NEspaciosParqueo
     {
-        //instancias
+        //instancia
         DEspaciosParqueo despacio = new DEspaciosParqueo();
 
 

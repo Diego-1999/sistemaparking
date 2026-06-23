@@ -15,19 +15,19 @@ namespace Infraestructura
         private readonly SmtpClient _smtpClient;
         private readonly string _from;
 
-        //Constructor donde se establece    cómo y desde dónde se enviará el correo 
+        //Constructor donde se establece  cómo se debe enviará el correo 
         public EmailClient(EmailSettings settings)
         {       
-            _from = settings.From; // se guarda el remitente configurado
+  
             _smtpClient = new SmtpClient(settings.Host, settings.Port)
             {
                 Credentials = new NetworkCredential(settings.User, settings.Password), //credeciales del remitente
-                EnableSsl = true // Seguridad al correo con TLS/SSL
+                EnableSsl = true // Seguridad al correo con TLS
             };
-            _from = settings.From; //se guarda desde que correo se envian los correos
+            _from = settings.From; //se guarda desde que correo se envian los correos (el remitente)
         }
 
-        //metodo donde se arma el correo
+        //metodo donde se arma y envia el correo
         public async Task EnviarCorreoAsync(string destinatario, string asunto, string cuerpo, string rutaAdjunto = null)
         {
             using (var mensaje = new MailMessage(_from, destinatario, asunto, cuerpo)) // en el correo va el remitente, destinatario el asunto y cuerpo   
@@ -37,7 +37,7 @@ namespace Infraestructura
                     mensaje.Attachments.Add(new Attachment(rutaAdjunto));
                 }
 
-                await _smtpClient.SendMailAsync(mensaje);// se usa SmtpClient para enviar el correo
+                await _smtpClient.SendMailAsync(mensaje);// se usa SmtpClient para enviar el correo 
             }
         }
 

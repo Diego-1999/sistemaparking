@@ -20,6 +20,7 @@ namespace SistemaParking.Negocio
             var datosUsuario = dlogin.Login(usuario); // se traer la informacion del usuario    
             if (datosUsuario == null) return null; // Se verificar si el usuario existe
 
+
             using (var pbkdf2 = new Rfc2898DeriveBytes(contrasena, datosUsuario.Salt, datosUsuario.Iteraciones, HashAlgorithmName.SHA256))
             {
                 byte[] hashIngresado = pbkdf2.GetBytes(32);

@@ -283,5 +283,11 @@ namespace SistemaParking
             AbrirFormPanel(new EspaciosParqueo());
             OcultarSubMenu();//se oculta submenu
         }
+
+        private void btnReservas_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new Registrar_Reserva());
+
+        }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="EMarca.cs" />
     <Compile Include="ERegistroVehiculo.cs" />
     <Compile Include="EReportes.cs" />
+    <Compile Include="EReserva.cs" />
     <Compile Include="ERol.cs" />
     <Compile Include="ESalida.cs" />
     <Compile Include="ETarifa.cs" />

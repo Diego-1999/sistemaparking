@@ -41,6 +41,7 @@ namespace SistemaParking
 
         private void MostrarEnGrid(List<ECliente> clientes)
         {
+
             dgwClientes.AutoGenerateColumns = false;
             dgwClientes.Columns.Clear();
 
@@ -147,5 +148,6 @@ namespace SistemaParking
                 MessageBox.Show("Error al eliminar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

@@ -47,22 +47,22 @@
             this.dgwUsuario.AllowUserToOrderColumns = true;
             this.dgwUsuario.BackgroundColor = System.Drawing.Color.White;
             this.dgwUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwUsuario.Location = new System.Drawing.Point(12, 147);
+            this.dgwUsuario.Location = new System.Drawing.Point(16, 181);
+            this.dgwUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgwUsuario.Name = "dgwUsuario";
             this.dgwUsuario.RowHeadersWidth = 51;
-            this.dgwUsuario.Size = new System.Drawing.Size(1023, 374);
+            this.dgwUsuario.Size = new System.Drawing.Size(1364, 460);
             this.dgwUsuario.TabIndex = 7;
             // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(455, 9);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(607, 11);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(93, 28);
+            this.lblTitulo.Size = new System.Drawing.Size(115, 35);
             this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "Usuarios";
             // 
@@ -73,9 +73,11 @@
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.txtBusqueda);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 51);
+            this.groupBox1.Location = new System.Drawing.Point(16, 63);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1023, 90);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1364, 111);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios ";
@@ -83,7 +85,8 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(395, 50);
+            this.btnBuscar.Location = new System.Drawing.Point(527, 62);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(24, 24);
             this.btnBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -96,10 +99,9 @@
             this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblNombre.Location = new System.Drawing.Point(86, 23);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNombre.Location = new System.Drawing.Point(115, 28);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(161, 25);
+            this.lblNombre.Size = new System.Drawing.Size(204, 32);
             this.lblNombre.TabIndex = 46;
             this.lblNombre.Text = "Nombre o Cédula";
             // 
@@ -107,10 +109,10 @@
             // 
             this.txtBusqueda.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBusqueda.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.txtBusqueda.Location = new System.Drawing.Point(178, 50);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBusqueda.Location = new System.Drawing.Point(237, 62);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(212, 33);
+            this.txtBusqueda.Size = new System.Drawing.Size(281, 39);
             this.txtBusqueda.TabIndex = 45;
             // 
             // btnEliminar
@@ -124,10 +126,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(850, 536);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Location = new System.Drawing.Point(1133, 660);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(185, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(247, 49);
             this.btnEliminar.TabIndex = 48;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -144,10 +146,10 @@
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(652, 536);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditar.Location = new System.Drawing.Point(869, 660);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(185, 40);
+            this.btnEditar.Size = new System.Drawing.Size(247, 49);
             this.btnEditar.TabIndex = 49;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -155,12 +157,12 @@
             // 
             // Usuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.ClientSize = new System.Drawing.Size(1396, 722);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgwUsuario);
@@ -169,6 +171,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgwUsuario)).EndInit();

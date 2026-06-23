@@ -162,6 +162,12 @@
     <Compile Include="EstablecerTarifa.Designer.cs">
       <DependentUpon>EstablecerTarifa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Establecer_TarifaReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Establecer_TarifaReserva.Designer.cs">
+      <DependentUpon>Establecer_TarifaReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar_Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_Reserva.Designer.cs">
+      <DependentUpon>Registrar_Reserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_Salida_Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_Salida_Reserva.Designer.cs">
+      <DependentUpon>Registrar_Salida_Reserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +258,9 @@
     <EmbeddedResource Include="EstablecerTarifa.resx">
       <DependentUpon>EstablecerTarifa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Establecer_TarifaReserva.resx">
+      <DependentUpon>Establecer_TarifaReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +279,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registrar_Reserva.resx">
+      <DependentUpon>Registrar_Reserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_Salida_Reserva.resx">
+      <DependentUpon>Registrar_Salida_Reserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar_Usuario.resx">
       <DependentUpon>Registrar_Usuario.cs</DependentUpon>
     </EmbeddedResource>

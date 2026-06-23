@@ -50,6 +50,6 @@ namespace SistemaParking.Negocio
                         MontoCobrado = datos.total,
                         IdCliente = datos.idCliente
                     };    
-        }
+            }
     }
 }

@@ -27,7 +27,7 @@ namespace SistemaParking
             txtPlaca.Focus();
         }
 
-        private  void btnLimpiar_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtPlaca.Clear();
             txtPlaca.Focus();

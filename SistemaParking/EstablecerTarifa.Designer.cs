@@ -43,13 +43,14 @@
             this.txtMontoFranccionMinuto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnTarifaReserva = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.BackColor = System.Drawing.Color.White;
+            this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(435, 18);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -124,7 +125,7 @@
             // 
             this.lblTipoVehiculo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTipoVehiculo.AutoSize = true;
-            this.lblTipoVehiculo.BackColor = System.Drawing.Color.White;
+            this.lblTipoVehiculo.BackColor = System.Drawing.Color.Transparent;
             this.lblTipoVehiculo.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblTipoVehiculo.Location = new System.Drawing.Point(271, 291);
             this.lblTipoVehiculo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -137,7 +138,7 @@
             // 
             this.lblMontoPorHora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMontoPorHora.AutoSize = true;
-            this.lblMontoPorHora.BackColor = System.Drawing.Color.White;
+            this.lblMontoPorHora.BackColor = System.Drawing.Color.Transparent;
             this.lblMontoPorHora.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblMontoPorHora.Location = new System.Drawing.Point(271, 207);
             this.lblMontoPorHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -173,7 +174,7 @@
             // 
             this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.BackColor = System.Drawing.Color.White;
+            this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.lblDescripcion.Location = new System.Drawing.Point(271, 126);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -210,7 +211,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label1.Location = new System.Drawing.Point(586, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -223,7 +224,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.label2.Location = new System.Drawing.Point(586, 207);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -231,6 +232,26 @@
             this.label2.Size = new System.Drawing.Size(210, 25);
             this.label2.TabIndex = 61;
             this.label2.Text = "Monto Fracción Minuto";
+            // 
+            // btnTarifaReserva
+            // 
+            this.btnTarifaReserva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTarifaReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(59)))));
+            this.btnTarifaReserva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTarifaReserva.FlatAppearance.BorderSize = 0;
+            this.btnTarifaReserva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnTarifaReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarifaReserva.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTarifaReserva.ForeColor = System.Drawing.Color.White;
+            this.btnTarifaReserva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTarifaReserva.Location = new System.Drawing.Point(11, 536);
+            this.btnTarifaReserva.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTarifaReserva.Name = "btnTarifaReserva";
+            this.btnTarifaReserva.Size = new System.Drawing.Size(185, 40);
+            this.btnTarifaReserva.TabIndex = 62;
+            this.btnTarifaReserva.Text = "Tarifa Reserva";
+            this.btnTarifaReserva.UseVisualStyleBackColor = false;
+            this.btnTarifaReserva.Click += new System.EventHandler(this.btnTarifaReserva_Click);
             // 
             // EstablecerTarifa
             // 
@@ -240,6 +261,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1047, 587);
+            this.Controls.Add(this.btnTarifaReserva);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMontoFranccionMinuto);
@@ -281,5 +303,6 @@
         private System.Windows.Forms.TextBox txtMontoFranccionMinuto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnTarifaReserva;
     }
 }

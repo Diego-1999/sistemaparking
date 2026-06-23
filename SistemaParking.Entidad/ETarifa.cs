@@ -15,5 +15,6 @@ namespace SistemaParking.Entidad
         public decimal? monto_fraccion { get; set; }
         public bool Estado { get; set; } = true;
         public string Codigo { get; set; } // Tipo Vehiculo
+        public int id_reserva { get; set; }
     }
 }

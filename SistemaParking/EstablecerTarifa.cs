@@ -47,6 +47,12 @@ namespace SistemaParking
                     cmbTipoVehiculo.Text       // string
                 );
 
+                txtDescripcion.Clear();
+                txtFranccionMinuto.Clear();
+                txtMontoFranccionMinuto.Clear();
+                txtMontoHora.Clear();
+                cmbTipoVehiculo.SelectedIndex = -1;
+
                 if (ok)
                     MessageBox.Show("tarifa registrada correctamente");
                 else
@@ -110,6 +116,14 @@ namespace SistemaParking
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnTarifaReserva_Click(object sender, EventArgs e)
+        {
+            Establecer_TarifaReserva establecerTarifa = new Establecer_TarifaReserva();
+            Menu menu = (Menu)this.ParentForm;
+            menu.AbrirFormPanel(establecerTarifa);
+
         }
     }
 }
