@@ -33,10 +33,7 @@ Este sistema se desarrolla como parte de una tesis universitaria, integrando con
 - Documentación metodológica y defensa académica.
 
 ## 🚀 Estado del proyecto
-Actualmente en desarrollo, con enfoque en:
-- Implementación de reportes.
-- Optimización de la capa de presentación.
-- Normalización y trazabilidad en la base de datos.
+- En corrección de bugs
 
 ---
 
